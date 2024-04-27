@@ -7,5 +7,10 @@
 </head>
 <body>
   <p>ingpo progress</p>
+<<<<<<< HEAD
+=======
+  <h1>iki tino</h1>
+  <h1>pale pale</h1>
+>>>>>>> origin/tino
 </body>
 </html>
