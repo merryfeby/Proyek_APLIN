@@ -8,6 +8,6 @@
 <body>
   <p>ingpo progress</p>
   <h1>iki tino</h1>
-  <h2>pepape</h2>
+  <h1>pale pale</h1>
 </body>
 </html>
