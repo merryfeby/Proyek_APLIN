@@ -8,5 +8,9 @@
 <body>
   <p>ingpo progress</p>
   <h1>ini tino</h1>
+  <h1>iki tino</h1>
+  <h1>pale pale</h1>
+  <h1>commit 2</h1>
+
 </body>
 </html>
