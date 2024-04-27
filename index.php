@@ -7,5 +7,6 @@
 </head>
 <body>
   <p>ingpo progress</p>
+  <p>ini test merge</p>
 </body>
 </html>
