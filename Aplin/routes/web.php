@@ -32,3 +32,15 @@ Route::get('/addoffer', function () {
 Route::get('/historytrans', function () {
     return view('historytrans');
 });
+Route::get('/register', function () {
+    return view('register');
+});
+Route::get('/admin', function () {
+    return view('Admin');
+});
+Route::get('/beli', function () {
+    return view('BeliFilm');
+});
+Route::get('/karyawan', function () {
+    return view('Karyawan');
+});

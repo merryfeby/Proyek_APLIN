@@ -12,7 +12,7 @@
 		<script src="https://kit.fontawesome.com/fcd689d6ac.js" crossorigin="anonymous"></script>
 		<!-- Styles -->
 		<style>
-		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 		* {
 			font-family: 'Poppins', sans-serif;
 		}
@@ -24,7 +24,7 @@
       <form action="controller.php" method="post">
         <div class="flex flex-row justify-center items-center">
 					<i class="fa-solid fa-ticket text-indigo-500"></i>
-          <h1 class="font-extrabold text-indigo-500 pb-1 ml-2">Moviemate</h1>
+          <h1 class="font-semibold text-indigo-500 pb-1 ml-2">Moviemate</h1>
         </div>
         <div>
           <h2 class="text-3xl font-bold text-black text-center my-8">Login</h2>
@@ -41,7 +41,7 @@
         <div>
 					<p class="mt-6 text-xs text-gray-600 text-center">
 						Don't have an account?
-						<a href="../views/register.blade.php" class="border-b border-indigo-500 border-dotted text-indigo-500">
+						<a href="/register" class="border-b border-indigo-500 border-dotted text-indigo-500 font-semibold">
 								Register here
 						</a>
 					</p>
