@@ -35,7 +35,7 @@
                 <li class="sidebar-item">
                     <a href="BeliFilm.html" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Beli Film mario josephflkslkfjdslkfjsldfjlskdfjlskdfjlds</span>
+                        <span>Beli Film</span>
                     </a>
                 </li>
                 
