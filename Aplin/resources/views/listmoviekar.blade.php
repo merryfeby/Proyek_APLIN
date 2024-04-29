@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/listmoviekar" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <i class="fa-solid fa-clapperboard"></i>
                         <span>List movie</span>
                     </a>
@@ -69,29 +69,16 @@
             </div>
         </aside>
         <div class="main p-3">
-            <div>
-                <h1>Add New Offer</h1>
-                <div class="register">
-                    <p>Offer code: <input type="text"></p>
-                    <p>Discount: <input type="number"></p>
-                    <p>Maximal Transaction: <input type="number"></p>
-                    <p>Expired Date: <input type="date"></p>
-                    <p>Details: <textarea name="" id="" cols="30" rows="3"></textarea></p>
-                    <br>
-                    <button type="button" class="btn btn-primary">Add</button>
-                </div>
-            </div>
-            <br>
+            <h1>List Movie</h1>
             <table class="table table-hover ">
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Offer Code</th>
-                    <th>Discount</th>
-                    <th>Maximal Transaction</th>
-                    <th>Status</th>
-                    <th>Expired Date</th>
-                    <th>Detail</th>
+                    <th>Judul</th>
+                    <th>Durasi</th>
+                    <th>Cast</th>
+                    <th>Image</th>
+                    <th>Deskripsi</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
@@ -99,29 +86,31 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>PM2024</td>
-                        <td>20%</td>
-                        <td>Rp.100.000</td>
-                        <td>1</td>
-                        <td>2024-06-17</td>
-                        <td>Only avaible in Surabaya City</td>
-                        <td><button type="button" class="btn btn-secondary">Change</button></td>
-                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>PP290</td>
-                        <td>20%</td>
-                        <td>Rp.100.000</td>
-                        <td>1</td>
-                        <td>2024-06-17</td>
-                        <td>Only avaible in Surabaya City</td>
+                        <td>Godzilla x Kong: The New Empire (2024)</td>
+                        <td>115 Minutes</td>
+                        <td>Rebecca Hall, Brian Tyree Henry, Dan Stevens</td>
+                        <td><img src="{{ asset('assets/img/3f6.jpeg') }}" alt="" srcset="" width="200px" height="300px"></td>
+                        <td>The new installment in the Monsterverse puts the mighty Kong and the fearsome Godzilla against a colossal deadly threat hidden within our world that threatens the existence of their species and our very own, as well as diving deep into the mysteries of Skull Island and beyond. Delving straight into the origins of Hollow Earth, this film will explore the ancient Titan battle that brought man and monster together forever.</td>
                         <td><button type="button" class="btn btn-secondary">Change</button></td>
                         <td><button type="button" class="btn btn-danger">Delete</button></td>
                     </tr>
                 </tbody>
               </table>
+              <br>
+              <div class="mt-5">
+                  <h1>Edit Movie</h1>
+                  <div class="register">
+                      <p>Judul: <input type="text"></p>
+                      <p>Durasi: <input type="number"></p>
+                      <p>Cast: <input type="text"></p>
+                      <p>Image : <input type="file"></p>
+                      <p>Details: <textarea name="" id="" cols="30" rows="3"></textarea></p>
+              
+                      <button type="button" class="btn btn-primary">Edit</button>
+                  </div>
+              </div>
         </div>
+
     </div>
     
     <script src="{{ asset('assets/js/script.js') }}"></script>

@@ -25,6 +25,10 @@ Route::get('/addmoviekar', function () {
     return view('addmoviekar');
 });
 
+Route::get('/listmoviekar', function () {
+    return view('listmoviekar');
+});
+
 Route::get('/addoffer', function () {
     return view('addoffer');
 });
