@@ -16,6 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/karyawan', function () {
     return view('menukaryawan');
+});
+
+Route::get('/addmoviekar', function () {
+    return view('addmoviekar');
+});
+
+Route::get('/addoffer', function () {
+    return view('addoffer');
+});
+
+Route::get('/historytrans', function () {
+    return view('historytrans');
 });
