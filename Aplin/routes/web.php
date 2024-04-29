@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/karyawan', function () {
+Route::get('/profilekaryawan', function () {
     return view('menukaryawan');
 });
 
