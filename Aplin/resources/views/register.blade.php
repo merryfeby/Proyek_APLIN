@@ -23,7 +23,7 @@
     <div class="wrapper w-6/12 flex flex-row bg-white  shadow sm:rounded-lg">
       <div class="w-6/12 flex flex-col justify-center place-items-center rounded-l-lg shadow-lg bg-gradient-to-tr from-indigo-600 via-indigo-300 to-slate-50 p-[4rem]">
         <h2 class="text-3xl font-bold text-white text-center my-8">Welcome <span class="text-indigo-500">Moviematers!</span></h2>
-        <p class="text-sm font-light  text-justify text-white">Welcome to MovieMate, your ultimate destination for seamless movie ticket booking online! Whether you're a cinephile seeking the latest blockbusters or craving the nostalgia of classic films, MovieMate is your trusted companion for an unparalleled cinematic experience</p>
+        <p class="text-sm font-light  text-justify text-white">Welcome to MovieMate, your ultimate destination for seamless movie ticket booking online! Whether you're a cinephile seeking the latest blockbusters or craving the nostalgia of classic films, MovieMate is your trusted companion for an unparalleled cinematic experience.</p>
       </div>
       <div class=" w-6/12  p-[4rem]">
         <form action="controller.php" method="post">

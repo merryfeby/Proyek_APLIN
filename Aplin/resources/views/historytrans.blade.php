@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +14,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
 </head>
 
 <body>
@@ -33,7 +29,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="/profilekaryawan" class="sidebar-link">
                         <i class="fa-solid fa-user"></i>
                         <span>Profile</span>
                     </a>
@@ -52,7 +48,7 @@
                 </li>
                 
                 <li class="sidebar-item">
-                    <a href="/historytrans" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <i class="fa-solid fa-clock-rotate-left"></i>
                         <span>Transaction History</span>
                     </a>
@@ -67,11 +63,59 @@
             </div>
         </aside>
         <div class="main p-3">
-            <div class="text-center">
-                <h1>
-                    Ini Home Karyawan
-                </h1>
-            </div>
+            <h1>Transaction History</h1>
+            <!-- <div>
+                <h1>Add New Offer</h1>
+                <div class="register">
+                    <p>Offer code: <input type="text"></p>
+                    <p>Discount: <input type="number"></p>
+                    <p>Maximal Transaction: <input type="number"></p>
+                    <p>Expired Date: <input type="date"></p>
+                    <p>Details: <textarea name="" id="" cols="30" rows="3"></textarea></p>
+                    <br>
+                    <button type="button" class="btn btn-primary">Add</button>
+                </div>
+            </div> -->
+            <br>
+            <table class="table table-hover ">
+                <thead>
+                  <tr>
+                    <th>ID Nota</th>
+                    <th>ID Movie</th>
+                    <th>ID Kursi</th>
+                    <th>ID Studio</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Date of Purchase</th>
+                    <th>Payment Method</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>Rp. 50.000</td>
+                        <td>2</td>
+                        <td>Rp. 100.000</td>
+                        <td>2024-04-29</td>
+                        <td>Q-Ris</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>7</td>
+                        <td>3</td>
+                        <td>Rp. 40.000</td>
+                        <td>2</td>
+                        <td>Rp. 80.000</td>
+                        <td>2024-04-29</td>
+                        <td>Q-Ris</td>                    </tr>
+                </tbody>
+              </table>
         </div>
     </div>
     
