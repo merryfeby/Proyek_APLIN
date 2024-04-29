@@ -13,13 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//route user
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/register', function () {
     return view('register');
 });
+Route::get('/homeUser', function () {
+    return view('homeUser');
+});
+
+// route admin
 Route::get('/admin', function () {
     return view('Admin');
 });
@@ -29,3 +34,4 @@ Route::get('/beli', function () {
 Route::get('/karyawan', function () {
     return view('Karyawan');
 });
+// route karyawan
