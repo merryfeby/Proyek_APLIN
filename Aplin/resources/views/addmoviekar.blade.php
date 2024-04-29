@@ -14,7 +14,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
 </head>
 
 <body>
@@ -30,22 +29,28 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="Admin.html" class="sidebar-link">
-                        <i class="fa-solid fa-user-tie"></i>
+                    <a href="/profilekaryawan" class="sidebar-link">
+                        <i class="fa-solid fa-user"></i>
                         <span>Profile</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="BeliFilm.html" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Beli Film</span>
+                        <span>Add movie</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/addoffer" class="sidebar-link">
+                        <i class="fa-solid fa-tags"></i>
+                        <span>Add Offer</span>
                     </a>
                 </li>
                 
                 <li class="sidebar-item">
-                    <a href="Karyawan.html" class="sidebar-link">
-                        <i class="fa-solid fa-users"></i>
-                        <span>Atur Karyawan</span>
+                    <a href="/historytrans" class="sidebar-link">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Transaction History</span>
                     </a>
                 </li>
                 
@@ -58,7 +63,7 @@
             </div>
         </aside>
         <div class="main p-3">
-            <h1>menu beli lisensi</h1>
+            <h1>Menu Add Movie</h1>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Producer
@@ -111,13 +116,8 @@
     </div>
     
     
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script> -->
 
-    <!-- <script src="script.js"></script> -->
     <script src="{{ asset('assets/js/script.js') }}"></script>
-
 </body>
 
 </html>
