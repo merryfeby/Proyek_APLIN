@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/register', function () {
+    return view('register');
+});
+
+//route karyawan
 Route::get('/profilekaryawan', function () {
     return view('menukaryawan');
 });
@@ -28,9 +33,6 @@ Route::get('/addoffer', function () {
 });
 Route::get('/historytrans', function () {
     return view('historytrans');
-});
-Route::get('/register', function () {
-    return view('register');
 });
 Route::get('/homeUser', function () {
     return view('homeUser');
