@@ -29,3 +29,6 @@ Route::get('/beli', function () {
 Route::get('/karyawan', function () {
     return view('Karyawan');
 });
+Route::get('/karyawan', function () {
+    return view('menukaryawan');
+});
