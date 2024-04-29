@@ -16,19 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/profilekaryawan', function () {
     return view('menukaryawan');
 });
-
 Route::get('/addmoviekar', function () {
     return view('addmoviekar');
 });
-
 Route::get('/addoffer', function () {
     return view('addoffer');
 });
-
 Route::get('/historytrans', function () {
     return view('historytrans');
 });
@@ -43,10 +39,7 @@ Route::get('/beli', function () {
 });
 Route::get('/karyawan', function () {
     return view('Karyawan');
-<<<<<<< HEAD
 });
-Route::get('/karyawan', function () {
+Route::get('/menukaryawan', function () {
     return view('menukaryawan');
-=======
->>>>>>> raph
 });
