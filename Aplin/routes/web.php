@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register');
 });
+Route::get('/buyticket', function () {
+    return view('detailBuyTicket');
+});
 
 //route karyawan
 Route::get('/profilekaryawan', function () {
