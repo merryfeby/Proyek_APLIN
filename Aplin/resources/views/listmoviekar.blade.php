@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="/addoffer" class="sidebar-link">
                         <i class="fa-solid fa-tags"></i>
                         <span>Add Offer</span>
                     </a>
