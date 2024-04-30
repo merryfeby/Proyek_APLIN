@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//route user
 Route::get('/', function () {
     return view('welcome');
 });
@@ -39,6 +40,25 @@ Route::get('/historytrans', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+//route karyawan
+Route::get('/profilekaryawan', function () {
+    return view('menukaryawan');
+});
+Route::get('/addmoviekar', function () {
+    return view('addmoviekar');
+});
+Route::get('/addoffer', function () {
+    return view('addoffer');
+});
+Route::get('/historytrans', function () {
+    return view('historytrans');
+});
+Route::get('/homeUser', function () {
+    return view('homeUser');
+});
+
+// route admin
 Route::get('/admin', function () {
     return view('Admin');
 });
@@ -47,4 +67,7 @@ Route::get('/beli', function () {
 });
 Route::get('/karyawan', function () {
     return view('Karyawan');
+});
+Route::get('/menukaryawan', function () {
+    return view('menukaryawan');
 });
