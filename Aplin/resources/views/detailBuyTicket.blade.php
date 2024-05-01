@@ -92,8 +92,8 @@
 			</div>
 	  </div> --}}
 		<div class="container w-full flex flex-col bg-white rounded-xl  border border-gray-200 p-8 mt-10">
-			<h2 class="text-2xl font-semibold text-left text-black mb-2">Select your seats</h2>
-			<h2 class="text-2xl font-semibold text-black text-center my-4">SCREEN</h2>
+			<h2 class="text-2xl font-semibold text-center text-black mb-5">Select your seats</h2>
+			<h2 class="text-lg font-semibold text-black text-center mb-10 mt-8">SCREEN</h2>
 			<div class="flex justify-center items-center">
 				<div class="flex flex-col gap-4">
 					<div class=" flex flex-row gap-4">
@@ -144,6 +144,20 @@
 						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
 						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
 					</div>
+				</div>
+			</div>
+			<div class="flex flex-row justify-center items-center mt-10 gap-8">
+				<div class="flex flex-row gap-2 justify-center items-center">
+					<div class="w-4 h-4 bg-gray-200  rounded-full"></div>
+					<h2 class="text-md font-semibold text-left text-black">Available</h2>
+				</div>
+				<div class="flex flex-row gap-2 justify-center items-center">
+					<div class="w-4 h-4 bg-indigo-400 flex justify-center items-center rounded-full"></div>
+					<h2 class="text-md font-semibold text-left text-black">Reserved</h2>
+				</div>
+				<div class="flex flex-row gap-2 justify-center items-center">
+					<div class="w-4 h-4 bg-indigo-700 flex justify-center items-center rounded-full"></div>
+					<h2 class="text-md font-semibold text-left text-black ">Selected</h2>
 				</div>
 			</div>
 	  </div>
