@@ -10,6 +10,7 @@
 		<link rel="preconnect" href="https://fonts.bunny.net">
 		<link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 		<script src="https://kit.fontawesome.com/fcd689d6ac.js" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
 		<!-- Styles -->
 		<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -64,8 +65,8 @@
 				<div class="">
 					<h2 class="text-2xl font-semibold text-left text-black mb-2">Elemental</h2>
 					<h2 class="text-sm font-normal text-left text-indigo-500 mb-2">Romance, Kids</h2>
-					<h2 class="text-sm font-normal text-left text-indigo-500  mb-1"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-					<h2 class="text-sm font-normal text-left text-indigo-500  mb-4"><span><i class="fa-solid fa-clock mr-2"></i></span>Studio 1 • 17:00 - 19:30</h2>
+					<h2 class="text-sm font-normal text-left text-indigo-500  mb-1"><i class="fa-solid fa-video mr-2"></i></i></span>Studio 1</h2>
+					<h2 class="text-sm font-normal text-left text-indigo-500  mb-4"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min • 17:00 - 19:30</h2>
 				</div>
 				<div>
 					<h2 class="text-md font-semibold text-left text-black mb-1">Details</h2>
@@ -75,91 +76,106 @@
 					<h2 class="text-xs font-normal text-justify text-gray-500  mb-1">"Elemental" follows the journey of Ember, a spirited young fire sprite, who embarks on a quest to restore balance to the world when the elemental forces of nature start to unravel. Alongside her newfound friends, Terra, an earth guardian, Aqua, a water nymph, and Zephyr, a playful air sylph, Ember discovers that an ancient evil threatens to consume their world by disrupting the harmony of the elements. Together, they must harness the power of their respective elements and overcome their differences to save their home from destruction, learning valuable lessons about friendship, cooperation, and the importance of preserving the delicate balance of nature along the way.</h2>
 				</div>
 			</div>
-			{{-- <button type="submit" name="login" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">Buy Ticket</button> --}}
-		</div>
-		{{-- <div class="container w-full flex flex-col bg-white rounded-xl  border border-gray-200 p-8 mt-10">
-			select location dll
-			<div>
-				
-			</div>
-			<h2 class="text-2xl font-semibold text-left text-black mb-2">Select your seats</h2>
-			
-			<div class="flex justify-center items-center">
-				<h2 class="text-2xl font-semibold text-black mb-2">SCREEN</h2>
-				<div flex>
 
-				</div>
-			</div>
-	  </div> --}}
+		</div>
+
 		<div class="container w-full flex flex-col bg-white rounded-xl  border border-gray-200 p-8 mt-10">
-			<h2 class="text-2xl font-semibold text-center text-black mb-5">Select your seats</h2>
-			<h2 class="text-lg font-semibold text-black text-center mb-10 mt-8">SCREEN</h2>
-			<div class="flex justify-center items-center">
-				<div class="flex flex-col gap-4">
-					<div class=" flex flex-row gap-4">
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
-						<button class="w-10 h-10 bg-indigo-400 font-semibold flex justify-center items-center rounded-lg">D1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
-						<button class="w-10 h-10 bg-indigo-400 font-semibold flex justify-center items-center rounded-lg">D1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
+			<form action="">
+				<div class="m-5">
+					<div class="flex justify-center">
+						<select id="locations" class="text-white  bg-indigo-500 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center mb-5">
+							<option value="d" class="text-sm text-gray-700 bg-white" selected>All Cinemas</option>
+							<option value="a" class="text-sm text-gray-700 bg-white">XXI Nganjuk</option>
+							<option value="b" class="text-sm text-gray-700 bg-white">CGV Bogor</option>
+							<option value="c" class="text-sm text-gray-700 bg-white">XXI Surabaya</option>
+						</select>
 					</div>
-					<div class=" flex flex-row gap-4">
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
-					</div>
-					<div class=" flex flex-row gap-4">
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
-					</div>
-					<div class=" flex flex-row gap-4">
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
-						<button class="w-10 h-10 bg-indigo-700 text-white font-semibold flex justify-center items-center rounded-lg">A1</button>
-						<button class="w-10 h-10 bg-indigo-700 text-white font-semibold flex justify-center items-center rounded-lg">A1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
-						<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
+					<div class="flex flex-col">
+						<div class="flex flex-col bg-gray-100 p-5 rounded-xl border border-gray-200 mb-5">
+							<div class="flex border-b border-gray-300 justify-between mb-5 pb-2">
+								<h2 class="text-md font-semibold text-left text-black mr-5 "><i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i>XXI Nganjuk</h2>
+								<h2 class="text-md font-semibold text-left text-black mr-5 "><i class="fa-solid fa-money-bill-wave mr-2 text-indigo-500"></i>Rp 50000</h2>
+							</div>
+							<div class="flex flex-row">
+								<button type="submit" name="" class="tracking-wide font-semibold border-2 border-indigo-500 text-black px-2 w-auto py-2 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none mr-2">13:00</button>
+								<button type="submit" name="" class="tracking-wide font-semibold border-2 border-indigo-500 text-black px-2 w-auto py-2 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none mr-2">13:00</button>
+								<button type="submit" name="" class="tracking-wide font-semibold border-2 border-indigo-500 text-black px-2 w-auto py-2 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none mr-2">13:00</button>
+								<button type="submit" name="" class="tracking-wide font-semibold border-2 border-indigo-500 text-black px-2 w-auto py-2 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none mr-2">13:00</button>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="flex flex-row justify-center items-center mt-10 gap-8">
-				<div class="flex flex-row gap-2 justify-center items-center">
-					<div class="w-4 h-4 bg-gray-200  rounded-full"></div>
-					<h2 class="text-md font-semibold text-left text-black">Available</h2>
+				<h2 class="text-2xl font-semibold text-center text-black mb-10">Select your seats</h2>
+				<div class="flex justify-center items-center">
+					<div class="flex flex-col gap-4">
+						<div class=" flex flex-row gap-4">
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
+							<button class="w-10 h-10 bg-indigo-400 font-semibold flex justify-center items-center rounded-lg">D1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
+							<button class="w-10 h-10 bg-indigo-400 font-semibold flex justify-center items-center rounded-lg">D1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">D1</button>
+						</div>
+						<div class=" flex flex-row gap-4">
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">C1</button>
+						</div>
+						<div class=" flex flex-row gap-4">
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">B1</button>
+						</div>
+						<div class=" flex flex-row gap-4">
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
+							<button class="w-10 h-10 bg-indigo-700 text-white font-semibold flex justify-center items-center rounded-lg">A1</button>
+							<button class="w-10 h-10 bg-indigo-700 text-white font-semibold flex justify-center items-center rounded-lg">A1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
+							<button class="w-10 h-10 bg-gray-200 font-semibold flex justify-center items-center rounded-lg">A1</button>
+						</div>
+					</div>
 				</div>
-				<div class="flex flex-row gap-2 justify-center items-center">
-					<div class="w-4 h-4 bg-indigo-400 flex justify-center items-center rounded-full"></div>
-					<h2 class="text-md font-semibold text-left text-black">Reserved</h2>
+				<div class="flex flex-row justify-center items-center mt-10 gap-8">
+					<div class="flex flex-row gap-2 justify-center items-center">
+						<div class="w-4 h-4 bg-gray-200  rounded-full"></div>
+						<h2 class="text-md font-semibold text-left text-black">Available</h2>
+					</div>
+					<div class="flex flex-row gap-2 justify-center items-center">
+						<div class="w-4 h-4 bg-indigo-400 flex justify-center items-center rounded-full"></div>
+						<h2 class="text-md font-semibold text-left text-black">Reserved</h2>
+					</div>
+					<div class="flex flex-row gap-2 justify-center items-center">
+						<div class="w-4 h-4 bg-indigo-700 flex justify-center items-center rounded-full"></div>
+						<h2 class="text-md font-semibold text-left text-black ">Selected</h2>
+					</div>
 				</div>
-				<div class="flex flex-row gap-2 justify-center items-center">
-					<div class="w-4 h-4 bg-indigo-700 flex justify-center items-center rounded-full"></div>
-					<h2 class="text-md font-semibold text-left text-black ">Selected</h2>
+				<div class="flex justify-center m-5">
+					<button type="submit" name="login" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-auto py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none px-5">Proceed to Checkout</button>
 				</div>
-			</div>
+			</form>
 	  </div>
   
    
@@ -273,6 +289,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+const dropdownButton = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        let isDropdownOpen = false; // Set to true to open the dropdown by default, false to close it by default
+
+        // Function to toggle the dropdown
+        function toggleDropdown() {
+            isDropdownOpen = !isDropdownOpen;
+            if (isDropdownOpen) {
+                dropdownMenu.classList.remove('hidden');
+            } else {
+                dropdownMenu.classList.add('hidden');
+            }
+        }
+
+        // Initialize the dropdown state
+        toggleDropdown();
+
+        // Toggle the dropdown when the button is clicked
+        dropdownButton.addEventListener('click', toggleDropdown);
+
+        // Close the dropdown when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+                isDropdownOpen = false;
+            }
+        });
 </script>  
 </body>
 </html>
