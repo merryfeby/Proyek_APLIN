@@ -33,7 +33,7 @@
 			</button>
 		</div>
 		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="#">Home</a></li>
+			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="/homeUser">Home</a></li>
 			<li class="text-gray-300">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -55,6 +55,38 @@
 		</ul>
 		<a class="hidden lg:inline-block py-2 px-6 bg-indigo-500 hover:bg-indigo-600 text-sm text-white font-bold rounded-xl transition duration-200" href="#">Profile</a>
 	</nav>
+  
+   
+    <div class="relative bg-gradient-to-br from-indigo-500 to-blue-500">
+      <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div class="mb-8 ">
+          <div class="flex justify-center items-center flex-col">
+          <div class="flex flex-row items-center">
+            <i class="fa-solid fa-ticket text-white text-2xl"></i>
+            <h1 class="font-semibold text-2xl text-white ml-2">Moviemate</h1>
+          </div>
+            <div class="mt-4 w-[50%]">
+              <p class="text-sm text-white">
+                Join our community of movie enthusiasts and stay updated with the latest releases, exclusive offers, and special screenings. At MovieMate, we're not just booking tickets; we're curating moments that you'll cherish forever.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
+          <p class="text-sm text-gray-100">
+            © Copyright 2024 Moviemate team.
+          </p>
+          <div class="flex items-center mt-4 space-x-4 sm:mt-0">
+            <i class="fa-brands fa-square-twitter text-white"></i>
+            <i class="fa-brands fa-square-instagram text-white"></i>
+            <i class="fa-brands fa-square-facebook text-white"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 	<div class="navbar-menu relative z-50 hidden">
 		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
 		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">

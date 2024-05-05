@@ -33,7 +33,7 @@
 			</button>
 		</div>
 		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="#">Home</a></li>
+			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="/homeUser">Home</a></li>
 			<li class="text-gray-300">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -57,6 +57,7 @@
 	</nav>
   <div>
     <div class="min-h-screen p-10 flex flex-col items-center justify-center" style="background-image: url('https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/640776f5bf589aa0c82c42e4_movie%20poster%20design.jpg');">
+      <h2 class="text-7xl font-bold text-center text-white">Hi, Merry08!</h2>
       <h2 class="text-7xl font-bold text-center text-white">Welcome to MovieMate.</h2>
       <div class="flex w-[50%]">
         <h2 class="-xl font-semibold text-center text-white mt-4">"Step into the world of MovieMate, where your cinematic journey begins with effortless online ticket booking!"<h2>
@@ -91,130 +92,113 @@
 
     <div class="p-10 mb-10 bg-gray-100 flex flex-col justify-center items-center">
       <h2 class="text-4xl font-bold text-center text-indigo-500 text-center mt-10 mb-8">Movies</h2>
+      <div class="flex justify-center items-center gap-6 flex-wrap w-[60%]">
+        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
+          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
+          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+        </button>
+        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
+          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
+          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+        </button>
+        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
+          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
+          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+        </button>
+        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
+          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
+          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+        </button>
+        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
+          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
+          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+        </button>
+        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
+          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
+          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+        </button>
+        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
+          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
+          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+        </button>
+        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
+          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
+          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+        </button>
+      </div>
+    </div>
+    <div class="p-10 mb-10 bg-gray-100 flex flex-col justify-center items-center">
+      <h2 class="text-4xl font-bold text-center text-indigo-500 mt-10 mb-8">Promotion</h2>
       <div class="flex justify-center items-center gap-6 flex-wrap w-[70%]">
-        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-        </button>
-        <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-          <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-        </button>
-        
+        <div class="bg-gradient-to-br from-purple-600 to-indigo-600 text-white text-center py-6 px-10 rounded-lg shadow-md relative">
+          <img src="https://media.licdn.com/dms/image/D560BAQGiAr4aoJn7nA/company-logo_200_200/0/1693888943426/go_pay_logo?e=2147483647&v=beta&t=lN1Jy_LJdR45k0D6mRgCX7LUlFrs0XmL_l3YCgfsXZk" class="w-16 mx-auto mb-2 rounded-lg">
+          <h3 class="text-lg font-semibold mb-2">20% off on your next cinema ticket booking<br>using GOPAY</h3>
+          <div class="flex items-center justify-center mb-4">
+            <span id="cpnCode" class="border-dashed border text-white px-2 py-1 rounded-l text-sm">MOVIEGOPAY20</span>
+            <span id="cpnBtn" class="border border-white bg-white text-purple-600 px-2 py-1 rounded-r cursor-pointer text-sm">Copy Code</span>
+          </div>
+          <p class="text-xs">Valid Till: 20Dec, 2024</p>
+          <div class="w-8 h-8 bg-gray-100 rounded-full absolute top-1/2 transform -translate-y-1/2 left-0 -ml-4"></div>
+          <div class="w-8 h-8 bg-gray-100 rounded-full absolute top-1/2 transform -translate-y-1/2 right-0 -mr-4"></div>
+        </div>
       </div>
     </div>
     <div class="relative bg-gradient-to-br from-indigo-500 to-blue-500">
-    <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-      <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
-        <div class="md:max-w-md lg:col-span-2">
-        <div class="flex flex-row items-center">
-          <i class="fa-solid fa-ticket text-white text-2xl"></i>
-          <h1 class="font-semibold text-2xl text-white ml-2">Moviemate</h1>
-        </div>
-          <div class="mt-4 lg:max-w-sm">
-            <p class="text-sm text-white">
-              Join our community of movie enthusiasts and stay updated with the latest releases, exclusive offers, and special screenings. At MovieMate, we're not just booking tickets; we're curating moments that you'll cherish forever.
-            </p>
+      <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div class="mb-8 ">
+          <div class="flex justify-center items-center flex-col">
+          <div class="flex flex-row items-center">
+            <i class="fa-solid fa-ticket text-white text-2xl"></i>
+            <h1 class="font-semibold text-2xl text-white ml-2">Moviemate</h1>
+          </div>
+            <div class="mt-4 w-[50%]">
+              <p class="text-sm text-white">
+                Join our community of movie enthusiasts and stay updated with the latest releases, exclusive offers, and special screenings. At MovieMate, we're not just booking tickets; we're curating moments that you'll cherish forever.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
-          <div>
-            <p class="font-semibold tracking-wide text-white">
-              Category
-            </p>
-            <ul class="mt-2 space-y-2">
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">News</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">World</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Games</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">References</a>
-              </li>
-            </ul>
+        {{-- <div class="grid gap-16 mb-8">
+          <div class="md:max-w-md lg:col-span-2">
+          <div class="flex flex-row items-center">
+            <i class="fa-solid fa-ticket text-white text-2xl"></i>
+            <h1 class="font-semibold text-2xl text-white ml-2">Moviemate</h1>
           </div>
-          <div>
-            <p class="font-semibold tracking-wide text-white">Cherry</p>
-            <ul class="mt-2 space-y-2">
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Web</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">eCommerce</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Business</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Entertainment</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Portfolio</a>
-              </li>
-            </ul>
+            <div class="mt-4 lg:max-w-sm">
+              <p class="text-sm text-white">
+                Join our community of movie enthusiasts and stay updated with the latest releases, exclusive offers, and special screenings. At MovieMate, we're not just booking tickets; we're curating moments that you'll cherish forever.
+              </p>
+            </div>
           </div>
-          <div>
-            <p class="font-semibold tracking-wide text-white">Apples</p>
-            <ul class="mt-2 space-y-2">
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Media</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Brochure</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Nonprofit</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Educational</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Projects</a>
-              </li>
-            </ul>
+        </div> --}}
+        <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
+          <p class="text-sm text-gray-100">
+            © Copyright 2024 Moviemate team.
+          </p>
+          <div class="flex items-center mt-4 space-x-4 sm:mt-0">
+            <i class="fa-brands fa-square-twitter text-white"></i>
+            <i class="fa-brands fa-square-instagram text-white"></i>
+            <i class="fa-brands fa-square-facebook text-white"></i>
           </div>
-          <div>
-            <p class="font-semibold tracking-wide text-white">
-              Business
-            </p>
-            <ul class="mt-2 space-y-2">
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Infopreneur</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Personal</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Wiki</a>
-              </li>
-              <li>
-                <a href="/" class="transition-colors duration-300 text-white ">Forum</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
-        <p class="text-sm text-gray-100">
-          © Copyright 2024 Moviemate team.
-        </p>
-        <div class="flex items-center mt-4 space-x-4 sm:mt-0">
-          <i class="fa-brands fa-square-twitter text-white"></i>
-          <i class="fa-brands fa-square-instagram text-white"></i>
-          <i class="fa-brands fa-square-facebook text-white"></i>
-
         </div>
       </div>
     </div>
-  </div>
   </div>
 
 	<div class="navbar-menu relative z-50 hidden">
