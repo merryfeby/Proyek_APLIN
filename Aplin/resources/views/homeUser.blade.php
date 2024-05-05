@@ -45,7 +45,7 @@
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
-			<li><a class="text-sm font-semibold text-indigo-500 hover:text-indigo-700" href="#">Movies</a></li>
+			<li><a class="text-sm font-semibold text-indigo-500 hover:text-indigo-700" href="/movies">Movies</a></li>
 			<li class="text-gray-300">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -82,22 +82,22 @@
         </div>
         <div class="container w-60 bg-white rounded-xl shadow-lg p-4">
           <img class="rounded-xl" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-          <h2 class="text-lg font-semibold text-center text-black text-center my-2">Elemental</h2>
-          <h2 class="text-sm font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-          <h2 class="text-sm font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+          <h2 class="text-lg font-semibold  text-black text-center my-2">Elemental</h2>
+          <h2 class="text-sm font-normal  text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-sm font-normal  text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
           <button type="submit" name="login" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">Buy Ticket</button>
         </div>
       </div>
     </div>
 
     <div class="p-10 mb-10 bg-gray-100 flex flex-col justify-center items-center">
-      <h2 class="text-4xl font-bold text-center text-indigo-500 text-center mt-10 mb-8">Movies</h2>
+      <h2 class="text-4xl font-bold  text-indigo-500 text-center mt-10 mb-8">Movies</h2>
       <div class="flex justify-center items-center gap-6 flex-wrap w-[60%]">
         <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
           <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-          <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-          <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
+          <h2 class="text-md font-semibold  text-black text-center my-2">Elemental</h2>
+          <h2 class="text-xs font-normal  text-indigo-500 text-center my-2">Romance, Kids</h2>
+          <h2 class="text-xs font-normal  text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
         </button>
         <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
           <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />

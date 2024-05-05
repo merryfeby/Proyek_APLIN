@@ -23,6 +23,9 @@ Route::get('/register', function () {
 Route::get('/buyticket', function () {
     return view('detailBuyTicket');
 });
+Route::get('/movies', function () {
+    return view('movies');
+});
 
 //route karyawan
 Route::get('/profilekaryawan', function () {
