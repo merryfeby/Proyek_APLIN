@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\LoginUser;
+use App\Models\Employee;
+
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,12 +12,34 @@ class HandleLogin extends Controller
 {
     //
     function index(){
-        // $barang = Barang::all();
         $employee = Employee::where('status',1)->get();
-        // dd($employee);
-        
         return view("Karyawan",[
             'employee' => $employee
         ]);
+    }
+    public function login(Request $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        $employee = Employee::where('username', $username)->first();
+        $user = LoginUser::where('name', $username)->first();
+
+        // Check if user exists and password matches (securely)
+        if ($employee && $password == $employee->password) {
+            // $request->session()->put('username', $username);
+            return redirect('/menukaryawan'); // Replace with your desired redirect
+        }
+        else if ($user && $password == $user->password) {
+            // $request->session()->put('username', $username);
+            return redirect('/homeUser'); // Replace with your desired redirect
+        }
+        else if($username == 'admin' && $password == 'admin'){
+            return redirect('/admin'); // Replace with your desired redirect
+        }
+        else{
+            return redirect('/');
+        }
+        
     }
 }
