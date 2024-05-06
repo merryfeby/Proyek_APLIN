@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\handleKaryawan;
 use App\Http\Controllers\HandleLogin;
 
 
@@ -54,9 +55,10 @@ Route::get('/profilekaryawan', function () {
 Route::get('/addmoviekar', function () {
     return view('addmoviekar');
 });
-Route::get('/addoffer', function () {
-    return view('addoffer');
-});
+
+Route::get('/addoffer', [handleKaryawan::class, 'listoffer']);
+Route::post('/addoffer/add', [handleKaryawan::class, 'addoffer']);
+
 Route::get('/historytrans', function () {
     return view('historytrans');
 });

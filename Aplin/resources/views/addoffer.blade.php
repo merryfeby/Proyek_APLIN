@@ -72,13 +72,17 @@
             <div>
                 <h1>Add New Offer</h1>
                 <div class="register">
-                    <p>Offer code: <input type="text"></p>
-                    <p>Discount: <input type="number"></p>
-                    <p>Maximal Transaction: <input type="number"></p>
-                    <p>Expired Date: <input type="date"></p>
-                    <p>Details: <textarea name="" id="" cols="30" rows="3"></textarea></p>
-                    <br>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <form action="/addoffer/add" method="post">
+                        @csrf
+                        <p>Offer code: <input type="text" name="code"></p>
+                        <p>Discount: <input type="number" name="discount"></p>
+                        <p>Maximal Transaction: <input type="number" name="max"></p>
+                        {{-- <p>Expired Date: <input type="date"></p>
+                        <p>Details: <textarea name="" id="" cols="30" rows="3"></textarea></p> --}}
+                        <br>
+                        <button type="submit" class="btn btn-primary">Add</button>
+
+                    </form>
                 </div>
             </div>
             <br>
@@ -90,35 +94,24 @@
                     <th>Discount</th>
                     <th>Maximal Transaction</th>
                     <th>Status</th>
-                    <th>Expired Date</th>
-                    <th>Detail</th>
+                    {{-- <th>Expired Date</th>
+                    <th>Detail</th> --}}
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
+                    @foreach ($offer as $item)                  
                     <tr>
-                        <td>1</td>
-                        <td>PM2024</td>
-                        <td>20%</td>
-                        <td>Rp.100.000</td>
-                        <td>1</td>
-                        <td>2024-06-17</td>
-                        <td>Only avaible in Surabaya City</td>
+                        <td>{{$item['id']}}</td>
+                        <td>{{$item['code']}}</td>
+                        <td>{{$item['discount']}}%</td>
+                        <td>Rp. {{$item['max_trans']}}</td>
+                        <td>{{$item['status']}}</td>
                         <td><button type="button" class="btn btn-secondary">Change</button></td>
                         <td><button type="button" class="btn btn-danger">Delete</button></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>PP290</td>
-                        <td>20%</td>
-                        <td>Rp.100.000</td>
-                        <td>1</td>
-                        <td>2024-06-17</td>
-                        <td>Only avaible in Surabaya City</td>
-                        <td><button type="button" class="btn btn-secondary">Change</button></td>
-                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    </tr>
+                    @endforeach
                 </tbody>
               </table>
         </div>
