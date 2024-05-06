@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -74,3 +76,6 @@ Route::get('/karyawan', function () {
 Route::get('/menukaryawan', function () {
     return view('menukaryawan');
 });
+Route::get('/karyawan',[EmployeeController::class, 'index']);
+Route::post('/karyawan/insert',[EmployeeController::class, 'insert']);
+Route::post('/karyawan/update',[EmployeeController::class, 'update']);
