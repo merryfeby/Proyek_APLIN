@@ -5,17 +5,6 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HandleLogin;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 //route user
 Route::get('/', function () {
     return view('welcome');
@@ -33,9 +22,10 @@ Route::get('/movies', function () {
     return view('movies');
 });
 
-Route::get('/profileUser', function () {
-    return view('profileUser');
+Route::get('/historyTicket', function () {
+    return view('historyTicket');
 });
+
 
 Route::get('/navbar', function () {
     return view('navbar');
@@ -43,6 +33,9 @@ Route::get('/navbar', function () {
 
 Route::get('/buyticket', function () {
     return view('detailBuyTicket');
+});
+Route::get('/topup', function () {
+    return view('topup');
 });
 
 
