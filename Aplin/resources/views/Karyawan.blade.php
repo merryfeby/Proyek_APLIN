@@ -1,3 +1,6 @@
+<?php
+    // dd($employee);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +73,6 @@
             <br>
             <table class="table table-hover ">
                 <tr>
-                    <!-- <th>ID</th> -->
                     <th>Name</th>
                     <th>Username</th>
                     <th>Password</th>
@@ -78,15 +80,16 @@
                     <th>Change Status</th>
                     <th>Delete</th>
                 </tr>
+                    
                     @foreach ($employee as $item)
                     <tr>
                         <form action="/karyawan/update" method="post">
                             @csrf
-                            <!-- <input type="hidden" name="id"  value="null"> -->
-                            <td><input type="text" name="nama" id="" value="{{$item['name']}}"></td>
-                            <td><input type="text" name="username" id="" value="{{$item['username']}}"></td>
-                            <td><input type="text" name="password" id="" value="{{$item['password']}}"></td>
-                            <td><input type="text" name="status" id="" value="{{$item['status']}}"></td>
+                            <td>{{$item['name']}}</td>
+                            <td>{{$item['username']}}</td>
+                            <td>{{$item['password']}}</td>
+                            <td>{{$item['status']}}</td>
+                        
                         </form>
                         <form action="/karyawan/changestatus" method="post">
                             @csrf

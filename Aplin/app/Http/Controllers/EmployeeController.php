@@ -12,6 +12,7 @@ class EmployeeController extends Controller
     function index(){
         // $barang = Barang::all();
         $employee = Employee::where('status',1)->get();
+        // dd($employee);
         return view("Karyawan",[
             'employee' => $employee
         ]);
@@ -34,7 +35,7 @@ class EmployeeController extends Controller
         // $data = Barang::where('id_barang',$request->id);
         //sama aja
 
-        $data->username = $request->uername;
+        $data->username = $request->username;
         $data->password = $request->password;
         $data->name = $request->name;
  
