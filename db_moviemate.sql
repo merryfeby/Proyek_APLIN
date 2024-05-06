@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.2.1 (64 bit)
-MySQL - 10.4.28-MariaDB : Database - db_moviemate
+MySQL - 10.4.32-MariaDB : Database - db_moviemate
 *********************************************************************
 */
 
@@ -25,14 +25,36 @@ CREATE TABLE `employee` (
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `employee` */
 
-insert  into `employee`(`username`,`password`,`name`,`status`) values 
-('deleted','deleted','Employee 2',0),
-('emp','emp','Employee 1',1);
+insert  into `employee`(`username`,`password`,`name`,`status`,`updated_at`,`created_at`) values 
+('deleted','deleted','Employee 2',0,NULL,NULL),
+('emp','emp','Employee 1',1,NULL,NULL),
+('rap','rap','rap',1,'2024-05-06 07:46:27','2024-05-06 07:46:27'),
+('tino','tino','tino',1,'2024-05-06 02:31:47','2024-05-06 02:31:47');
+
+/*Table structure for table `failed_jobs` */
+
+DROP TABLE IF EXISTS `failed_jobs`;
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `failed_jobs` */
 
 /*Table structure for table `location` */
 
@@ -48,6 +70,25 @@ CREATE TABLE `location` (
 
 insert  into `location`(`id`,`address`) values 
 (1,'Jl. Ngagel Jaya Tengah No.73-77, Baratajaya, Kec. Gubeng, Surabaya, Jawa Timur 60284');
+
+/*Table structure for table `migrations` */
+
+DROP TABLE IF EXISTS `migrations`;
+
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `migrations` */
+
+insert  into `migrations`(`id`,`migration`,`batch`) values 
+(1,'2014_10_12_000000_create_users_table',1),
+(2,'2014_10_12_100000_create_password_reset_tokens_table',1),
+(3,'2019_08_19_000000_create_failed_jobs_table',1),
+(4,'2019_12_14_000001_create_personal_access_tokens_table',1);
 
 /*Table structure for table `movie` */
 
@@ -140,6 +181,41 @@ CREATE TABLE `orders` (
 
 insert  into `orders`(`orderNumber`,`screeningID`,`offerID`,`customer`,`employee`,`created_at`,`subtotal`,`grandtotal`,`status`) values 
 (2,1,NULL,'user','emp','2024-05-05 21:46:46',80000,80000,1);
+
+/*Table structure for table `password_reset_tokens` */
+
+DROP TABLE IF EXISTS `password_reset_tokens`;
+
+CREATE TABLE `password_reset_tokens` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `password_reset_tokens` */
+
+/*Table structure for table `personal_access_tokens` */
+
+DROP TABLE IF EXISTS `personal_access_tokens`;
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_id` bigint(20) unsigned NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `personal_access_tokens` */
 
 /*Table structure for table `screening` */
 
@@ -306,6 +382,28 @@ CREATE TABLE `user` (
 
 insert  into `user`(`username`,`password`,`email`,`dob`,`telp`,`gender`,`balance`) values 
 ('user','user','user@gmail.com','2024-05-05','081234567890','L',100000);
+
+/*Table structure for table `users` */
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `users` */
+
+insert  into `users`(`id`,`name`,`email`,`email_verified_at`,`password`,`remember_token`,`created_at`,`updated_at`) values 
+(1,'a','a','2024-05-06 15:48:16','a',NULL,'2024-05-06 15:48:21','2024-05-06 15:48:24');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
