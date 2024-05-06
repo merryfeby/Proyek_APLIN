@@ -21,36 +21,48 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profilekaryawan', function () {
-    return view('menukaryawan');
+Route::get('/register', function () {
+    return view('register');
 });
 
+Route::get('/homeUser', function () {
+    return view('homeUser');
+});
+
+Route::get('/movies', function () {
+    return view('movies');
+});
+
+Route::get('/profileUser', function () {
+    return view('profileUser');
+});
+
+Route::get('/navbar', function () {
+    return view('navbar');
+});
+
+Route::get('/buyticket', function () {
+    return view('detailBuyTicket');
+});
+
+
+
+
+
+
+//route karyawan
 Route::get('/addmoviekar', function () {
     return view('addmoviekar');
 });
-
 Route::get('/listmoviekar', function () {
     return view('listmoviekar');
 });
-
-Route::get('/addoffer', function () {
-    return view('addoffer');
-});
-
 Route::get('/historytrans', function () {
     return view('historytrans');
 });
 Route::get('/register', function () {
     return view('register');
 });
-Route::get('/buyticket', function () {
-    return view('detailBuyTicket');
-});
-Route::get('/movies', function () {
-    return view('movies');
-});
-
-//route karyawan
 Route::get('/profilekaryawan', function () {
     return view('menukaryawan');
 });
@@ -62,9 +74,6 @@ Route::get('/addoffer', function () {
 });
 Route::get('/historytrans', function () {
     return view('historytrans');
-});
-Route::get('/homeUser', function () {
-    return view('homeUser');
 });
 
 // route admin
