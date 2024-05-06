@@ -21,7 +21,8 @@
 <body class="bg-gray-100 text-gray-900 min-h-screen w-100">
   <div class="flex justify-center place-items-center w-100 min-h-screen">
     <div class="bg-white lg:w-1/4 sm:w-3/5 p-[4rem]  shadow sm:rounded-lg">
-      <form action="controller.php" method="post">
+      <form action="/login" method="post">
+        @csrf
         <div class="flex flex-row justify-center items-center">
 					<i class="fa-solid fa-ticket text-indigo-500"></i>
           <h1 class="font-semibold text-indigo-500 pb-1 ml-2">Moviemate</h1>

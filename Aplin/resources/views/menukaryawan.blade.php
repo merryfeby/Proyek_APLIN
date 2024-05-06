@@ -45,6 +45,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="/listmoviekar" class="sidebar-link">
+                        <i class="fa-solid fa-clapperboard"></i>
+                        <span>List movie</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a href="/addoffer" class="sidebar-link">
                         <i class="fa-solid fa-tags"></i>
                         <span>Add Offer</span>
@@ -60,7 +66,7 @@
                 
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="/" class="sidebar-link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>

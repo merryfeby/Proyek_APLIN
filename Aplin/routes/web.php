@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\HandleLogin;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,26 @@ use Illuminate\Support\Facades\Route;
 //route user
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/profilekaryawan', function () {
+    return view('menukaryawan');
+});
+
+Route::get('/addmoviekar', function () {
+    return view('addmoviekar');
+});
+
+Route::get('/listmoviekar', function () {
+    return view('listmoviekar');
+});
+
+Route::get('/addoffer', function () {
+    return view('addoffer');
+});
+
+Route::get('/historytrans', function () {
+    return view('historytrans');
 });
 Route::get('/register', function () {
     return view('register');
@@ -54,3 +77,8 @@ Route::get('/karyawan', function () {
 Route::get('/menukaryawan', function () {
     return view('menukaryawan');
 });
+Route::post('/login',[HandleLogin::class, 'login']);
+Route::get('/karyawan',[EmployeeController::class, 'index']);
+
+Route::post('/karyawan/insert',[EmployeeController::class, 'insert']);
+Route::post('/karyawan/update',[EmployeeController::class, 'update']);
