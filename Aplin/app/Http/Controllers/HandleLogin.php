@@ -25,17 +25,14 @@ class HandleLogin extends Controller
         $employee = Employee::where('username', $username)->first();
         $user = LoginUser::where('name', $username)->first();
 
-        // Check if user exists and password matches (securely)
         if ($employee && $password == $employee->password) {
-            // $request->session()->put('username', $username);
-            return redirect('/menukaryawan'); // Replace with your desired redirect
+            return redirect('/menukaryawan');
         }
         else if ($user && $password == $user->password) {
-            // $request->session()->put('username', $username);
-            return redirect('/homeUser'); // Replace with your desired redirect
+            return redirect('/homeUser'); 
         }
         else if($username == 'admin' && $password == 'admin'){
-            return redirect('/admin'); // Replace with your desired redirect
+            return redirect('/admin'); 
         }
         else{
             return redirect('/');

@@ -77,6 +77,7 @@ Route::get('/karyawan', function () {
 Route::get('/menukaryawan', function () {
     return view('menukaryawan');
 });
+
 Route::post('/login',[HandleLogin::class, 'login']);
 Route::get('/karyawan',[EmployeeController::class, 'index']);
 
