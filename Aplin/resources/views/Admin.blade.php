@@ -28,20 +28,20 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="Admin.html" class="sidebar-link">
+                    <a href="/admin" class="sidebar-link">
                         <i class="fa-solid fa-user-tie"></i>
                         <span>Profile</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="BeliFilm.html" class="sidebar-link">
+                    <a href="/beli" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
                         <span>Beli Film</span>
                     </a>
                 </li>
                 
                 <li class="sidebar-item">
-                    <a href="Karyawan.html" class="sidebar-link">
+                    <a href="/karyawan" class="sidebar-link">
                         <i class="fa-solid fa-users"></i>
                         <span>Atur Karyawan</span>
                     </a>
@@ -49,7 +49,7 @@
                 
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="/" class="sidebar-link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>

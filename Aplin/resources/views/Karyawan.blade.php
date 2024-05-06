@@ -1,3 +1,6 @@
+<?php
+    // dd($employee);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,20 +32,20 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="Admin.html" class="sidebar-link">
+                    <a href="/admin" class="sidebar-link">
                         <i class="fa-solid fa-user-tie"></i>
                         <span>Profile</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="BeliFilm.html" class="sidebar-link">
+                    <a href="/beli" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
                         <span>Beli Film</span>
                     </a>
                 </li>
                 
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="/karyawan" class="sidebar-link">
                         <i class="fa-solid fa-users"></i>
                         <span>Atur Karyawan</span>
                     </a>
@@ -50,7 +53,7 @@
                 
             </ul>
             <div class="sidebar-footer">
-                <a href="Karyawan.html" class="sidebar-link">
+                <a href="/" class="sidebar-link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>
@@ -58,48 +61,49 @@
         </aside>
         <div class="main p-3">
             <div>
-                <h1>Add New Employee</h1>
-                <div class="register">
-                    <p>Name: <input type="text"></p>
-                    <p>Username: <input type="text"></p>
-                    <p>Password: <input type="text"></p>
-                    <button type="button" class="btn btn-primary">Register</button>
-                </div>
+            <h1>Add New Employee</h1>
+                <form action="/karyawan/insert" method="post">
+                    @csrf
+                    Username: <input type="text" name="username"><br>
+                    Password: <input type="text" name="password"><br>
+                    Nama: <input type="text" name="name"><br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
             <br>
             <table class="table table-hover ">
-                <thead>
-                  <tr>
-                    <th>ID</th>
+                <tr>
                     <th>Name</th>
                     <th>Username</th>
                     <th>Password</th>
                     <th>Status</th>
                     <th>Change Status</th>
                     <th>Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
+                </tr>
+                    
+                    @foreach ($employee as $item)
                     <tr>
-                        <td>1</td>
-                        <td>Darren</td>
-                        <td>Darrenxyz</td>
-                        <td>Darrenxyz</td>
-                        <td>1</td>
-                        <td><button type="button" class="btn btn-secondary">Change</button></td>
-                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                        <form action="/karyawan/update" method="post">
+                            @csrf
+                            <td>{{$item['name']}}</td>
+                            <td>{{$item['username']}}</td>
+                            <td>{{$item['password']}}</td>
+                            <td>{{$item['status']}}</td>
+                        
+                        </form>
+                        <form action="/karyawan/changestatus" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="null">
+                            <td><button type="submit">Change Status</button></td>
+                        </form>
+                        <form action="/karyawan/delete" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="null">
+                            <td><button type="submit">Delete</button></td>
+                        </form>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Darren2</td>
-                        <td>Darrenxyz2</td>
-                        <td>Darrenxyz2</td>
-                        <td>1</td>
-                        <td><button type="button" class="btn btn-secondary">Change</button></td>
-                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    </tr>
-                </tbody>
-              </table>
+                    @endforeach
+            </table>
         </div>
     </div>
     

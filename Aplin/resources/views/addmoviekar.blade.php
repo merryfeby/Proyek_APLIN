@@ -41,6 +41,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="/listmoviekar" class="sidebar-link">
+                        <i class="fa-solid fa-clapperboard"></i>
+                        <span>List movie</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a href="/addoffer" class="sidebar-link">
                         <i class="fa-solid fa-tags"></i>
                         <span>Add Offer</span>
@@ -63,7 +69,7 @@
             </div>
         </aside>
         <div class="main p-3">
-            <h1>Menu Add Movie</h1>
+            <h1>Add Movie</h1>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Producer
@@ -78,41 +84,41 @@
               <div class="container">
                 <div class="d-flex flex-row justify-content-evenly flex-wrap">
                     <div class="card" style="width: 18rem;">
-                        <img src="aset/sipen.jpeg" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/img/3f6.jpeg') }}" class="card-img-top" alt="..." >
                         <div class="card-body">
                           <h5 class="card-title">Card title</h5>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Buy License</a>
+                          <a href="#" class="btn btn-primary">Add movie</a>
                         </div>
                       </div>
                       <div class="card" style="width: 18rem;">
-                        <img src="aset/sipen.jpeg" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/img/3f6.jpeg') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Card title</h5>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Buy License</a>
+                          <a href="#" class="btn btn-primary">Add movie</a>
                         </div>
                       </div>
                       <div class="card" style="width: 18rem;">
-                        <img src="aset/sipen.jpeg" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/img/3f6.jpeg') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Card title</h5>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Buy License</a>
+                          <a href="#" class="btn btn-primary">Add movie</a>
                         </div>
                       </div>
                       <div class="card" style="width: 18rem;">
-                        <img src="aset/sipen.jpeg" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/img/3f6.jpeg') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Card title</h5>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Buy License</a>
+                          <a href="#" class="btn btn-primary">Add movie</a>
                         </div>
                       </div>
                   </div>
               </div>
-        </div>
-        
+        </div> 
+    
     </div>
     
     
