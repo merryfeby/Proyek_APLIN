@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\ASUS\Documents\GitHub\Proyek_APLIN\Aplin\resources\views/homeUser.blade.php ENDPATH**/ ?>
