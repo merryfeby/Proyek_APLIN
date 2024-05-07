@@ -45,7 +45,6 @@
         </div>
         <div class="text-center flex flex-col">
           <button type="submit" name="login" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">Login</button>
-          <!-- <input type="button" value="Register" onclick="location.href='register.php'" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> -->
 					<div>
 						<p class="mt-6 text-xs text-gray-600 text-center">
 							Don't have an account?

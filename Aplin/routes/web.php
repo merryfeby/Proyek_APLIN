@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HandleLogin;
-
+use App\Http\Controllers\UserController;
 
 //route user
 Route::get('/', function () {
@@ -88,3 +88,7 @@ Route::get('/karyawan',[EmployeeController::class, 'index']);
 
 Route::post('/karyawan/insert',[EmployeeController::class, 'insert']);
 Route::post('/karyawan/update',[EmployeeController::class, 'update']);
+
+//action route user
+Route::post('/user/register', [UserController::class, 'register']); 
+
