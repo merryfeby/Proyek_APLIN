@@ -29,4 +29,9 @@ class UserController extends Controller
 		}
 
 	}
+
+	function logout() {
+		session()->flush();
+		return redirect('/');
+	}
 }

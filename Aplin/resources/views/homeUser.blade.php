@@ -46,7 +46,7 @@
 			</li>
 			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="/historyTicket">History Ticket</a></li>
 		</ul>
-		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition duration-200 text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Merry08<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition duration-200 text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{{session('login')}}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 			<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
 			</svg>
 		</button>
@@ -58,14 +58,16 @@
 			</div>
 			<ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownInformationButton">
 				<li><a href="/topup" class="block px-4 py-2  hover:bg-indigo-100">Top Up Balance</a></li>
-				<li><a href="#" class="block px-4 py-2  hover:bg-indigo-100">Log Out</a></li>
+        <form action="/user/logout" method="post">
+          @csrf
+          <li><button type="submit" class="block text-left w-full px-4 py-2  hover:bg-indigo-100">Log Out</button></li>
+        </form>
 			</ul>
-
 		</div>
 	</nav>
   <div>
     <div class="min-h-screen p-10 flex flex-col items-center justify-center" style="background-image: url('https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/640776f5bf589aa0c82c42e4_movie%20poster%20design.jpg');">
-      <h2 class="text-7xl font-bold text-center text-white">Hi, Merry08!</h2>
+      <h2 class="text-7xl font-bold text-center text-white">Hi, {{session('login')}}!</h2>
       <h2 class="text-7xl font-bold text-center text-white">Welcome to MovieMate.</h2>
       <div class="flex w-[50%]">
         <h2 class="-xl font-semibold text-center text-white mt-4">"Step into the world of MovieMate, where your cinematic journey begins with effortless online ticket booking!"<h2>

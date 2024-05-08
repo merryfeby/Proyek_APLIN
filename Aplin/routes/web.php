@@ -91,4 +91,5 @@ Route::post('/karyawan/update',[EmployeeController::class, 'update']);
 
 //action route user
 Route::post('/user/register', [UserController::class, 'register']); 
+Route::post('/user/logout', [UserController::class, 'logout']); 
 
