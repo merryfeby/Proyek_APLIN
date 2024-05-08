@@ -10,6 +10,7 @@
 		<link rel="preconnect" href="https://fonts.bunny.net">
 		<link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 		<script src="https://kit.fontawesome.com/fcd689d6ac.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
 		<!-- Styles -->
 		<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -19,6 +20,11 @@
 		</style>
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen w-100">
+  @if(session('error'))
+    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+      <span class="font-medium">{{ session('error') }}!</span> try submitting again.
+    </div>
+  @endif
   <div class="flex justify-center place-items-center w-100 min-h-screen ">
     <div class="wrapper lg:w-6/12  sm:w-4/5 flex flex-row bg-white  shadow sm:rounded-lg">
       <div class="lg:w-6/12 sm:w-3/6 flex flex-col justify-center place-items-center rounded-l-lg shadow-lg bg-gradient-to-tr from-indigo-600 via-indigo-300 to-slate-50 p-[4rem]">
