@@ -21,7 +21,7 @@
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen w-100">
   <?php if(session('error')): ?>
-    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+    <div class="p-4 mb-4 mx-4 mt-4 text-sm text-red-800 rounded-lg bg-red-200" role="alert">
       <span class="font-medium"><?php echo e(session('error')); ?>!</span> try submitting again.
     </div>
   <?php endif; ?>
