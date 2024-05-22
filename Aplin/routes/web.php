@@ -84,10 +84,12 @@ Route::get('/menukaryawan', function () {
 });
 
 Route::post('/login',[HandleLogin::class, 'login']);
-Route::get('/karyawan',[EmployeeController::class, 'index']);
 
+//action route admin
+Route::get('/karyawan',[EmployeeController::class, 'index']);
 Route::post('/karyawan/insert',[EmployeeController::class, 'insert']);
 Route::post('/karyawan/update',[EmployeeController::class, 'update']);
+Route::delete('/karyawan/delete',[EmployeeController::class, 'delete']);
 
 //action route user
 Route::post('/user/register', [UserController::class, 'register']); 

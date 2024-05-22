@@ -98,7 +98,8 @@
                         </form>
                         <form action="/karyawan/delete" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="null">
+                            @method('DELETE') 
+                            <input type="hidden" name="username" value="{{$item['username']}}">
                             <td><button type="submit">Delete</button></td>
                         </form>
                     </tr>
