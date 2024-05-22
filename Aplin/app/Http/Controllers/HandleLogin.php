@@ -8,6 +8,7 @@ use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -29,7 +30,7 @@ class HandleLogin extends Controller
 		$user = User::where('username', $username)->first();
 		$employee = Employee::where('username', $username)->first();
 		
-		if ($user && $password == $user->password) {
+		if ($user && Hash::check($password, $user->password)) {
 			session(['login' => $username]);
 			return redirect('/homeUser');
 		} else if ($employee && $password == $employee->password) {

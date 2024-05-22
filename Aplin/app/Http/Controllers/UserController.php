@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -19,7 +20,7 @@ class UserController extends Controller
 			$new_user = new User;
 			
 			$new_user->username = $req->username;
-			$new_user->password = $req->password;
+			$new_user->password = Hash::make($req->password);
 			$new_user->email = $req->email;
 			$new_user->telp = $req->phone;
 	
