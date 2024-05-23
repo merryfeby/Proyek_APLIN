@@ -15,28 +15,31 @@ Route::get('/register', function () {
 });
 
 Route::get('/homeUser', function () {
-    return view('homeUser');
+    return view('user_site.home');
 });
 
 Route::get('/movies', function () {
-    return view('movies');
+    return view('user_site.movies');
 });
 
 Route::get('/historyTicket', function () {
-    return view('historyTicket');
+    return view('user_site.historyTicket');
 });
 
-
-Route::get('/navbar', function () {
-    return view('navbar');
-});
 
 Route::get('/buyticket', function () {
-    return view('detailBuyTicket');
+    return view('user_site.detailBuyTicket');
 });
 Route::get('/topup', function () {
-    return view('topup');
+    return view('user_site.topup');
 });
+
+// Route::get('/navbar', function () {
+//     return view('navbar');
+// });
+// Route::get('/userLayout', function () {
+//     return view('user_site.userLayout');
+// });
 
 
 
@@ -82,6 +85,8 @@ Route::get('/karyawan', function () {
 Route::get('/menukaryawan', function () {
     return view('menukaryawan');
 });
+
+
 
 Route::post('/login',[HandleLogin::class, 'login']);
 Route::get('/karyawan',[EmployeeController::class, 'index']);
