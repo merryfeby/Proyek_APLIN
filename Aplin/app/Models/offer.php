@@ -16,4 +16,6 @@ class offer extends Model
         'discount',
         'max_trans'
     ];
+
+    public $timestamps = false;
 }

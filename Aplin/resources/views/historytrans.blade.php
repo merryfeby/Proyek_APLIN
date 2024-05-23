@@ -11,9 +11,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
 
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 </head>
@@ -73,42 +73,34 @@
         <div class="main p-3">
             <h1>Transaction History</h1>
 
-            <table id="transactionTable" class="table table-hover table-bordered">  <thead>
+            <table id="transactionTable" class="table table-hover table-bordered">  
+                <thead>
                     <tr>
                         <th>ID Nota</th>
-                        <th>ID Movie</th>
-                        <th>ID Kursi</th>
-                        <th>ID Studio</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
+                        <th>ID Layar</th>
+                        <th>ID Promo</th>
+                        <th>Customer</th>
+                        <th>Employee</th>
+                        <th>Subtotal</th>
+                        <th>Grand total</th>
+                        <th>Status</th>
                         <th>Date of Purchase</th>
-                        <th>Payment Method</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>5</td>
-                        <td>1</td>
-                        <td>Rp. 50.000</td>
-                        <td>2</td>
-                        <td>Rp. 100.000</td>
-                        <td>2024-04-29</td>
-                        <td>Q-Ris</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>4</td>
-                        <td>7</td>
-                        <td>3</td>
-                        <td>Rp. 40.000</td>
-                        <td>2</td>
-                        <td>Rp. 80.000</td>
-                        <td>2024-04-29</td>
-                        <td>Q-Ris</td>
-                    </tr>
+                    @foreach ($history as $item)
+                        <tr>
+                            <td>{{$item['orderNumber']}}</td>
+                            <td>{{$item['screeningID']}}</td>
+                            <td>{{$item['offerID'] ?? "Null"}}</td>
+                            <td>{{$item['customer']}}</td>
+                            <td>{{$item['employee']}}</td>
+                            <td>{{$item['subtotal']}}</td>
+                            <td>{{$item['grandtotal']}}</td>
+                            <td>{{$item['status']}}</td>
+                            <td>{{$item['created_at']}}</td>
+                        </tr>              
+                    @endforeach
                 </tbody>
             </table>
         </div>

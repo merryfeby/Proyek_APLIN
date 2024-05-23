@@ -64,12 +64,15 @@ Route::get('/addmoviekar', function () {
     return view('addmoviekar');
 });
 
-Route::get('/addoffer', [handleKaryawan::class, 'listoffer']);
-Route::post('/addoffer/add', [handleKaryawan::class, 'addoffer']);
-
-Route::get('/historytrans', function () {
-    return view('historytrans');
+Route::prefix('addoffer')->group(function () {
+    Route::get('/', [handleKaryawan::class, 'listoffer']);
+    Route::post('/add', [handleKaryawan::class, 'addoffer']);
+    Route::post('/update', [handleKaryawan::class, 'updateoffer']);
+    Route::post('/delete', [handleKaryawan::class, 'deleteoffer']);
 });
+
+Route::get('/historytrans', [handleKaryawan::class, 'listHistory']);
+
 
 // route admin
 Route::get('/admin', function () {

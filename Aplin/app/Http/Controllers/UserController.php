@@ -11,14 +11,15 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 	function register(Request $req) {
-		$check = User::where('username',$req->username)->first();
+		$validated = $req->validate([
+            'username' => 'required|unique:user,username',
+            'password' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|integer',
+        ]);
 
-		if ($check) {
-			return redirect('/register')->with('error', 'Username already exists'); 
-
-		} else {
+		try{
 			$new_user = new User;
-			
 			$new_user->username = $req->username;
 			$new_user->password = Hash::make($req->password);
 			$new_user->email = $req->email;
@@ -26,8 +27,14 @@ class UserController extends Controller
 	
 			$new_user->save();
 	
-			return redirect('/');
-		}
+			return redirect('/')->with('success', 'Registration successful!');
+		}catch (\Exception $e) {
+            
+            Log::error('User registration error: ' . $e->getMessage());
+
+            return redirect('/register')->with('error', 'An error occurred while registering. Please try again.');
+        }
+		// }
 
 	}
 
