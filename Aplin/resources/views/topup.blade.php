@@ -62,36 +62,14 @@
 			</ul>
 		</div>
 	</nav>
-  
-   
-    <div class="relative bg-gradient-to-br from-indigo-500 to-blue-500">
-      <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-        <div class="mb-8 ">
-          <div class="flex justify-center items-center flex-col">
-          <div class="flex flex-row items-center">
-            <i class="fa-solid fa-ticket text-white text-2xl"></i>
-            <h1 class="font-semibold text-2xl text-white ml-2">Moviemate</h1>
-          </div>
-            <div class="mt-4 w-[50%]">
-              <p class="text-sm text-white">
-                Join our community of movie enthusiasts and stay updated with the latest releases, exclusive offers, and special screenings. At MovieMate, we're not just booking tickets; we're curating moments that you'll cherish forever.
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
-          <p class="text-sm text-gray-100">
-            © Copyright 2024 Moviemate team.
-          </p>
-          <div class="flex items-center mt-4 space-x-4 sm:mt-0">
-            <i class="fa-brands fa-square-twitter text-white"></i>
-            <i class="fa-brands fa-square-instagram text-white"></i>
-            <i class="fa-brands fa-square-facebook text-white"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="px-40 py-10 bg-gray-100 container">
+    <h2 class="text-xl font-bold text-indigo-500 text-left mb-2">Top Up Balance</h2>
+		<div class="container w-full flex flex-row bg-white rounded-xl  border border-gray-200 p-8">
+      <h2 class="text-sm font-normal text-gray-400 text-left mb-4">15:00 (20 April 2024)</h2>
+		</div>
+
+		<div class="container w-full flex flex-col bg-white rounded-xl  border border-gray-200 p-8 mt-10">
+		
+	  </div>
 </body>
 </html>

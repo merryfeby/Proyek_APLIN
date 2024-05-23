@@ -1,6 +1,6 @@
 /*
-SQLyog Ultimate v12.5.1 (64 bit)
-MySQL - 10.4.28-MariaDB : Database - db_moviemate
+SQLyog Community v13.2.1 (64 bit)
+MySQL - 10.4.32-MariaDB : Database - db_moviemate
 *********************************************************************
 */
 
@@ -371,18 +371,17 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `dob` date NOT NULL,
   `telp` varchar(12) NOT NULL,
+  `gender` varchar(1) NOT NULL,
   `balance` int(11) DEFAULT 0,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
-insert  into `user`(`username`,`password`,`email`,`telp`,`balance`,`created_at`,`updated_at`) values 
-('d','d','merryfebyanti@gmail.com','d',0,'2024-05-07 19:10:11','2024-05-07 19:10:11'),
-('user','user','user@gmail.com','081234567890',100000,NULL,NULL);
+insert  into `user`(`username`,`password`,`email`,`dob`,`telp`,`gender`,`balance`) values 
+('user','user','user@gmail.com','2024-05-05','081234567890','L',100000);
 
 /*Table structure for table `users` */
 
