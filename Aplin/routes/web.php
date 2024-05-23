@@ -26,10 +26,14 @@ Route::get('/historyTicket', function () {
     return view('user_site.historyTicket');
 });
 
-
 Route::get('/buyticket', function () {
     return view('user_site.detailBuyTicket');
 });
+
+Route::get('/detailMovie', function () {
+    return view('user_site.detailMovie');
+});
+
 Route::get('/topup', function () {
     return view('user_site.topup');
 });
