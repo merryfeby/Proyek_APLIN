@@ -102,16 +102,18 @@ CREATE TABLE `movie` (
   `producer` varchar(255) DEFAULT NULL,
   `director` varchar(255) DEFAULT NULL,
   `poster` varchar(255) DEFAULT NULL,
-  `rating` int(11) DEFAULT NULL,
+  `genre` varchar(225) DEFAULT NULL,
   `license` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 1,
+  `synopsis` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `movie` */
 
-insert  into `movie`(`id`,`title`,`duration`,`cast`,`producer`,`director`,`poster`,`rating`,`license`) values 
-(1,'Gran Turismo',120,NULL,NULL,NULL,NULL,NULL,NULL),
-(2,'Fast X',180,NULL,NULL,NULL,NULL,NULL,NULL);
+insert  into `movie`(`id`,`title`,`duration`,`cast`,`producer`,`director`,`poster`,`genre`,`license`,`status`,`synopsis`) values 
+(1,'Elemental',120,'Jennifer Lawrence as Ember, Chris Pratt as Terra, Zendaya as Aqua, and Tom Holland as Zephyr','Pixar','John Lasseter and Pete Docter','https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg','Kids','S1P3N',1,'\"Elemental\" follows the journey of Ember, a spirited young fire sprite, who embarks on a quest to restore balance to the world when the elemental forces of nature start to unravel. Alongside her newfound friends, Terra, an earth guardian, Aqua, a water ny'),
+(2,'How to Make Millions Before Grandma Dies',126,'',NULL,NULL,'https://asset.tix.id/wp-content/uploads/2024/05/0ae91767-957f-476b-a433-028aba02e6f2.webp',NULL,NULL,1,NULL);
 
 /*Table structure for table `offers` */
 
@@ -381,7 +383,11 @@ CREATE TABLE `user` (
 /*Data for the table `user` */
 
 insert  into `user`(`username`,`password`,`email`,`telp`,`balance`,`created_at`,`updated_at`) values 
+('a','a','a@gmial.com','a',0,'2024-05-08 14:16:19','2024-05-08 14:16:19'),
+('c','c','c@gmail.com','c',0,'2024-05-08 14:17:17','2024-05-08 14:17:17'),
 ('d','d','merryfebyanti@gmail.com','d',0,'2024-05-07 19:10:11','2024-05-07 19:10:11'),
+('hansel','hansel','merryfebyanti@gmail.com','123',0,'2024-05-15 02:00:30','2024-05-15 02:00:30'),
+('tes','$2y$12$h/TQEItCKroQxUytRRlrCurDK0P4MHTyMkakGeOwiTbph6SpI8Clm','tes@gmail.com','123123',0,'2024-05-22 18:07:10','2024-05-22 18:07:10'),
 ('user','user','user@gmail.com','081234567890',100000,NULL,NULL);
 
 /*Table structure for table `users` */

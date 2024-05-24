@@ -17,6 +17,9 @@
 		* {
 			font-family: 'Poppins', sans-serif;
 		}
+    ::-webkit-scrollbar {
+    display: none;
+    }
 		</style>
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen w-100">
@@ -46,7 +49,7 @@
 			</li>
 			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="/historyTicket">History Ticket</a></li>
 		</ul>
-		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition duration-200 text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Merry08<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition duration-200 text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{{session('login')}}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 			<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
 			</svg>
 		</button>
@@ -58,18 +61,42 @@
 			</div>
 			<ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownInformationButton">
 				<li><a href="/topup" class="block px-4 py-2  hover:bg-indigo-100">Top Up Balance</a></li>
-				<li><a href="#" class="block px-4 py-2  hover:bg-indigo-100">Log Out</a></li>
+        <form action="/user/logout" method="post">
+          @csrf
+          <li><button type="submit" class="block text-left w-full px-4 py-2  hover:bg-indigo-100">Log Out</button></li>
+        </form>
 			</ul>
 		</div>
 	</nav>
-  <div class="px-40 py-10 bg-gray-100 container">
-    <h2 class="text-xl font-bold text-indigo-500 text-left mb-2">Top Up Balance</h2>
-		<div class="container w-full flex flex-row bg-white rounded-xl  border border-gray-200 p-8">
-      <h2 class="text-sm font-normal text-gray-400 text-left mb-4">15:00 (20 April 2024)</h2>
-		</div>
-
-		<div class="container w-full flex flex-col bg-white rounded-xl  border border-gray-200 p-8 mt-10">
-		
-	  </div>
+  <div>
+    @yield('content')
+  </div>
+  <div class="relative bg-gradient-to-br from-indigo-500 to-blue-500">
+    <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div class="mb-8 ">
+        <div class="flex justify-center items-center flex-col">
+        <div class="flex flex-row items-center">
+          <i class="fa-solid fa-ticket text-white text-2xl"></i>
+          <h1 class="font-semibold text-2xl text-white ml-2">Moviemate</h1>
+        </div>
+          <div class="mt-4 w-[50%]">
+            <p class="text-sm text-white">
+              Join our community of movie enthusiasts and stay updated with the latest releases, exclusive offers, and special screenings. At MovieMate, we're not just booking tickets; we're curating moments that you'll cherish forever.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
+        <p class="text-sm text-gray-100">
+          © Copyright 2024 Moviemate team.
+        </p>
+        <div class="flex items-center mt-4 space-x-4 sm:mt-0">
+          <i class="fa-brands fa-square-twitter text-white"></i>
+          <i class="fa-brands fa-square-instagram text-white"></i>
+          <i class="fa-brands fa-square-facebook text-white"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
