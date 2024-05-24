@@ -14,9 +14,34 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/homeUser', function () {
-    return view('user_site.home');
+
+Route::prefix('home')->name('home.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/{id}', [UserController::class, 'index'])->name('detailmovie');
 });
+
+Route::prefix('movies')->name('movies.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+   
+});
+Route::prefix('history')->name('history.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+   
+});
+Route::prefix('order')->name('order.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+    
+});
+Route::prefix('topup')->name('topup.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+});
+
+
+// Route::get('/homeUser', function () {
+//     return view('user_site.home');
+// });
+
+// Route::get('/homeUser',[UserController::class, 'index']);
 
 Route::get('/movies', function () {
     return view('user_site.movies');
