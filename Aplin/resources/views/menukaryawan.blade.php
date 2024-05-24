@@ -73,10 +73,11 @@
             </div>
         </aside>
         <div class="main p-3">
-            <div class="text-center">
-                <h1>
-                    Ini Home Karyawan
-                </h1>
+            <div class="bg-info bg-opacity-10 border border-info  rounded p-3">
+                <h1 class="text-center pb-3">Profile Karyawan</h1>
+                <h1>Name : {{$employee[0]['name']}}</h1>
+                <h1>Username : {{$employee[0]['username']}}</h1>
+                <h1>Awal Masuk Kerja : {{$employee[0]['created_at']}}</h1>
             </div>
         </div>
     </div>

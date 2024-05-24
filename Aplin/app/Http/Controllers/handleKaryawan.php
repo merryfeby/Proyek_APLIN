@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\offer;
 use App\Models\order;
 use Illuminate\Http\Request;
-
+session_start();
 class handleKaryawan extends Controller
 {
     function listoffer(){
@@ -85,4 +86,12 @@ class handleKaryawan extends Controller
             'history' => $history
         ]);
     }
+    
+    function listemployee(){
+        $employee = Employee::where('status',1)->where('username', session('login'))->get();
+        return view("menukaryawan",[
+            'employee' => $employee
+        ]);
+    }
+
 }

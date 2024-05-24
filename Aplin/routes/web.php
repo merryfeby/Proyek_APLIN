@@ -57,9 +57,7 @@ Route::get('/historytrans', function () {
 Route::get('/register', function () {
     return view('register');
 });
-Route::get('/profilekaryawan', function () {
-    return view('menukaryawan');
-});
+
 Route::get('/addmoviekar', function () {
     return view('addmoviekar');
 });
@@ -73,6 +71,7 @@ Route::prefix('addoffer')->group(function () {
 
 Route::get('/historytrans', [handleKaryawan::class, 'listHistory']);
 
+Route::get('/profilekaryawan', [handleKaryawan::class, 'listemployee'])->name('profilekaryawan');
 
 // route admin
 Route::get('/admin', function () {
