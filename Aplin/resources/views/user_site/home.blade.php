@@ -17,20 +17,6 @@
         <h2 class="text-sm font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
         <button type="submit" name="login" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">Buy Ticket</button>
       </div>
-      <div class="container w-60 bg-white rounded-xl shadow-lg p-4">
-        <img class="rounded-xl" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-        <h2 class="text-lg font-semibold text-center text-black text-center my-2">Elemental</h2>
-        <h2 class="text-sm font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-        <h2 class="text-sm font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-        <button type="submit" name="login" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">Buy Ticket</button>
-      </div>
-      <div class="container w-60 bg-white rounded-xl shadow-lg p-4">
-        <img class="rounded-xl" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-        <h2 class="text-lg font-semibold  text-black text-center my-2">Elemental</h2>
-        <h2 class="text-sm font-normal  text-indigo-500 text-center my-2">Romance, Kids</h2>
-        <h2 class="text-sm font-normal  text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-        <button type="submit" name="login" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">Buy Ticket</button>
-      </div>
     </div>
   </div>
 
