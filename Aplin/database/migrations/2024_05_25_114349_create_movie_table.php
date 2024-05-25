@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('poster', 255)->nullable();
             $table->string('genre', 225)->nullable();
             $table->tinyInteger('status')->default(1);
-            $table->string('synopsis', 255)->nullable();
+            $table->text('synopsis')->nullable();
             $table->tinyInteger('license')->default(0);
             $table->dateTime('licensed_at')->useCurrent();
         });
