@@ -13,6 +13,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 </head>
 
@@ -69,50 +72,84 @@
             </div>
         </aside>
         <div class="main p-3">
+            <div class="mb-5">
+                <h1>Edit Movie</h1>
+                <div class="register">
+                    <form action="/editmovie" method="post">
+                        <p>Judul : <input type="text" name="judul" id="judul"></p>
+                        <p>Durasi : <input type="number" name="durasi" id="durasi"></p>
+                        <p>Cast : <input type="text" name="cast" id="cast"></p>
+                        <p>Genre : <input type="text" name="genre" id="genre"></p>
+                        <p>Producer : <input type="text" name="producer" id="producer"></p>
+                        <p>Director : <input type="text" name="director" id="director"></p>
+                        <p>Link image : <input type="text" name="img" id="img"></p>
+                        <p>Waktu Tayang : <input type="datetime-local" name="tayang" id="tayang"></p>
+                        <p>Synopsis : <textarea name="detail" id="detail" cols="30" rows="3"></textarea></p>
+                        
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                </div>
+            </div>
+            
             <h1>List Movie</h1>
-            <table class="table table-hover ">
+            <table class="table table-hover table-bordered " id="movies-table">
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Judul</th>
-                    <th>Durasi</th>
+                    <th>Title</th>
+                    <th>Duration</th>
                     <th>Cast</th>
-                    <th>Image</th>
+                    <th>Producer</th>
+                    <th>Director</th>
+                    <th>Genre</th>
                     <th>Deskripsi</th>
+                    <th>Image</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
+                    @foreach($listmovie as $movie)
                     <tr>
-                        <td>1</td>
-                        <td>Godzilla x Kong: The New Empire (2024)</td>
-                        <td>115 Minutes</td>
-                        <td>Rebecca Hall, Brian Tyree Henry, Dan Stevens</td>
-                        <td><img src="{{ asset('assets/img/3f6.jpeg') }}" alt="" srcset="" width="200px" height="300px"></td>
-                        <td>The new installment in the Monsterverse puts the mighty Kong and the fearsome Godzilla against a colossal deadly threat hidden within our world that threatens the existence of their species and our very own, as well as diving deep into the mysteries of Skull Island and beyond. Delving straight into the origins of Hollow Earth, this film will explore the ancient Titan battle that brought man and monster together forever.</td>
-                        <td><button type="button" class="btn btn-secondary">Change</button></td>
-                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                        <td>{{ $movie['id'] }}</td>
+                        <td>{{ $movie['title'] }}</td>
+                        <td>{{ $movie['duration'] }}</td>
+                        <td>{{ $movie['cast'] }}</td>
+                        <td>{{ $movie['producer'] }}</td>
+                        <td>{{ $movie['director'] }}</td>
+                        <td>{{ $movie['genre'] }}</td>
+                        <td>{{ $movie['synopsis'] }}</td>
+                        <td><img src="{{ $movie['poster'] }}" alt="" srcset="" width="200px" height="300px"></td>
+                        <td class="align-middle"><button type="button" class="btn btn-secondary ">Change</button></td>
+                        <td class="align-middle"><button type="button" class="btn btn-danger align-middle">Delete</button></td>
                     </tr>
+                    @endforeach
                 </tbody>
               </table>
               <br>
-              <div class="mt-5">
-                  <h1>Edit Movie</h1>
-                  <div class="register">
-                      <p>Judul: <input type="text"></p>
-                      <p>Durasi: <input type="number"></p>
-                      <p>Cast: <input type="text"></p>
-                      <p>Image : <input type="file"></p>
-                      <p>Details: <textarea name="" id="" cols="30" rows="3"></textarea></p>
               
-                      <button type="button" class="btn btn-primary">Edit</button>
-                  </div>
-              </div>
         </div>
 
     </div>
     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#movies-table').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,           
+            });
+        });
+    </script>
+
     <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 

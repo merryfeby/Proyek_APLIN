@@ -52,12 +52,7 @@ Route::get('/topup', function () {
 
 
 //route karyawan
-Route::get('/addmoviekar', function () {
-    return view('addmoviekar');
-});
-Route::get('/listmoviekar', function () {
-    return view('listmoviekar');
-});
+
 Route::get('/historytrans', function () {
     return view('historytrans');
 });
@@ -79,6 +74,10 @@ Route::prefix('addoffer')->group(function () {
 Route::get('/historytrans', [handleKaryawan::class, 'listHistory']);
 
 Route::get('/profilekaryawan', [handleKaryawan::class, 'listemployee'])->name('profilekaryawan');
+
+Route::get('/listmoviekar', [handleKaryawan::class, 'listmovie']);
+
+Route::get('/addmoviekar', [handleKaryawan::class, 'listmovies']);
 
 // route admin
 Route::get('/admin', function () {

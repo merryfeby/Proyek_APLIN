@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Movie;
 use App\Models\offer;
 use App\Models\order;
 use Illuminate\Http\Request;
@@ -86,6 +87,27 @@ class handleKaryawan extends Controller
             'history' => $history
         ]);
     }
+
+    function listmovie(){
+        $listmovie = Movie::where('status',1)
+                            ->where('license','<>',null)
+                            ->whereHas('screening')
+                            ->get();
+        return view("listmoviekar",[
+            'listmovie' => $listmovie
+        ]);
+    }
+
+    function listmovies(){
+        $listmovie = Movie::where('status',1)
+                            ->whereNotNull('license')
+                            ->whereDoesntHave('screening')
+                            ->get();
+        return view("addmoviekar",[
+            'listmovie' => $listmovie
+        ]);
+    }
+
     
     function listemployee(){
         $employee = Employee::where('status',1)->where('username', session('login'))->get();
