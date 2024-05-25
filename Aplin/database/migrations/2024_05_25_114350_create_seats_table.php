@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('seats', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('studioID');
+            $table->increments('id');
+            $table->unsignedInteger('studioID');
             $table->string('seatnumber', 3);
             $table->string('seatrow', 3);
             $table->foreign('studioID')->references('id')->on('studio');

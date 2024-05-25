@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('code');
+            $table->increments('id');
+            $table->string('code', 255)->unique();
             $table->integer('discount');
             $table->integer('max_trans');
             $table->tinyInteger('status')->default(1);
-            $table->primary('id');
         });
     }
 

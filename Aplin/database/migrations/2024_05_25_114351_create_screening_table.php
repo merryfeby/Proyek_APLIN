@@ -12,13 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('screening', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('movieID');
-            $table->unsignedBigInteger('studioID');
+            $table->increments('id');
+            $table->unsignedInteger('movieID');
+            $table->unsignedInteger('studioID');
             $table->dateTime('starttime');
             $table->foreign('movieID')->references('id')->on('movie');
             $table->foreign('studioID')->references('id')->on('studio');
-            $table->primary('id');
         });
     }
 

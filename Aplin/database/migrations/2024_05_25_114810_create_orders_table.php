@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('orderNumber');
-            $table->unsignedBigInteger('screeningID');
-            $table->unsignedBigInteger('offerID')->nullable();
+            $table->increments('orderNumber');
+            $table->unsignedInteger('screeningID');
+            $table->unsignedInteger('offerID')->nullable();
             $table->string('customer');
             $table->string('employee');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
@@ -25,7 +25,6 @@ return new class extends Migration
             $table->foreign('employee')->references('username')->on('employee');
             $table->foreign('screeningID')->references('id')->on('screening');
             $table->foreign('offerID')->references('id')->on('offers');
-            $table->primary('orderNumber');
         });
     }
 

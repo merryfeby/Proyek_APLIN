@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('studio', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('location');
+            $table->increments('id');
+            $table->unsignedInteger('location');
             $table->string('name');
             $table->integer('capacity');
             $table->tinyInteger('status')->default(1);
