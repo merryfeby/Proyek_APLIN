@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
 	function register(Request $req) {
 		$validated = $req->validate([
             'username' => 'required|unique:user,username',
@@ -41,5 +43,12 @@ class UserController extends Controller
 	function logout() {
 		session()->flush();
 		return redirect('/');
+	}
+
+	function index() {
+		$movies = Movie::whereNotNull('license')->get();
+		return view('user_site.home', [
+			'movie' => $movies
+		]);
 	}
 }

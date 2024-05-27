@@ -32,7 +32,7 @@ class HandleLogin extends Controller
 		
 		if ($user && Hash::check($password, $user->password)) {
 			session(['login' => $username]);
-			return redirect('/homeUser');
+			return redirect()->route('home.index');
 		} else if ($employee && $password == $employee->password) {
 			session(['login' => $username]);
 			return redirect()->route('profilekaryawan');
