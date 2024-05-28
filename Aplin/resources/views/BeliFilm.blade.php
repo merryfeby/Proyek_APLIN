@@ -38,7 +38,7 @@
                 <li class="sidebar-item">
                     <a href="/beli" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Beli Film</span>
+                        <span>Beli Film </span>
                     </a>
                 </li>
                 
