@@ -73,7 +73,6 @@ class handleKaryawan extends Controller
         if ($data) {
             $data->status = 0;  
             $data->save();
-
             return redirect()->back()->with('success', 'Offer deleted successfully.');
         } else {
             return redirect()->back()->with('error', 'Offer not found.');

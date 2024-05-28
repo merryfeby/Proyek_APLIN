@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\handleKaryawan;
 use App\Http\Controllers\HandleLogin;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\TopupController;
 use App\Http\Controllers\UserController;
 
 //route user
@@ -14,6 +17,7 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register');
 });
+Route::post('/logout', [UserController::class, 'logout']); 
 
 
 Route::prefix('home')->name('home.')->group(function () {
@@ -21,48 +25,32 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::get('/{id}', [UserController::class, 'index'])->name('detailmovie');
 });
 
+
 Route::prefix('movies')->name('movies.')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
-   
+    Route::get('/', [MovieController::class, 'index'])->name('index');
 });
+
+
 Route::prefix('history')->name('history.')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/', [HistoryController::class, 'index'])->name('index');
    
 });
-Route::prefix('order')->name('order.')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
+// Route::prefix('order')->name('order.')->group(function () {
+//     Route::get('/', [UserController::class, 'index'])->name('index');
     
-});
+// });
 Route::prefix('topup')->name('topup.')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/', [TopupController::class, 'index'])->name('index');
 });
 
 
-// Route::get('/homeUser', function () {
-//     return view('user_site.home');
+// Route::get('/buyticket', function () {
+//     return view('user_site.detailBuyTicket');
 // });
 
-// Route::get('/homeUser',[UserController::class, 'index']);
-
-Route::get('/movies', function () {
-    return view('user_site.movies');
-});
-
-Route::get('/historyTicket', function () {
-    return view('user_site.historyTicket');
-});
-
-Route::get('/buyticket', function () {
-    return view('user_site.detailBuyTicket');
-});
-
-Route::get('/detailMovie', function () {
-    return view('user_site.detailMovie');
-});
-
-Route::get('/topup', function () {
-    return view('user_site.topup');
-});
+// Route::get('/detailMovie', function () {
+//     return view('user_site.detailMovie');
+// });
 
 // Route::get('/navbar', function () {
 //     return view('navbar');
@@ -121,12 +109,13 @@ Route::get('/menukaryawan', function () {
 
 
 Route::post('/login',[HandleLogin::class, 'login']);
-Route::get('/karyawan',[EmployeeController::class, 'index']);
 
+//action route admin
+Route::get('/karyawan',[EmployeeController::class, 'index']);
 Route::post('/karyawan/insert',[EmployeeController::class, 'insert']);
-Route::post('/karyawan/update',[EmployeeController::class, 'update']);
+Route::patch('/karyawan/update',[EmployeeController::class, 'update']);
+Route::delete('/karyawan/delete',[EmployeeController::class, 'delete']);
+
 
 //action route user
-Route::post('/user/register', [UserController::class, 'register']); 
-Route::post('/user/logout', [UserController::class, 'logout']); 
 
