@@ -9,25 +9,29 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\TopupController;
 use App\Http\Controllers\UserController;
 
-//route user
+//GENERAL
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::post('/login',[HandleLogin::class, 'login']);
 Route::get('/register', function () {
     return view('register');
 });
+
+//USER
 Route::post('/logout', [UserController::class, 'logout']); 
 
 
 Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
-    Route::get('/{id}', [UserController::class, 'index'])->name('detailmovie');
+    Route::get('/{id}/detail', [MovieController::class, 'showDetail'])->name('detail');
 });
 
 
 Route::prefix('movies')->name('movies.')->group(function () {
     Route::get('/', [MovieController::class, 'index'])->name('index');
+    Route::get('/{id}/detail', [MovieController::class, 'showDetail'])->name('detail');
+    
 });
 
 
@@ -48,10 +52,6 @@ Route::prefix('topup')->name('topup.')->group(function () {
 //     return view('user_site.detailBuyTicket');
 // });
 
-// Route::get('/detailMovie', function () {
-//     return view('user_site.detailMovie');
-// });
-
 // Route::get('/navbar', function () {
 //     return view('navbar');
 // });
@@ -60,12 +60,7 @@ Route::prefix('topup')->name('topup.')->group(function () {
 // });
 
 
-
-
-
-
-//route karyawan
-
+//KARYAWAN
 Route::get('/historytrans', function () {
     return view('historytrans');
 });
@@ -107,15 +102,11 @@ Route::get('/menukaryawan', function () {
 });
 
 
-
-Route::post('/login',[HandleLogin::class, 'login']);
-
-//action route admin
+//ADMIN
 Route::get('/karyawan',[EmployeeController::class, 'index']);
 Route::post('/karyawan/insert',[EmployeeController::class, 'insert']);
 Route::patch('/karyawan/update',[EmployeeController::class, 'update']);
 Route::delete('/karyawan/delete',[EmployeeController::class, 'delete']);
 
 
-//action route user
 
