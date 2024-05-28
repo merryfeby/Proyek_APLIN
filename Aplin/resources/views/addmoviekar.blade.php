@@ -83,38 +83,16 @@
               <br>
               <div class="container">
                 <div class="d-flex flex-row justify-content-evenly flex-wrap">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/img/3f6.jpeg') }}" class="card-img-top" alt="..." >
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Add movie</a>
-                        </div>
-                      </div>
-                      <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/img/3f6.jpeg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Add movie</a>
-                        </div>
-                      </div>
-                      <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/img/3f6.jpeg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Add movie</a>
-                        </div>
-                      </div>
-                      <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/img/3f6.jpeg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Add movie</a>
-                        </div>
-                      </div>
+                    @foreach ($listmovie as $item)
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ $item['poster'] }}" class="card-img-top" alt="..." >
+                            <div class="card-body">
+                            <h5 class="card-title">{{$item['title']}}</h5>
+                            <p class="card-text">{{$item['synopsis']}}</p>
+                            <a href="#" class="btn btn-primary">Add movie</a>
+                            </div>
+                        </div>       
+                    @endforeach
                   </div>
               </div>
         </div> 

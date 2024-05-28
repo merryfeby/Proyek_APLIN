@@ -34,7 +34,8 @@ class HandleLogin extends Controller
 			session(['login' => $username]);
 			return redirect()->route('home.index');
 		} else if ($employee && $password == $employee->password) {
-			return redirect('/menukaryawan');
+			session(['login' => $username]);
+			return redirect()->route('profilekaryawan');
 		} else if ($username == 'admin' && $password == 'admin') {
 			return redirect('/admin'); 
 		} else {

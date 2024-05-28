@@ -20,11 +20,29 @@
 		</style>
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen w-100">
+
   @if(session('error'))
-    <div class="p-4 mb-4 mx-4 mt-4 text-sm text-red-700 rounded-lg bg-red-200" role="alert">
-      <span class="font-medium">{{ session('error') }}!</span> try submitting again.
-    </div>
-  @endif
+        <div class="p-4 mb-4 mx-4 mt-4 text-sm text-red-800 rounded-lg bg-red-200" role="alert">
+            <span class="font-medium">{{ session('error') }}</span> try submitting again.
+        </div>
+    @endif
+
+    @if(session('success'))
+        <div class="p-4 mb-4 mx-4 mt-4 text-sm text-green-800 rounded-lg bg-green-200" role="alert">
+            <span class="font-medium">{{ session('success') }}</span>
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="p-4 mb-4 mx-4 mt-4 text-sm text-red-800 rounded-lg bg-red-200" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
   <div class="flex justify-center place-items-center w-100 min-h-screen ">
     <div class="wrapper lg:w-6/12  sm:w-4/5 flex flex-row bg-white  shadow sm:rounded-lg">
       <div class="lg:w-6/12 sm:w-3/6 flex flex-col justify-center place-items-center rounded-l-lg shadow-lg bg-gradient-to-tr from-indigo-600 via-indigo-300 to-slate-50 p-[4rem]">

@@ -8,24 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     use HasFactory;
+
     protected $table = 'movie';
 
-    public $timestamps = false;
-    
     protected $primaryKey = 'id';
+    protected $fillable = [
 
-	protected $fillable = [
-		'title',	
-		'duration',	
-		'cast',	
-		'producer',
-		'cast',
-		'director',
-		'poster',
-		'genre',
-		'license',
-		'status',
-		'synopsis'
-	];
-    
+        'title',
+        'duration',
+        'cast',
+        'producer',
+        'director',
+        'poster',
+        'genre',
+        'license',
+        'status',
+        'synopsis',
+    ];
+    public $timestamps = false;
+
+    public function screening()
+    {
+        return $this->hasMany(screening::class, 'movieID', 'id');
+    }
 }
