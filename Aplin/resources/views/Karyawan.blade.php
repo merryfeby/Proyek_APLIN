@@ -61,14 +61,27 @@
         </aside>
         <div class="main p-3">
             <div>
-            <h1>Add New Employee</h1>
+            <h1>Add or Update Employee</h1>
+            <div style="max-width: 400px;">
                 <form action="/karyawan/insert" method="post">
                     @csrf
-                    Username: <input type="text" name="username"><br>
-                    Password: <input type="text" name="password"><br>
-                    Nama: <input type="text" name="name"><br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div style="margin-bottom: 10px;">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <label for="password">Password:</label>
+                        <input type="text" id="password" name="password">
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <label for="name">Nama:</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </form>
+            </div>
             </div>
             <br>
             <table class="table table-hover ">
@@ -77,33 +90,57 @@
                     <th>Username</th>
                     <th>Password</th>
                     <th>Status</th>
-                    <th>Change Status</th>
+                    <th>Update</th>
                     <th>Delete</th>
                 </tr>
                     
-                    @foreach ($employee as $item)
-                    <tr>
-                        <form action="/karyawan/update" method="post">
-                            @csrf
-                            <td>{{$item['name']}}</td>
-                            <td>{{$item['username']}}</td>
-                            <td>{{$item['password']}}</td>
-                            <td>{{$item['status']}}</td>
-                        
-                        </form>
-                        <form action="/karyawan/changestatus" method="post">
-                            @csrf
-                            <input type="hidden" name="id" value="null">
-                            <td><button type="submit">Change Status</button></td>
-                        </form>
-                        <form action="/karyawan/delete" method="post">
-                            @csrf
-                            @method('DELETE') 
-                            <input type="hidden" name="username" value="{{$item['username']}}">
-                            <td><button type="submit">Delete</button></td>
-                        </form>
-                    </tr>
-                    @endforeach
+                @foreach ($employees as $item)
+        <tr>
+            <td>{{ $item['name'] }}</td>
+            <td>{{ $item['username'] }}</td>
+            <td>{{ $item['password'] }}</td>
+            {{-- <td>{{ $item['status'] }}</td> --}}
+            <td>Active</td>
+            <td>
+                <form action="/karyawan/update" method="post">
+                    @csrf
+                    @method('PATCH')
+                    <input type="hidden" name="username" value="{{ $item['username'] }}">
+                    <input type="text" name="name" placeholder="New Name" class="form-control" required>
+                    <input type="text" name="password" placeholder="New Password" class="form-control" required>
+                    <button type="submit" class="btn btn-primary mt-1">Update</button>
+                </form>
+            </td>
+            <td>
+                <form action="/karyawan/delete" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="username" value="{{ $item['username'] }}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+                {{-- @foreach ($employees as $item)
+                <tr>
+                    <form action="/karyawan/update" method="post">
+                        @csrf
+                        @method('UPDATE')
+                        <td>{{ $item['name'] }}</td>
+                        <td>{{ $item['username'] }}</td>
+                        <td>{{ $item['password'] }}</td>
+                        <td>{{ $item['status'] }}</td>
+                        <input type="hidden" name="username" value="{{$item['username']}}">
+                        <td><button type="submit" class="btn btn-primary">Update</button></td>
+                    </form>
+                    <form action="/karyawan/delete" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="username" value="{{$item['username']}}">
+                        <td><button type="submit" class="btn btn-danger">Delete</button></td>
+                    </form>
+                </tr>
+            @endforeach --}}
             </table>
         </div>
     </div>

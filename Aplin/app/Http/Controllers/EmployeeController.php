@@ -9,13 +9,10 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    //
     function index(){
-        // $barang = Barang::all();
-        $employee = Employee::where('status',1)->get();
-        // dd($employee);
+        $employees = Employee::where('status',1)->get();
         return view("Karyawan",[
-            'employee' => $employee
+            'employees' => $employees
         ]);
     }
     function insert(Request $request){
@@ -23,66 +20,45 @@ class EmployeeController extends Controller
         $data->username = $request->username;
         $data->password = $request->password;
         $data->name = $request->name;
- 
-        $data->save();
 
-        // return view("list");
+        $data->save();
         return redirect()->back();
     }
 
-    // function delete(Request $request)
-    // {
-    //     $employeeId = $request->id;
-    //     if (!$employeeId) {
-    //         return redirect()->back()->withErrors(['error' => 'Employee ID is required for deletion.']);
-    //     }
-        
-    //     $employee = Employee::find($employeeId);
-        
-    //     if (!$employee) {
-    //         return redirect()->back()->withErrors(['error' => 'Employee with ID ' . $employeeId . ' not found.']);
-    //     }
-
-    //     $employee->forceDelete();
-
-    //     return redirect()->back()->with('success', 'Employee permanently deleted.');
-    // }
-
     function delete(Request $request)
-{
-    $employeeUsername = $request->username;
+    {
+        $employeeUsername = $request->input('username');
 
-    if (!$employeeUsername) {
-        return redirect()->back()->withErrors(['error' => 'Employee username is required for deletion.']);
+        if (!$employeeUsername) {
+            return redirect()->back()->withErrors(['error' => 'Employee username is required for deletion.']);
+        }
+
+        $employee = Employee::where('username', $employeeUsername)->first();
+
+        if ($employee) {
+            $employee->status = 0;
+            $employee->save();
+            return redirect()->back()->with('success', 'Employee deleted successfully.');
+        } else {
+            return redirect()->back()->withErrors(['error' => 'Employee with username ' . $employeeUsername . ' not found.']);
+        }
     }
 
-    $employee = Employee::where('username', $employeeUsername)->first();
 
-    if (!$employee) {
-        return redirect()->back()->withErrors(['error' => 'Employee with username ' . $employeeUsername . ' not found.']);
+    function update(Request $request){
+
+        $employeeUsername = $request->input('username');
+
+        $employee = Employee::where('username', $employeeUsername)->first();
+        if ($employee) {
+            $employee->name = $request->input('name');
+            $employee->password = $request->input('password');
+            $employee->save();
+            return redirect()->back()->with('success', 'Employee updated successfully.');
+        } else {
+            return redirect()->back()->withErrors(['error' => 'Employee with username ' . $employeeUsername . ' not found.']);
+        }
     }
-
-    $employee->forceDelete();
-
-    return redirect()->back()->with('success', 'Employee permanently deleted.');
-}
-
-
-    // function update(Request $request){
-
-    //     $data = Employee::find($request->id);
-    //     // $data = Barang::where('id_barang',$request->id);
-    //     //sama aja
-
-    //     $data->username = $request->username;
-    //     $data->password = $request->password;
-    //     $data->name = $request->name;
- 
-    //     $data->save();
-
-    //     // return view("list");
-    //     return redirect()->back();
-    // }
 
 
 }
