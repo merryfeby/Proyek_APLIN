@@ -89,7 +89,7 @@
                             <div class="card-body">
                             <h5 class="card-title">{{$item['title']}}</h5>
                             <p class="card-text">{{$item['synopsis']}}</p>
-                            <a href="#" class="btn btn-primary">Add movie</a>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dateTimeModal">Add movie</a>
                             </div>
                         </div>       
                     @endforeach
@@ -99,7 +99,50 @@
     
     </div>
     
+    {{-- Modal --}}
+    <div class="modal fade" id="dateTimeModal" tabindex="-1" aria-labelledby="dateTimeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dateTimeModalLabel">Select Date and Time</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="dateTimeForm">
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Time</label>
+                            <input type="time" class="form-control" id="time" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveDateTime">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
+    <script>
+        document.getElementById('saveDateTime').addEventListener('click', function() {
+            var date = document.getElementById('date').value;
+            var time = document.getElementById('time').value;
+
+            if (date && time) {
+                console.log('Date:', date, 'Time:', time);
+
+                var dateTimeModal = new bootstrap.Modal(document.getElementById('dateTimeModal'));
+                dateTimeModal.hide();
+            } else {
+                alert('Please select both date and time.');
+            }
+        });
+    </script>
+
 
     <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
