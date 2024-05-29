@@ -94,14 +94,14 @@
                     <th>Delete</th>
                 </tr>
                     
-                @foreach ($employees as $item)
-        <tr>
-            <td>{{ $item['name'] }}</td>
-            <td>{{ $item['username'] }}</td>
-            <td>{{ $item['password'] }}</td>
-            {{-- <td>{{ $item['status'] }}</td> --}}
-            <td>Active</td>
-            <td>
+            @foreach ($employees as $item)
+                <tr>
+                    <td>{{ $item['name'] }}</td>
+                    <td>{{ $item['username'] }}</td>
+                    <td>{{ $item['password'] }}</td>
+                    {{-- <td>{{ $item['status'] }}</td> --}}
+                    <td>Active</td>
+                    <td>
                 <form action="/karyawan/update" method="post">
                     @csrf
                     @method('PATCH')
@@ -121,26 +121,6 @@
             </td>
         </tr>
         @endforeach
-                {{-- @foreach ($employees as $item)
-                <tr>
-                    <form action="/karyawan/update" method="post">
-                        @csrf
-                        @method('UPDATE')
-                        <td>{{ $item['name'] }}</td>
-                        <td>{{ $item['username'] }}</td>
-                        <td>{{ $item['password'] }}</td>
-                        <td>{{ $item['status'] }}</td>
-                        <input type="hidden" name="username" value="{{$item['username']}}">
-                        <td><button type="submit" class="btn btn-primary">Update</button></td>
-                    </form>
-                    <form action="/karyawan/delete" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <input type="hidden" name="username" value="{{$item['username']}}">
-                        <td><button type="submit" class="btn btn-danger">Delete</button></td>
-                    </form>
-                </tr>
-            @endforeach --}}
             </table>
         </div>
     </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +40,7 @@
                     <a href="/beli" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
                         <span>Beli Film </span>
-                    </a>
+                     </a>
                 </li>
                 
                 <li class="sidebar-item">
@@ -58,60 +59,38 @@
             </div>
         </aside>
         <div class="main p-3">
-            <h1>menu beli lisensi</h1>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <h1>Buy Movie License </h1>
+          <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Producer
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li><a class="dropdown-item" href="#">Disney</a></li>
                   <li><a class="dropdown-item" href="#">FOX</a></li>
                   <li><a class="dropdown-item" href="#">MCU</a></li>
-                </ul>
-              </div>
-              <br>
-              <div class="container">
-                <div class="d-flex flex-row justify-content-evenly flex-wrap">
-                    <div class="card" style="width: 18rem;">
-                        <img src="aset/sipen.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Buy License</a>
-                        </div>
-                      </div>
-                      <div class="card" style="width: 18rem;">
-                        <img src="aset/sipen.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Buy License</a>
-                        </div>
-                      </div>
-                      <div class="card" style="width: 18rem;">
-                        <img src="aset/sipen.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Buy License</a>
-                        </div>
-                      </div>
-                      <div class="card" style="width: 18rem;">
-                        <img src="aset/sipen.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Buy License</a>
-                        </div>
+              </ul>
+          </div>
+          <br>
+          <div class="container">
+              <div class="d-flex flex-row justify-content-evenly flex-wrap">
+                  @foreach ($films as $film)
+                  <div class="card" style="width: 18rem;">
+                    <img src="{{ $film['poster'] }}" class="card-img-top" alt="{{ $film['title'] }}">
+                    <div class="card-body">
+                          <h5 class="card-title">{{ $film['title'] }}</h5>
+                          <p class="card-text">Produced by: {{ $film['producer'] }}</p>
+                          <form action="/films/buy" method="post">
+                              @csrf
+                              <input type="hidden" name="title" value="{{ $film['title'] }}">
+                              <button type="submit" class="btn btn-primary">Buy License</button>
+                          </form>
                       </div>
                   </div>
+                  @endforeach
               </div>
-        </div>
-        
+          </div>
+      </div>
     </div>
-    
-    
-    <!-- <script src="script.js"></script> -->
     <script src="{{ asset('assets/js/script.js') }}"></script>
 
 </body>

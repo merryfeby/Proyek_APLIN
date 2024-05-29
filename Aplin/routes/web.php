@@ -5,6 +5,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\handleKaryawan;
 use App\Http\Controllers\HandleLogin;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LicenseController;
 
 //route user
 Route::get('/', function () {
@@ -108,25 +109,22 @@ Route::get('/addmoviekar', [handleKaryawan::class, 'listmovies']);
 Route::get('/admin', function () {
     return view('Admin');
 });
-Route::get('/beli', function () {
-    return view('BeliFilm');
-});
-Route::get('/karyawan', function () {
-    return view('Karyawan');
-});
 Route::get('/menukaryawan', function () {
     return view('menukaryawan');
 });
-
-
-
-Route::post('/login',[HandleLogin::class, 'login']);
 
 //action route admin
 Route::get('/karyawan',[EmployeeController::class, 'index']);
 Route::post('/karyawan/insert',[EmployeeController::class, 'insert']);
 Route::patch('/karyawan/update',[EmployeeController::class, 'update']);
 Route::delete('/karyawan/delete',[EmployeeController::class, 'delete']);
+
+Route::get('/beli',[LicenseController::class, 'index']);
+
+
+
+Route::post('/login',[HandleLogin::class, 'login']);
+
 
 
 //action route user
