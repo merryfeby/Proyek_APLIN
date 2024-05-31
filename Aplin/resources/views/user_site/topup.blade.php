@@ -4,7 +4,7 @@
 <div class="px-40 py-10 bg-gray-100 container">
   <h2 class="text-xl font-bold text-indigo-500 text-left mb-2">Top Up Balance</h2>
   <div class="container w-full flex flex-col bg-white rounded-xl  border border-gray-200 p-8">
-    <h2 class="text-md font-semibold text-gray-800 text-left mb-8">Current Balance Rp</h2>
+    <h2 class="text-md font-semibold text-gray-800 text-left mb-8">Current Balance Rp {{ session('login')->balance }}</h2>
     <form action="" method="post">
       @csrf
       <div class="">

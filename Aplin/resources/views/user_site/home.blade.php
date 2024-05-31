@@ -1,7 +1,7 @@
 @extends('user_site.userLayout')
 @section('content') 
   <div class="min-h-screen p-10 flex flex-col items-center justify-center" style="background-image: url('https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/640776f5bf589aa0c82c42e4_movie%20poster%20design.jpg');">
-    <h2 class="text-7xl font-bold text-center text-white">Hi, {{session('login')}}!</h2>
+    <h2 class="text-7xl font-bold text-center text-white">Hi,{{ session('login')->username }}!</h2>
     <h2 class="text-7xl font-bold text-center text-white">Welcome to MovieMate.</h2>
     <div class="flex w-[50%]">
       <h2 class="-xl font-semibold text-center text-white mt-4">"Step into the world of MovieMate, where your cinematic journey begins with effortless online ticket booking!"<h2>

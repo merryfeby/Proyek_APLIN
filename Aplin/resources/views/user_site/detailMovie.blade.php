@@ -8,12 +8,15 @@
       <div class="">
         <div class="flex items-center mb-2">
           <h2 class="text-2xl font-semibold text-left text-black">{{ $data->title }}</h2>
-          <div class="bg-red-200 text-red-700 font-semibold rounded-lg text-xs px-3 py-1 ml-5 text-center items-center ">
-            NO LONGER SHOWING
-          </div>
-          {{-- <div class="bg-emerald-200 text-emerald-700 font-semibold rounded-lg text-xs px-3 py-1 ml-5 text-center items-center ">
-            NOW SHOWING
-          </div> --}}
+          @if($hasScreening)
+            <div class="bg-emerald-200 text-emerald-700 font-semibold rounded-lg text-xs px-3 py-1 ml-5 text-center items-center ">
+              NOW SHOWING
+            </div>
+          @else
+            <div class="bg-red-200 text-red-700 font-semibold rounded-lg text-xs px-3 py-1 ml-5 text-center items-center ">
+              NO LONGER SHOWING
+            </div>
+          @endif
         </div>
         <h2 class="text-sm font-normal text-left text-indigo-500 mb-2">{{ $data->genre }}</h2>
         <h2 class="text-sm font-normal text-left text-indigo-500  mb-4"><span><i class="fa-solid fa-clock mr-2"></i></span>{{ $data->duration }} min</h2>

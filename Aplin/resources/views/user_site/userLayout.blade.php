@@ -43,15 +43,15 @@
 			</li>
 			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="{{ route('history.index') }}">History Ticket</a></li>
 		</ul>
-		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition duration-200 text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{{session('login')}}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition duration-200 text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{{ session('login')->username }}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 			<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
 			</svg>
 		</button>
 		<!-- Dropdown menu -->
 		<div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg w-auto border border-gray-200 shadow-xl">
 			<div class="px-4 py-3 text-sm text-gray-700">
-				<div>sipengeming69@gmail.com</div>
-				<div class="font-medium truncate mt-1">Balance : Rp 50000</div>
+				<div>{{ session('login')->email }}</div>
+				<div class="font-medium truncate mt-1">Balance : Rp {{ session('login')->balance }}</div>
 			</div>
 			<ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownInformationButton">
 				<li><a href="{{ route('topup.index') }}" class="block px-4 py-2  hover:bg-indigo-100">Top Up Balance</a></li>

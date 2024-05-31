@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Movie;
+use App\Models\screening;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -17,7 +18,7 @@ class MovieController extends Controller
 
 	function showDetail($id) {
 		$data = Movie::find($id);
-
-		return view('user_site.detailMovie', compact('data'));
+		$hasScreening = screening::where('movieID',$id)->exists();
+		return view('user_site.detailMovie', compact('data', 'hasScreening'));
 	}
 }
