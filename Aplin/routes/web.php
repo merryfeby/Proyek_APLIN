@@ -14,6 +14,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/login',[HandleLogin::class, 'login']);
+Route::post('/register',[UserController::class, 'register']);
+
 Route::get('/register', function () {
     return view('register');
 });
@@ -27,13 +29,11 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::get('/{id}/detail', [MovieController::class, 'showDetail'])->name('detail');
 });
 
-
 Route::prefix('movies')->name('movies.')->group(function () {
     Route::get('/', [MovieController::class, 'index'])->name('index');
     Route::get('/{id}/detail', [MovieController::class, 'showDetail'])->name('detail');
     
 });
-
 
 Route::prefix('history')->name('history.')->group(function () {
     Route::get('/', [HistoryController::class, 'index'])->name('index');
@@ -46,7 +46,6 @@ Route::prefix('history')->name('history.')->group(function () {
 Route::prefix('topup')->name('topup.')->group(function () {
     Route::get('/', [TopupController::class, 'index'])->name('index');
 });
-
 
 // Route::get('/buyticket', function () {
 //     return view('user_site.detailBuyTicket');
@@ -63,9 +62,6 @@ Route::prefix('topup')->name('topup.')->group(function () {
 //KARYAWAN
 Route::get('/historytrans', function () {
     return view('historytrans');
-});
-Route::get('/register', function () {
-    return view('register');
 });
 
 Route::get('/addmoviekar', function () {

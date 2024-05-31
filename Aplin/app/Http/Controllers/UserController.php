@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+	
 
 	function register(Request $req) {
 		$validated = $req->validate([
@@ -32,12 +33,15 @@ class UserController extends Controller
 			return redirect('/')->with('success', 'Registration successful!');
 		}catch (\Exception $e) {
             
-			Log::error('User registration error: ' . $e->getMessage());
+            Log::error('User registration error: ' . $e->getMessage());
 
-			return redirect('/register')->with('error', 'An error occurred while registering. Please try again.');
-		}
+            return redirect('/register')->with('error', 'An error occurred while registering. Please try again.');
+        }
+		// }
 
 	}
+
+
 
 	function logout() {
 		session()->flush();
@@ -46,10 +50,8 @@ class UserController extends Controller
 
 	function index() {
 		$movies = Movie::whereNotNull('license')->get();
-		$movies_showing = Movie::whereHas('screening')->get();
 		return view('user_site.home', [
-			'movie' => $movies,
-			'movie_showing' => $movies_showing
+			'movie' => $movies
 		]);
 	}
 }
