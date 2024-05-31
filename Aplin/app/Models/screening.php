@@ -25,4 +25,16 @@ class screening extends Model
     {
         return $this->belongsTo(Movie::class, 'movieID', 'id');
     }
+
+    public function studio()
+    {
+        return $this->belongsTo(studio::class, 'studioID', 'id');
+    }
+
+    public function listScreenings()
+{
+    $screenings = Screening::with('movie')->get();
+
+    return view('listScreenings', ['screenings' => $screenings]);
+}
 }

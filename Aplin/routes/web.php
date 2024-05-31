@@ -17,7 +17,10 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+
 Route::post('/logout', [UserController::class, 'logout']); 
+Route::post('/user/register', [UserController::class, 'register']); 
 
 
 Route::prefix('home')->name('home.')->group(function () {
@@ -69,9 +72,6 @@ Route::prefix('topup')->name('topup.')->group(function () {
 Route::get('/historytrans', function () {
     return view('historytrans');
 });
-Route::get('/register', function () {
-    return view('register');
-});
 
 Route::get('/addmoviekar', function () {
     return view('addmoviekar');
@@ -86,11 +86,23 @@ Route::prefix('addoffer')->group(function () {
 
 Route::get('/historytrans', [handleKaryawan::class, 'listHistory']);
 
+Route::get('/listfilm', [handleKaryawan::class, 'listfilm']);
+
 Route::get('/profilekaryawan', [handleKaryawan::class, 'listemployee'])->name('profilekaryawan');
 
 Route::get('/listmoviekar', [handleKaryawan::class, 'listmovie']);
 
 Route::get('/addmoviekar', [handleKaryawan::class, 'listmovies']);
+
+Route::post('/addscreening', [handleKaryawan::class, 'addscreening']);
+
+Route::post('/editscreening', [handleKaryawan::class, 'editScreen']);
+
+Route::post('/editmovie', [handleKaryawan::class, 'editMovie']);
+
+Route::post('/deletefilm', [handleKaryawan::class, 'deleteFilm']);
+
+Route::post('/deletescreening', [handleKaryawan::class, 'deleteScreen']);
 
 // route admin
 Route::get('/admin', function () {

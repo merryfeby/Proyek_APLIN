@@ -50,7 +50,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/listfilm" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <i class="fa-solid fa-video"></i>
                         <span>List movie</span>
                     </a>
@@ -105,26 +105,22 @@
             <div class="mb-5">
                 <h1>Edit Screening</h1>
                 <div class="register ">
-                    <form action="/editscreening" method="post" id="formedit" >
+                    <form action="/editmovie" method="post" id="formedit" >
                         @csrf
-                        <label for="movieid" class="form-label">Movie ID</label>
-                        <select class="form-control w-25" name="movieID" id="movieID" disabled>
-                            @foreach($listmovie as $movie)
-                                <option value="{{ $movie->movie['id'] }}">{{ $movie->movie['id'] }}</option>
-                            @endforeach
-                        </select>
 
-                        <label for="studioid" class="form-label">Studio ID</label>
-                        <select name="studioID" id="studioID" class="form-control w-25" disabled>
-                            @foreach($studio as $studio)
-                                <option value="{{ $studio['id'] }}">{{ $studio['id'] }}</option>
-                            @endforeach
-                        </select>
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control w-25" name="title" id="title" disabled required>
 
-                        <label for="tayang" class="form-label">Waktu Tayang</label>
-                        <input type="datetime-local" class="form-control w-25 mb-3" name="tayang" id="tayang" disabled>
-                                                
-                        <button type="submit" class="btn btn-primary" id="editnow" disabled>Edit</button>
+                        <label for="duration" class="form-label">Duration</label>
+                        <input type="text" class="form-control w-25" name="duration" id="duration" disabled required>
+
+                        <label for="poster" class="form-label">Link poster</label>
+                        <input type="text" class="form-control w-25" name="poster" id="poster" disabled required>
+                        
+                        <label for="synopsis" class="form-label">Synopsis</label>
+                        <textarea class="form-control w-25 mb-3" name="synopsis" id="synopsis"  disabled required></textarea>
+                        
+                        <button type="submit" class="btn btn-primary click" disabled>Edit</button>
 
                         <input type="hidden" name="id" id="id">
                     </form>
@@ -135,31 +131,30 @@
             <table class="table table-hover table-bordered " id="movies-table">
                 <thead>
                   <tr>
-                    <th>Screening ID</th>
-                    <th>Studio ID</th>
                     <th>Movie ID</th>
                     <th>Title</th>
-                    <th>Show time</th>
+                    <th>Duration</th>
+                    <th>Poster</th>
+                    <th>Synopsis</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($listmovie as $movie)
+                    @foreach($movie as $movie)
                     <tr>
                         <td>{{ $movie['id'] }}</td>
-                        <td>{{ $movie->studio['id'] }}</td>
-                        <td>{{ $movie->movie['id'] }}</td>
-                        <td>{{ $movie->movie['title'] }}</td>
-                        <td>{{ $movie['starttime'] }}</td>
+                        <td>{{ $movie['title'] }}</td>
+                        <td>{{ $movie['duration'] }}</td>
+                        <td><img src="{{$movie['poster']}}" alt="Not Found" srcset="" width="200" height="280"></td>
+                        <td>{{ $movie['synopsis'] }}</td>
                         <td class="align-middle"><button type="button" class="btn btn-secondary changebtn" id="changebtn">Change</button></td>
                         <td class="align-middle">
-                            <form action="/deletescreening" method="post">
+                            <form action="/deletefilm" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $movie['id'] }}">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -189,19 +184,24 @@
 
         $('.changebtn').click(function() {
             var row = $(this).closest('tr');
-            var screenid = row.find('td:eq(0)').text();
-            var studioid = row.find('td:eq(1)').text();
-            var movieid = row.find('td:eq(2)').text();
-            var showtime = row.find('td:eq(4)').text();
+            var movieid = row.find('td:eq(0)').text();
+            var title = row.find('td:eq(1)').text();
+            var duration = row.find('td:eq(2)').text();
+            var poster = row.find('img').attr('src');
+            var synopsis = row.find('td:eq(4)').text();
 
-            $('#movieID').prop('disabled', false);
-            $('#studioID').prop('disabled', false);
-            $('#tayang').prop('disabled', false);
-            $('#editnow').prop('disabled', false);
-            $('#id').val(screenid);
-            $('#movieID').val(movieid);
-            $('#studioID').val(studioid);
-            $('#tayang').val(showtime);
+            $('#title').prop('disabled', false);
+            $('#duration').prop('disabled', false);
+            $('#poster').prop('disabled', false);
+            $('#synopsis').prop('disabled', false);
+            $('.click').prop('disabled', false);
+
+            $('#id').val(movieid);
+            $('#title').val(title);
+            $('#duration').val(duration);
+            $('#poster').val(poster);
+            $('#synopsis').val(synopsis);
+
         });
     </script>
 
