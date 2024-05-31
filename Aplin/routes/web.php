@@ -9,18 +9,18 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\TopupController;
 use App\Http\Controllers\UserController;
 
-//GENERAL
+
+//USER
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/login',[HandleLogin::class, 'login']);
-Route::post('/register',[UserController::class, 'register']);
 
 Route::get('/register', function () {
     return view('register');
 });
+Route::post('/user/login',[HandleLogin::class, 'login']);
+Route::post('/user/register',[UserController::class, 'register']);
 
-//USER
 Route::post('/logout', [UserController::class, 'logout']); 
 
 
