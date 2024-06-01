@@ -45,15 +45,19 @@ Route::prefix('history')->name('history.')->group(function () {
 // });
 Route::prefix('topup')->name('topup.')->group(function () {
     Route::get('/', [TopupController::class, 'index'])->name('index');
+    Route::post('/process', [TopupController::class, 'process'])->name('process');
+    Route::get('/checkout/{topup}', [TopupController::class, 'checkout'])->name('checkout');
+    Route::get('/success/{topup}', [TopupController::class, 'success'])->name('success');
 });
 
 // Route::get('/buyticket', function () {
 //     return view('user_site.detailBuyTicket');
 // });
 
-// Route::get('/navbar', function () {
-//     return view('navbar');
-// });
+Route::get('/tes', function () {
+    return view('user_site.checkout');
+});
+
 // Route::get('/userLayout', function () {
 //     return view('user_site.userLayout');
 // });

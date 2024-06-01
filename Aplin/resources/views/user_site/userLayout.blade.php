@@ -51,7 +51,7 @@
 		<div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg w-auto border border-gray-200 shadow-xl">
 			<div class="px-4 py-3 text-sm text-gray-700">
 				<div>{{ session('login')->email }}</div>
-				<div class="font-medium truncate mt-1">Balance : Rp {{ session('login')->balance }}</div>
+				<div class="font-medium truncate mt-1">Balance: Rp {{ number_format(session('login')->balance, 0, ',', '.')  }}</div>
 			</div>
 			<ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownInformationButton">
 				<li><a href="{{ route('topup.index') }}" class="block px-4 py-2  hover:bg-indigo-100">Top Up Balance</a></li>
@@ -92,5 +92,7 @@
       </div>
     </div>
   </div>
+
+	@yield('scripts')
 </body>
 </html>

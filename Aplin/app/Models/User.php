@@ -18,4 +18,9 @@ class User extends Model
 		'email',	
 		'telp',	
 	];
+
+	public function topup() {
+		return $this->hasMany(Topup::class, 'customer', 'username');
+	}
+
 }

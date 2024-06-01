@@ -26,17 +26,17 @@
           <h2 class="text-sm font-semibold text-gray-600 text-left mb-1"></i>Seats</h2>
           <div class="flex justify-between items-center">
             <h2 class="text-sm font-normal text-left text-gray-600">A12</h2>
-            <h2 class="text-sm font-normal text-left text-gray-600">RP 50000</h2>
+            <h2 class="text-sm font-normal text-left text-gray-600">Rp 50000</h2>
           </div>
           <div class="flex justify-between items-center">
             <h2 class="text-sm font-normal text-left text-gray-600">A12</h2>
-            <h2 class="text-sm font-normal text-left text-gray-600">RP 50000</h2>
+            <h2 class="text-sm font-normal text-left text-gray-600">Rp 50000</h2>
           </div>
         </div>
         <div class="flex flex-col px-5 py-2">
           <div class="flex justify-between items-center">
             <h2 class="text-sm font-semibold text-gray-600 text-left mb-1"></i>Total </h2>
-            <h2 class="text-sm font-normal text-left text-gray-600">RP 100000</h2>
+            <h2 class="text-sm font-normal text-left text-gray-600">Rp 100000</h2>
           </div>
         </div>
       </div>
