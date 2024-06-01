@@ -33,28 +33,28 @@ CREATE TABLE `employee` (
 /*Data for the table `employee` */
 
 insert  into `employee`(`username`,`password`,`name`,`status`,`updated_at`,`created_at`) values 
-('deleted','deleted','Employee 2',0,NULL,NULL),
-('emp','emp','Employee 1',1,NULL,NULL),
+('emp','emp','Employee 1',1,'2024-05-24 13:04:32','2024-05-24 13:04:32'),
 ('rap','rap','rap',1,'2024-05-06 07:46:27','2024-05-06 07:46:27'),
 ('tino','tino','tino',1,'2024-05-06 02:31:47','2024-05-06 02:31:47');
 
-/*Table structure for table `failed_jobs` */
+/*Table structure for table `licenses` */
 
-DROP TABLE IF EXISTS `failed_jobs`;
+DROP TABLE IF EXISTS `licenses`;
 
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
+CREATE TABLE `licenses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `movieID` int(11) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `movieID` (`movieID`),
+  CONSTRAINT `licenses_ibfk_1` FOREIGN KEY (`movieID`) REFERENCES `movie` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Data for the table `failed_jobs` */
+/*Data for the table `licenses` */
+
+insert  into `licenses`(`id`,`movieID`,`created_at`) values 
+(1,1,'2024-05-24 13:13:08'),
+(2,2,'2024-05-28 17:24:02');
 
 /*Table structure for table `location` */
 
@@ -62,33 +62,15 @@ DROP TABLE IF EXISTS `location`;
 
 CREATE TABLE `location` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `location` varchar(255) NOT NULL,
   `address` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `location` */
 
-insert  into `location`(`id`,`address`) values 
-(1,'Jl. Ngagel Jaya Tengah No.73-77, Baratajaya, Kec. Gubeng, Surabaya, Jawa Timur 60284');
-
-/*Table structure for table `migrations` */
-
-DROP TABLE IF EXISTS `migrations`;
-
-CREATE TABLE `migrations` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) NOT NULL,
-  `batch` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-/*Data for the table `migrations` */
-
-insert  into `migrations`(`id`,`migration`,`batch`) values 
-(1,'2014_10_12_000000_create_users_table',1),
-(2,'2014_10_12_100000_create_password_reset_tokens_table',1),
-(3,'2019_08_19_000000_create_failed_jobs_table',1),
-(4,'2019_12_14_000001_create_personal_access_tokens_table',1);
+insert  into `location`(`id`,`location`,`address`) values 
+(1,'XXI Nganjuk','Jl. Ngagel Jaya Tengah No.73-77, Baratajaya, Kec. Gubeng, Surabaya, Jawa Timur 60284');
 
 /*Table structure for table `movie` */
 
@@ -103,17 +85,19 @@ CREATE TABLE `movie` (
   `director` varchar(255) DEFAULT NULL,
   `poster` varchar(255) DEFAULT NULL,
   `genre` varchar(225) DEFAULT NULL,
-  `license` varchar(255) DEFAULT NULL,
+  `license` int(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT 1,
   `synopsis` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `license` (`license`),
+  CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`license`) REFERENCES `licenses` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `movie` */
 
 insert  into `movie`(`id`,`title`,`duration`,`cast`,`producer`,`director`,`poster`,`genre`,`license`,`status`,`synopsis`) values 
-(1,'Elemental',120,'Jennifer Lawrence as Ember, Chris Pratt as Terra, Zendaya as Aqua, and Tom Holland as Zephyr','Pixar','John Lasseter and Pete Docter','https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg','Kids','S1P3N',1,'\"Elemental\" follows the journey of Ember, a spirited young fire sprite, who embarks on a quest to restore balance to the world when the elemental forces of nature start to unravel. Alongside her newfound friends, Terra, an earth guardian, Aqua, a water ny'),
-(2,'How to Make Millions Before Grandma Dies',126,'',NULL,NULL,'https://asset.tix.id/wp-content/uploads/2024/05/0ae91767-957f-476b-a433-028aba02e6f2.webp',NULL,NULL,1,NULL);
+(1,'Elemental',120,'Jennifer Lawrence as Ember, Chris Pratt as Terra, Zendaya as Aqua, and Tom Holland as Zephyr','Pixar','John Lasseter and Pete Docter','https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg','Kids',1,1,'\"Elemental\" follows the journey of Ember, a spirited young fire sprite, who embarks on a quest to restore balance to the world when the elemental forces of nature start to unravel. Alongside her newfound friends, Terra, an earth guardian, Aqua, a water ny'),
+(2,'How to Make Millions Before Grandma Dies',126,'Putthipong Assaratanakul, Tontawan Tantivejakul, Usha Seamkhum, Sarinrat Thomas, Sanya Kunakorn, Pongsatorn Jongwilas, Himawari Tajiri','GDH','Pat Boonnitipat','https://asset.tix.id/wp-content/uploads/2024/05/0ae91767-957f-476b-a433-028aba02e6f2.webp','Drama',2,1,'A young man quits his job to look after his dying grandmother and it becomes a journey of complex family relationships, sacrifices and the pursuit of happiness.');
 
 /*Table structure for table `offers` */
 
@@ -183,41 +167,6 @@ CREATE TABLE `orders` (
 
 insert  into `orders`(`orderNumber`,`screeningID`,`offerID`,`customer`,`employee`,`created_at`,`subtotal`,`grandtotal`,`status`) values 
 (2,1,NULL,'user','emp','2024-05-05 21:46:46',80000,80000,1);
-
-/*Table structure for table `password_reset_tokens` */
-
-DROP TABLE IF EXISTS `password_reset_tokens`;
-
-CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-/*Data for the table `password_reset_tokens` */
-
-/*Table structure for table `personal_access_tokens` */
-
-DROP TABLE IF EXISTS `personal_access_tokens`;
-
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `tokenable_type` varchar(255) NOT NULL,
-  `tokenable_id` bigint(20) unsigned NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `expires_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-/*Data for the table `personal_access_tokens` */
 
 /*Table structure for table `screening` */
 
@@ -354,16 +303,31 @@ CREATE TABLE `topup` (
   `method` varchar(255) NOT NULL DEFAULT '-',
   `amount` int(11) NOT NULL,
   `transdate` datetime NOT NULL DEFAULT current_timestamp(),
-  `status` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
+  `snap_token` varchar(225) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `customer` (`customer`),
   CONSTRAINT `topup_ibfk_1` FOREIGN KEY (`customer`) REFERENCES `user` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `topup` */
 
-insert  into `topup`(`id`,`customer`,`method`,`amount`,`transdate`,`status`) values 
-(1,'user','OVO',100000,'2024-05-05 21:42:50',1);
+insert  into `topup`(`id`,`customer`,`method`,`amount`,`transdate`,`status`,`snap_token`) values 
+(1,'user','OVO',100000,'2024-05-05 21:42:50',1,NULL),
+(2,'user','-',25000,'2024-06-01 01:21:05',0,'923da6f7-4299-4377-b21c-c64d0fcafab6'),
+(3,'user','-',25000,'2024-06-01 12:30:06',0,'7ce7dcf4-a295-4033-b4c6-e176e261fa4a'),
+(4,'user','-',25000,'2024-06-01 12:30:49',0,'98507c3e-d525-4e71-915c-d15f005525a8'),
+(5,'user','-',234234234,'2024-06-01 13:51:02',0,'095126d8-d687-4958-88ee-6a987efc6774'),
+(6,'user','-',234234234,'2024-06-01 13:51:35',0,'05d51d2b-e135-4624-a5ac-f71801944bc2'),
+(7,'user','-',234234234,'2024-06-01 13:51:49',0,'acf5dda4-1d8f-4df0-b28c-84c347ef113a'),
+(8,'user','-',50000,'2024-06-01 14:33:19',0,'7475b975-b5f5-419e-a57b-77ace4f9e094'),
+(9,'user','-',50000,'2024-06-01 14:34:10',0,'435943aa-ded7-4434-9340-36dbc498e88f'),
+(10,'user','-',50000,'2024-06-01 14:35:09',0,'10a693fc-936b-4f55-af67-4743d266620d'),
+(11,'user','-',50000,'2024-06-01 14:39:21',1,'06e1ea5d-bc39-4187-aa87-c2caeab265ac'),
+(12,'user','-',50000,'2024-06-01 14:41:59',1,'3c1df8fb-ccb5-411b-ae70-f3cd2fcccda2'),
+(13,'user','-',50000,'2024-06-01 14:49:38',1,'3593b8ce-1514-499a-84ee-eb6700e68cff'),
+(14,'user','-',50000,'2024-06-01 14:55:55',1,'2fa00163-7063-4095-9e22-f09704c4b7ea'),
+(15,'user','-',50000,'2024-06-01 15:00:33',1,'a76dcad1-e452-4cfc-8d0d-227340c5d7c7');
 
 /*Table structure for table `user` */
 
@@ -383,34 +347,9 @@ CREATE TABLE `user` (
 /*Data for the table `user` */
 
 insert  into `user`(`username`,`password`,`email`,`telp`,`balance`,`created_at`,`updated_at`) values 
-('a','a','a@gmial.com','a',0,'2024-05-08 14:16:19','2024-05-08 14:16:19'),
-('c','c','c@gmail.com','c',0,'2024-05-08 14:17:17','2024-05-08 14:17:17'),
-('d','d','merryfebyanti@gmail.com','d',0,'2024-05-07 19:10:11','2024-05-07 19:10:11'),
-('hansel','hansel','merryfebyanti@gmail.com','123',0,'2024-05-15 02:00:30','2024-05-15 02:00:30'),
+('ayam','$2y$12$SOyINePGbMdh.MmyvYk/EuDZ0X3V7/t3abCW266T.FCzHOWE8U8QK','tes@gmail.com','123',0,'2024-05-31 11:01:05','2024-05-31 11:01:05'),
 ('tes','$2y$12$h/TQEItCKroQxUytRRlrCurDK0P4MHTyMkakGeOwiTbph6SpI8Clm','tes@gmail.com','123123',0,'2024-05-22 18:07:10','2024-05-22 18:07:10'),
-('user','user','user@gmail.com','081234567890',100000,NULL,NULL);
-
-/*Table structure for table `users` */
-
-DROP TABLE IF EXISTS `users`;
-
-CREATE TABLE `users` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-/*Data for the table `users` */
-
-insert  into `users`(`id`,`name`,`email`,`email_verified_at`,`password`,`remember_token`,`created_at`,`updated_at`) values 
-(1,'a','a','2024-05-06 15:48:16','a',NULL,'2024-05-06 15:48:21','2024-05-06 15:48:24');
+('user','$2y$12$UJdbo6QifPJOai3kEHOBS.9WDKEH90o0im6CUfXyog9GYSgLV1SwW','user@gmail.com','081234567890',350000,NULL,'2024-06-01 08:00:56');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
