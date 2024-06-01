@@ -19,7 +19,7 @@ cd moviemate
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=moviemate
+DB_DATABASE=db_moviemate
 DB_USERNAME=root
 DB_PASSWORD=password
 
