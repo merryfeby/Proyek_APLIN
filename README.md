@@ -13,3 +13,32 @@
 git clone https://github.com/yourusername/moviemate.git
 cd moviemate
 ```
+
+2. Set Up Environment Variables
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=moviemate
+DB_USERNAME=root
+DB_PASSWORD=password
+
+MIDTRANS_SERVER_KEY=your_midtrans_server_key
+MIDTRANS_CLIENT_KEY=your_midtrans_client_key
+```
+
+3.  Install Dependencies
+```
+composer install
+```
+
+4. Set Up Database & Key
+```
+php artisan migrate --seed
+php artisan key:generate
+```
+
+5. Run
+```
+php artisan serve
+```
