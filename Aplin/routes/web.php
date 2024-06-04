@@ -96,18 +96,15 @@ Route::get('/menukaryawan', function () {
     return view('menukaryawan');
 });
 
-<<<<<<< HEAD
-//action route admin
-=======
-
 //ADMIN
->>>>>>> origin/Merry
 Route::get('/karyawan',[EmployeeController::class, 'index']);
 Route::post('/karyawan/insert',[EmployeeController::class, 'insert']);
 Route::patch('/karyawan/update',[EmployeeController::class, 'update']);
 Route::delete('/karyawan/delete',[EmployeeController::class, 'delete']);
 
 Route::get('/beli',[LicenseController::class, 'index']);
+Route::post('/beli/beliFilm', [LicenseController::class, 'beli']);
+
 
 
 

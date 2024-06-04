@@ -18,6 +18,7 @@ class LicenseController extends Controller
     function beli(Request $request)
     {
         $movieId = $request->input('id');
+        // dd($movieId);
 
         if (!$movieId) {
             return redirect()->back()->withErrors(['error' => 'Movie ID is required for license purchase.']);

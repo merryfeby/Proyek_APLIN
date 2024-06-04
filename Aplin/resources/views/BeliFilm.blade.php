@@ -79,9 +79,9 @@
                     <div class="card-body">
                           <h5 class="card-title">{{ $film['title'] }}</h5>
                           <p class="card-text">Produced by: {{ $film['producer'] }}</p>
-                          <form action="/films/buy" method="post">
+                          <form action="/beli/beliFilm" method="post">
                               @csrf
-                              <input type="hidden" name="title" value="{{ $film['title'] }}">
+                              <input type="hidden" name="id" value="{{ $film['id'] }}">
                               <button type="submit" class="btn btn-primary">Buy License</button>
                           </form>
                       </div>
