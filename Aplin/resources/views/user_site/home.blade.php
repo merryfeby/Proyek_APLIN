@@ -12,7 +12,7 @@
     <h2 class="text-4xl font-bold text-indigo-500 text-center mt-10 mb-8">Now Showing</h2>
     <div class="flex justify-center items-center gap-6">
       @foreach ($movie_showing as $i)
-      <form action="" method="post">
+      <form action="{{ route('order.detail', ['id' => $i->id]) }}" method="get">
         @csrf
         <div class="container w-60 bg-white rounded-xl shadow-lg p-4">
           <img class="rounded-xl" src="{{ $i->poster }}" alt="" />

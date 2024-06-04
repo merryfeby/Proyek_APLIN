@@ -25,4 +25,9 @@ class screening extends Model
     {
         return $this->belongsTo(Movie::class, 'movieID', 'id');
     }
+
+    public function studio()
+    {
+        return $this->belongsTo(Studio::class, 'studioID', 'id');
+    }
 }

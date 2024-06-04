@@ -7,9 +7,9 @@
     <img class="rounded-xl" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" style="width: 250px" />
     <div class="flex flex-col px-5">
       <div class="">
-        <h2 class="text-2xl font-semibold text-left text-black mb-2">Elemental</h2>
-        <h2 class="text-sm font-normal text-left text-indigo-500 mb-2">Romance, Kids</h2>
-        <h2 class="text-sm font-normal text-left text-indigo-500  mb-1"><i class="fa-solid fa-video mr-2"></i></i></span>Studio 1</h2>
+        <h2 class="text-2xl font-semibold text-left text-black mb-2">{{ $data->title }}</h2>
+        <h2 class="text-sm font-normal text-left text-indigo-500 mb-2">{{ $data->genre }}</h2>
+        <h2 class="text-sm font-normal text-left text-indigo-500  mb-1"><i class="fa-solid fa-video mr-2"></i></i></span>{{ $studioName }}</h2>
         <h2 class="text-sm font-normal text-left text-indigo-500  mb-4"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min • 17:00 - 19:30</h2>
       </div>
       <div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\handleKaryawan;
 use App\Http\Controllers\HandleLogin;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TopupController;
 use App\Http\Controllers\UserController;
 
@@ -39,10 +40,11 @@ Route::prefix('history')->name('history.')->group(function () {
     Route::get('/', [HistoryController::class, 'index'])->name('index');
    
 });
-// Route::prefix('order')->name('order.')->group(function () {
-//     Route::get('/', [UserController::class, 'index'])->name('index');
-    
-// });
+Route::prefix('order')->name('order.')->group(function () {
+    Route::get('/', [OrderController::class, 'index'])->name('index');  
+    Route::get('/{id}/detail', [OrderController::class, 'showDetail'])->name('detail');  
+});
+
 Route::prefix('topup')->name('topup.')->group(function () {
     Route::get('/', [TopupController::class, 'index'])->name('index');
     Route::post('/process', [TopupController::class, 'process'])->name('process');
@@ -50,9 +52,6 @@ Route::prefix('topup')->name('topup.')->group(function () {
     Route::get('/success/{topup}', [TopupController::class, 'success'])->name('success');
 });
 
-// Route::get('/buyticket', function () {
-//     return view('user_site.detailBuyTicket');
-// });
 
 Route::get('/tes', function () {
     return view('user_site.checkout');
