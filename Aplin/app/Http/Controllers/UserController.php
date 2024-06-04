@@ -11,16 +11,15 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-
 	function register(Request $req) {
 		$validated = $req->validate([
-            'username' => 'required|unique:user,username',
-            'password' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|integer',
-        ]);
+			'username' => 'required|unique:user,username',
+			'password' => 'required',
+			'email' => 'required|email',
+			'phone' => 'required|integer',
+		]);
 
-		try{
+		try {
 			$new_user = new User;
 			$new_user->username = $req->username;
 			$new_user->password = Hash::make($req->password);
@@ -30,14 +29,11 @@ class UserController extends Controller
 			$new_user->save();
 	
 			return redirect('/')->with('success', 'Registration successful!');
-		}catch (\Exception $e) {
-            
-            Log::error('User registration error: ' . $e->getMessage());
 
-            return redirect('/register')->with('error', 'An error occurred while registering. Please try again.');
-        }
-		// }
-
+		} catch (\Exception $e) {
+			Log::error('User registration error: ' . $e->getMessage());
+			return redirect('/register')->with('error', 'An error occurred while registering. Please try again.');
+		}
 	}
 
 	function logout() {
@@ -47,8 +43,10 @@ class UserController extends Controller
 
 	function index() {
 		$movies = Movie::whereNotNull('license')->get();
+		$movies_showing = Movie::whereHas('screening')->get();
 		return view('user_site.home', [
-			'movie' => $movies
+			'movie' => $movies,
+			'movie_showing' => $movies_showing
 		]);
 	}
 }

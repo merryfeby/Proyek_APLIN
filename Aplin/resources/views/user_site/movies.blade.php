@@ -17,54 +17,23 @@
     </div>
   </div>
   <div class="flex justify-center items-center gap-6 flex-wrap w-[60%]">
-    <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-      <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-      <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-    </button>
-    <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-      <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-      <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-    </button>
-    <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-      <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-      <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-    </button>
-    <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-      <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-      <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-    </button>
-    <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-      <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-      <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-    </button>
-    <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-      <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-      <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-    </button>
-    <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-      <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-      <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-    </button>
-    <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400 ">
-      <img class="rounded-xl w-40" src="https://upload.wikimedia.org/wikipedia/id/7/7a/Elemental-_Force_of_Nature_poster_Indonesia.jpg" alt="" />
-      <h2 class="text-md font-semibold text-center text-black text-center my-2">Elemental</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2">Romance, Kids</h2>
-      <h2 class="text-xs font-normal text-center text-indigo-500 text-center my-2"><span><i class="fa-solid fa-clock mr-2"></i></span>130 min</h2>
-    </button>
+    @foreach ($movie as $i)
+    <form action="{{ route('movies.detail', ['id' => $i->id]) }}" method="get">
+      @csrf
+      <button class="container w-44 bg-white rounded-xl shadow-lg p-3 transition duration-300 hover:border-2 hover:border-indigo-400">
+        <img class="rounded-xl w-40 h-60 object-cover" src="{{$i->poster}}" alt="Movie Poster" />
+        <div class="text-center my-2">
+          <h2 class="text-md font-semibold text-black overflow-hidden text-ellipsis whitespace-nowrap" style="height: 1.5em;">{{$i->title}}</h2>
+        </div>
+        <div class="text-center my-2">
+          <h2 class="text-xs font-normal text-indigo-500">{{$i->genre}}</h2>
+        </div>
+        <div class="text-center my-2">
+          <h2 class="text-xs font-normal text-indigo-500"><span><i class="fa-solid fa-clock mr-2"></i></span>{{$i->duration}} min</h2>
+        </div>
+      </button>
+    </form>
+    @endforeach
   </div>
 </div>
 @endsection

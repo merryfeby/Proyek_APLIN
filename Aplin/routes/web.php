@@ -4,10 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\handleKaryawan;
 use App\Http\Controllers\HandleLogin;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\TopupController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LicenseController;
 
-//route user
+
+//USER
 Route::get('/', function () {
     return view('welcome');
 });
@@ -15,75 +19,54 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register');
 });
+Route::post('/user/login',[HandleLogin::class, 'login']);
+Route::post('/user/register',[UserController::class, 'register']);
+
+Route::post('/logout', [UserController::class, 'logout']); 
 
 
 Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
-    Route::get('/{id}', [UserController::class, 'index'])->name('detailmovie');
+    Route::get('/{id}/detail', [MovieController::class, 'showDetail'])->name('detail');
 });
 
 Route::prefix('movies')->name('movies.')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
-   
-});
-Route::prefix('history')->name('history.')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
-   
-});
-Route::prefix('order')->name('order.')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/', [MovieController::class, 'index'])->name('index');
+    Route::get('/{id}/detail', [MovieController::class, 'showDetail'])->name('detail');
     
 });
+
+Route::prefix('history')->name('history.')->group(function () {
+    Route::get('/', [HistoryController::class, 'index'])->name('index');
+   
+});
+// Route::prefix('order')->name('order.')->group(function () {
+//     Route::get('/', [UserController::class, 'index'])->name('index');
+    
+// });
 Route::prefix('topup')->name('topup.')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/', [TopupController::class, 'index'])->name('index');
+    Route::post('/process', [TopupController::class, 'process'])->name('process');
+    Route::get('/checkout/{topup}', [TopupController::class, 'checkout'])->name('checkout');
+    Route::get('/success/{topup}', [TopupController::class, 'success'])->name('success');
 });
 
-
-// Route::get('/homeUser', function () {
-//     return view('user_site.home');
+// Route::get('/buyticket', function () {
+//     return view('user_site.detailBuyTicket');
 // });
 
-// Route::get('/homeUser',[UserController::class, 'index']);
-
-Route::get('/movies', function () {
-    return view('user_site.movies');
+Route::get('/tes', function () {
+    return view('user_site.checkout');
 });
 
-Route::get('/historyTicket', function () {
-    return view('user_site.historyTicket');
-});
-
-Route::get('/buyticket', function () {
-    return view('user_site.detailBuyTicket');
-});
-
-Route::get('/detailMovie', function () {
-    return view('user_site.detailMovie');
-});
-
-Route::get('/topup', function () {
-    return view('user_site.topup');
-});
-
-// Route::get('/navbar', function () {
-//     return view('navbar');
-// });
 // Route::get('/userLayout', function () {
 //     return view('user_site.userLayout');
 // });
 
 
-
-
-
-
-//route karyawan
-
+//KARYAWAN
 Route::get('/historytrans', function () {
     return view('historytrans');
-});
-Route::get('/register', function () {
-    return view('register');
 });
 
 Route::get('/addmoviekar', function () {
@@ -113,7 +96,12 @@ Route::get('/menukaryawan', function () {
     return view('menukaryawan');
 });
 
+<<<<<<< HEAD
 //action route admin
+=======
+
+//ADMIN
+>>>>>>> origin/Merry
 Route::get('/karyawan',[EmployeeController::class, 'index']);
 Route::post('/karyawan/insert',[EmployeeController::class, 'insert']);
 Route::patch('/karyawan/update',[EmployeeController::class, 'update']);
@@ -127,7 +115,4 @@ Route::post('/login',[HandleLogin::class, 'login']);
 
 
 
-//action route user
-Route::post('/user/register', [UserController::class, 'register']); 
-Route::post('/user/logout', [UserController::class, 'logout']); 
 

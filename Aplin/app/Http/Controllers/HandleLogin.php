@@ -14,24 +14,23 @@ use Illuminate\Support\Facades\Hash;
 
 class HandleLogin extends Controller
 {
-	//
 	function index(){
-			$employee = Employee::where('status',1)->get();
-			return view("Karyawan",[
-					'employee' => $employee
-			]);
+		$employee = Employee::where('status',1)->get();
+		return view("Karyawan",[
+				'employee' => $employee
+		]);
 	}
 	public function login(Request $request)
 	{
 		$username = $request->input('username');
 		$password = $request->input('password');
-
 		
 		$user = User::where('username', $username)->first();
 		$employee = Employee::where('username', $username)->first();
 		
 		if ($user && Hash::check($password, $user->password)) {
-			session(['login' => $username]);
+			Log::alert($user);
+			session(['login' => $user]);
 			return redirect()->route('home.index');
 		} else if ($employee && $password == $employee->password) {
 			session(['login' => $username]);

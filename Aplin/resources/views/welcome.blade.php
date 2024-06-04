@@ -20,7 +20,7 @@
 <body class="bg-gray-100 text-gray-900 min-h-screen w-100">
   <div class="flex justify-center place-items-center w-100 min-h-screen">
     <div class="bg-white lg:w-1/4 sm:w-3/5 p-[4rem]  shadow sm:rounded-lg">
-      <form action="/login" method="post">
+    <form action="/user/login" method="post">
         @csrf
         <div class="flex flex-row justify-center items-center">
 					<i class="fa-solid fa-ticket text-indigo-500"></i>
@@ -37,7 +37,6 @@
         </div>
         <div class="text-center flex flex-col">
           <button type="submit" name="login" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">Login</button>
-          <!-- <input type="button" value="Register" onclick="location.href='register.php'" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> -->
         <div>
 					<p class="mt-6 text-xs text-gray-600 text-center">
 						Don't have an account?

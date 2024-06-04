@@ -11,10 +11,16 @@ class User extends Model
 
 	protected $table = 'user';
 	protected $primaryKey = 'username';
+	protected $keyType = 'string';
 	protected $fillable = [
 		'username',	
 		'password',	
 		'email',	
 		'telp',	
 	];
+
+	public function topup() {
+		return $this->hasMany(Topup::class, 'customer', 'username');
+	}
+
 }

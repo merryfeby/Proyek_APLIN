@@ -29,39 +29,33 @@
       <h1 class="font-semibold text-lg text-indigo-500 ml-2">Moviemate</h1>
     </div>
 		<ul class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2  mx-auto flex items-center w-auto space-x-6">
-			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="/homeUser">Home</a></li>
+			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="{{ route('home.index') }}">Home</a></li>
 			<li class="text-gray-300">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
-      <li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="/offers">Offers</a></li>
+			<li><a class="text-sm font-semibold text-indigo-500 hover:text-indigo-700" href="{{ route('movies.index')}}">Movies</a></li>
 			<li class="text-gray-300">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
-			<li><a class="text-sm font-semibold text-indigo-500 hover:text-indigo-700" href="/movies">Movies</a></li>
-			<li class="text-gray-300">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-				</svg>
-			</li>
-			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="/historyTicket">History Ticket</a></li>
+			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="{{ route('history.index') }}">History Ticket</a></li>
 		</ul>
-		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition duration-200 text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{{session('login')}}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition duration-200 text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">{{ session('login')->username }}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 			<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
 			</svg>
 		</button>
 		<!-- Dropdown menu -->
 		<div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg w-auto border border-gray-200 shadow-xl">
 			<div class="px-4 py-3 text-sm text-gray-700">
-				<div>sipengeming69@gmail.com</div>
-				<div class="font-medium truncate mt-1">Balance : Rp 50000</div>
+				<div>{{ session('login')->email }}</div>
+				<div class="font-medium truncate mt-1">Balance: Rp {{ number_format(session('login')->balance, 0, ',', '.')  }}</div>
 			</div>
 			<ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownInformationButton">
-				<li><a href="/topup" class="block px-4 py-2  hover:bg-indigo-100">Top Up Balance</a></li>
-        <form action="/user/logout" method="post">
+				<li><a href="{{ route('topup.index') }}" class="block px-4 py-2  hover:bg-indigo-100">Top Up Balance</a></li>
+        <form action="/logout" method="post">
           @csrf
           <li><button type="submit" class="block text-left w-full px-4 py-2  hover:bg-indigo-100">Log Out</button></li>
         </form>
@@ -98,5 +92,7 @@
       </div>
     </div>
   </div>
+
+	@yield('scripts')
 </body>
 </html>
