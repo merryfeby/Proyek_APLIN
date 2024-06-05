@@ -28,6 +28,11 @@ class screening extends Model
 
     public function studio()
     {
-        return $this->belongsTo(Studio::class, 'studioID', 'id');
+        return $this->belongsTo(studio::class, 'studioID', 'id');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(order::class, 'screeningID', 'id');
     }
 }

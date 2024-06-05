@@ -28,6 +28,6 @@ class studio extends Model
 
     public function location()
     {
-        return $this->belongsTo(location::class, 'location', 'id');
+        return $this->belongsTo(location::class, 'locationID', 'id');
     }
 }

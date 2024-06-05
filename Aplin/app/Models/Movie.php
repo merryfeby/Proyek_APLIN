@@ -31,4 +31,9 @@ class Movie extends Model
     {
         return $this->hasMany(screening::class, 'movieID', 'id');
     }
+
+    public function license(): HasOne
+    {
+        return $this->hasOne(License::class);
+    }
 }
