@@ -41,19 +41,13 @@
                 <li class="sidebar-item">
                     <a href="/addmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Add screening</span>
+                        <span>Add movie</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="/listmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-clapperboard"></i>
-                        <span>List screening</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="/listfilm" class="sidebar-link">
-                        <i class="fa-solid fa-video"></i>
-                        <span>List screening</span>
+                        <span>List movie</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

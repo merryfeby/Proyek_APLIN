@@ -31,13 +31,6 @@ class screening extends Model
         return $this->belongsTo(studio::class, 'studioID', 'id');
     }
 
-    public function listScreenings()
-{
-    $screenings = Screening::with('movie')->get();
-
-    return view('listScreenings', ['screenings' => $screenings]);
-}
-
     public function orders()
     {
         return $this->hasMany(order::class, 'screeningID', 'id');

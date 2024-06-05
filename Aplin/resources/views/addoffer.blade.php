@@ -37,18 +37,12 @@
                 <li class="sidebar-item">
                     <a href="/addmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Add screening</span>
+                        <span>Add movie</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="/listmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-clapperboard"></i>
-                        <span>List screening</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="/listfilm" class="sidebar-link">
-                        <i class="fa-solid fa-video"></i>
                         <span>List movie</span>
                     </a>
                 </li>
@@ -101,9 +95,9 @@
                 <div class="register">
                     <form action="/addoffer/add" method="post" id="offer">
                         @csrf
-                        <p>Offer code: <input type="text" name="code" id="code"  class="form-control w-25" required></p>
-                        <p>Discount: <input type="number" name="discount" id="discount" class="form-control w-25" required></p>
-                        <p>Maximal Transaction: <input type="number" name="max" id="max" class="form-control w-25" required></p>
+                        <p>Offer code: <input type="text" name="code" id="code" required></p>
+                        <p>Discount: <input type="number" name="discount" id="discount" required></p>
+                        <p>Maximal Transaction: <input type="number" name="max" id="max" required></p>
                         <input type="hidden" name="id" id="id">
                         <br>
                         <button type="submit" class="btn btn-primary" id="subs">Add</button>
