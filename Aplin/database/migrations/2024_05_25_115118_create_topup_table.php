@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->timestamp('transdate')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->integer('status');
+            $table->string('snap_token');
             $table->foreign('customer')->references('username')->on('user');
         });
     }

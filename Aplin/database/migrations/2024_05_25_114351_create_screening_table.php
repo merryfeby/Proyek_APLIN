@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedInteger('movieID');
             $table->unsignedInteger('studioID');
             $table->dateTime('starttime');
+            $table->integer('ticketprice');
             $table->foreign('movieID')->references('id')->on('movie');
             $table->foreign('studioID')->references('id')->on('studio');
         });
