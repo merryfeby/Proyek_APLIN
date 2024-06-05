@@ -67,6 +67,9 @@ Route::get('/tes', function () {
 Route::get('/historytrans', function () {
     return view('historytrans');
 });
+Route::get('/register', function () {
+    return view('register');
+});
 
 Route::get('/addmoviekar', function () {
     return view('addmoviekar');

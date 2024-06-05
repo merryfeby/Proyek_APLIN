@@ -75,7 +75,7 @@
             <div class="mb-5">
                 <h1>Edit Movie</h1>
                 <div class="register">
-                    <form action="/editmovie" method="post">
+                    <form action="/editmovie" method="post" id="formedit">
                         <p>Judul : <input type="text" name="judul" id="judul"></p>
                         <p>Durasi : <input type="number" name="durasi" id="durasi"></p>
                         <p>Cast : <input type="text" name="cast" id="cast"></p>
@@ -85,6 +85,7 @@
                         <p>Link image : <input type="text" name="img" id="img"></p>
                         <p>Waktu Tayang : <input type="datetime-local" name="tayang" id="tayang"></p>
                         <p>Synopsis : <textarea name="detail" id="detail" cols="30" rows="3"></textarea></p>
+                        <input type="hidden" name="id" id="id">
                         
                         <button type="submit" class="btn btn-primary">Edit</button>
                     </form>
@@ -120,8 +121,8 @@
                         <td>{{ $movie['genre'] }}</td>
                         <td>{{ $movie['synopsis'] }}</td>
                         <td><img src="{{ $movie['poster'] }}" alt="" srcset="" width="200px" height="300px"></td>
-                        <td class="align-middle"><button type="button" class="btn btn-secondary ">Change</button></td>
-                        <td class="align-middle"><button type="button" class="btn btn-danger align-middle">Delete</button></td>
+                        <td class="align-middle"><button type="button" class="btn btn-secondary" id="changebtn">Change</button></td>
+                        <td class="align-middle"><button type="button" class="btn btn-danger align-middle" id="deletebtn">Delete</button></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -147,6 +148,25 @@
                 "autoWidth": false,
                 "responsive": true,           
             });
+        });
+
+        $('#changebtn').click(function() {
+            var row = $(this).closest('tr');
+            var offerId = row.find('td:eq(0)').text();
+            var title = row.find('td:eq(1)').text();
+            var duration = row.find('td:eq(2)').text().replace('%', ''); 
+            var cast = row.find('td:eq(3)').text().replace('Rp. ', '');
+            var producer = row.find('td:eq(4)').text();
+            var director = row.find('td:eq(5)').text();
+            var genre = row.find('td:eq(6)').text();
+            var synopsis = row.find('td:eq(7)').text();
+
+            $('#id').val(offerId);
+            $('#code').val(code);
+            $('#discount').val(parseInt(discount));
+            $('#max').val(parseInt(max));
+            $('#subs').html("Update")
+            $('#offer').attr('action', '/addoffer/update'); 
         });
     </script>
 
