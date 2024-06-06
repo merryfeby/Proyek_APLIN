@@ -19,7 +19,7 @@ class Seat extends Model
 
     public function studio()
     {
-        return $this->belongsTo(studio::class, 'studioID');
+        return $this->belongsTo(Studio::class, 'studioID');
     }
 
     public function orderDetails()

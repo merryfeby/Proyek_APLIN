@@ -7,6 +7,13 @@
       <h2 class="-xl font-semibold text-center text-white mt-4">"Step into the world of MovieMate, where your cinematic journey begins with effortless online ticket booking!"<h2>
     </div>
   </div>
+
+  @if(session('error'))
+    <div class="p-4 mb-4 mx-4 mt-4 text-sm text-red-800 rounded-lg bg-red-200" role="alert">
+        <span class="font-medium">{{ session('error') }}</span> try submitting again.
+    </div>
+  @endif
+
   {{-- LIST MOVIE SHOWING --}}
   <div class="p-10 bg-gray-100">
     <h2 class="text-4xl font-bold text-indigo-500 text-center mt-10 mb-8">Now Showing</h2>

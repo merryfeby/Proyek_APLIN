@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TopupController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LicenseController;
+use App\Http\Controllers\SeatController;
 
 
 //USER
@@ -46,7 +47,9 @@ Route::prefix('history')->name('history.')->group(function () {
 });
 Route::prefix('order')->name('order.')->group(function () {
     Route::get('/', [OrderController::class, 'index'])->name('index');  
-    Route::get('/{id}/detail', [OrderController::class, 'showDetail'])->name('detail');  
+    Route::get('/{id}/detail', [OrderController::class, 'showDetail'])->name('detail');
+    Route::post('/seats', [SeatController::class, 'showSeats'])->name('showseats');
+    Route::post('/checkout', [SeatController::class, 'checkout'])->name('checkout');
 });
 
 Route::prefix('topup')->name('topup.')->group(function () {
@@ -60,6 +63,7 @@ Route::prefix('topup')->name('topup.')->group(function () {
 Route::get('/tes', function () {
     return view('user_site.checkout');
 });
+
 
 // Route::get('/userLayout', function () {
 //     return view('user_site.userLayout');
