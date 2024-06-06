@@ -12,6 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 </head>
 
@@ -57,16 +62,62 @@
         </aside>
         <div class="main p-3">
             <div class="text-center">
-                <h1>
-                    ini home admin
-                </h1>
+                
+                    <table id="transactionTable" class="table table-hover table-bordered">  
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Duration</th>
+                                <th>Cast</th>
+                                <th>Producer</th>
+                                <th>Director</th>
+                                <th>Genre</th>
+                                <th>License Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($history as $item)
+                                <tr>
+                                    <td>{{$item['id']}}</td>
+                                    <td>{{$item['title']}}</td>
+                                    <td>{{$item['duration']}}</td>
+                                    <td>{{$item['cast']}}</td>
+                                    <td>{{$item['producer']}}</td>
+                                    <td>{{$item['director']}}</td>
+                                    <td>{{$item['genre']}}</td>
+                                    <td>{{$item['licensed_at']}}</td>
+                                </tr>              
+                            @endforeach
+                        </tbody>
+                    </table>
+                   
+                
             </div>
         </div>
     </div>
     
     
     <!-- <script src="script.js"></script> -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
     <script src="{{ asset('assets/js/script.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#transactionTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            }); 
+        });
+    </script>
 
 </body>
 

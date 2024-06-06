@@ -34,4 +34,10 @@ class LicenseController extends Controller
             return redirect()->back()->withErrors(['error' => 'Movie with ID ' . $movieId . ' not found.']);
         }
     }
+    function listHistory(){
+        $history = Movie::where('license',1)->get();
+        return view("admin",[
+            'history' => $history
+        ]);
+    }
 }

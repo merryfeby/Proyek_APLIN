@@ -88,9 +88,11 @@ Route::get('/listmoviekar', [handleKaryawan::class, 'listmovie']);
 Route::get('/addmoviekar', [handleKaryawan::class, 'listmovies']);
 
 // route admin
-Route::get('/admin', function () {
-    return view('Admin');
-});
+// Route::get('/admin', function () {
+//     return view('Admin');
+// });
+Route::get('/admin', [LicenseController::class, 'listHistory']);
+
 Route::get('/menukaryawan', function () {
     return view('menukaryawan');
 });
