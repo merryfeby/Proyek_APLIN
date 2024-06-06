@@ -6,6 +6,8 @@ use App\Models\Employee;
 use App\Models\Movie;
 use App\Models\offer;
 use App\Models\order;
+use App\Models\screening;
+use App\Models\studio;
 use Illuminate\Http\Request;
 session_start();
 class handleKaryawan extends Controller
@@ -51,18 +53,14 @@ class handleKaryawan extends Controller
         ]);
         
         if ($data) {
-            // Update the offer details
             $data->code = $request->input('code');
             $data->discount = $request->input('discount');
             $data->max_trans = $request->input('max');
             
-            // Save the changes
             $data->save();
     
-            // Redirect back with a success message
             return redirect()->back()->with('success', 'Offer updated successfully.');
         } else {
-            // Redirect back with an error message if the offer is not found
             return redirect()->back()->with('error', 'Offer not found.');
         }
     }
@@ -88,22 +86,36 @@ class handleKaryawan extends Controller
     }
 
     function listmovie(){
-        $listmovie = Movie::where('status',1)
-                            ->where('license','<>',null)
-                            ->whereHas('screening')
+        $listmovie = screening::with('movie')
+                            ->with('studio')
+                            // ->where('status',1)
+                            // ->whereNotNull('license')
                             ->get();
+        $studio = studio::where('status',1)->get();
+        $movie = Movie::where('status',1)->get();
         return view("listmoviekar",[
-            'listmovie' => $listmovie
+            'listmovie' => $listmovie,
+            'studio' => $studio
+        ]);
+    }
+    function listfilm(){
+        $movie = Movie::where('status',1)->whereNotNull('license')
+                        ->get();
+        return view("editmovie",[
+            'movie' => $movie
         ]);
     }
 
     function listmovies(){
         $listmovie = Movie::where('status',1)
                             ->whereNotNull('license')
-                            ->whereDoesntHave('screening')
+                            ->whereHas('screening')
                             ->get();
+
+        $studio = studio::where('status',1)->get();
         return view("addmoviekar",[
-            'listmovie' => $listmovie
+            'listmovie' => $listmovie,
+            'studio' => $studio
         ]);
     }
 
@@ -113,6 +125,101 @@ class handleKaryawan extends Controller
         return view("menukaryawan",[
             'employee' => $employee
         ]);
+    }
+
+    function addscreening(Request $request){
+        $request->validate([
+            'movie_id' => 'required|integer|exists:movie,id',
+            'date' => 'required|date_format:Y-m-d\TH:i',
+            'studio' => 'required|exists:studio,id',
+        ]);
+
+        $cek = screening::where('movieID',$request->input('movie_id'))
+                        ->where('studioID',$request->input('studio'))
+                        ->get();
+
+        if (!$cek) {
+            try{
+                $screening = new screening();
+                $screening->movieID = $request->input('movie_id');
+                $screening->starttime = $request->input('date');
+                $screening->studioID = $request->input('studio');
+                $screening->save();
+                return redirect()->back()->with('success', 'Screening added successfully.');
+            }catch(\Exception $e){
+                return redirect()->back()->with('error', 'Error');
+            }    
+        }else {
+            return redirect()->back()->with('error', 'Screening already exist.');
+        }
+
+
+    }
+
+    function editScreen(Request $request){
+        $data = screening::find($request->input('id'));
+
+        $request->validate([
+            'movieID' => 'required|integer|exists:movie,id',
+            'tayang' => 'required|date_format:Y-m-d\TH:i',
+            'studioID' => 'required|exists:studio,id',
+        ]);
+        
+        if ($data) {
+            $data->movieID = $request->input('movieID');
+            $data->studioID = $request->input('studioID');
+            $data->starttime = $request->input('tayang');
+            
+            $data->save();
+    
+            return redirect()->back()->with('success', 'Screening updated successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Screening not found.');
+        }
+        
+    }
+    function editMovie(Request $request){
+        $data = Movie::find($request->input('id'));
+
+        $request->validate([
+            'duration' => 'required|integer|min:0',
+        ]);
+        
+        if ($data) {
+            $data->title = $request->input('title');
+            $data->duration = $request->input('duration');
+            $data->poster = $request->input('poster');
+            $data->synopsis = $request->input('synopsis');
+            
+            $data->save();
+    
+            return redirect()->back()->with('success', 'Movie updated successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Movie not found.');
+        }
+        
+    }
+
+    function deleteScreen(Request $request){
+        $data = screening::find($request->input('id'));
+
+        if ($data) {
+            $data->delete();
+            return redirect()->back()->with('success', 'Screening deleted successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Screening not found.');
+        }
+    }
+
+    function deleteFilm(Request $request){
+        $data = Movie::find($request->input('id'));
+
+        if ($data) {
+            $data->status = 0;
+            return redirect()->back()->with('success', 'Movie deleted successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Movie not found.');
+        }
     }
 
 }

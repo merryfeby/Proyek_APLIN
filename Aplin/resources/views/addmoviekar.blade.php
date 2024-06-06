@@ -37,12 +37,18 @@
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Add movie</span>
+                        <span>Add screening</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="/listmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-clapperboard"></i>
+                        <span>List screening</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/listfilm" class="sidebar-link">
+                        <i class="fa-solid fa-video"></i>
                         <span>List movie</span>
                     </a>
                 </li>
@@ -69,6 +75,29 @@
             </div>
         </aside>
         <div class="main p-3">
+
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    <span class="font-medium">{{ session('error') }}</span> Try submitting again.
+                </div>
+            @endif
+
+            @if(session('success'))
+                <div class="alert alert-success">
+                    <span class="font-medium">{{ session('success') }}</span>
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <h1>Add Movie</h1>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,7 +118,7 @@
                             <div class="card-body">
                             <h5 class="card-title">{{$item['title']}}</h5>
                             <p class="card-text">{{$item['synopsis']}}</p>
-                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dateTimeModal">Add movie</a>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dateTimeModal" movie-id={{$item['id']}}>Add movie</a>
                             </div>
                         </div>       
                     @endforeach
@@ -98,48 +127,49 @@
         </div> 
     
     </div>
-    
-    {{-- Modal --}}
+
+    <!-- Modal -->
     <div class="modal fade" id="dateTimeModal" tabindex="-1" aria-labelledby="dateTimeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="dateTimeModalLabel">Select Date and Time</h5>
+                    <h5 class="modal-title" id="dateTimeModalLabel">Select Datetime and Studio</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="dateTimeForm">
+                    <form id="dateTimeForm" action="/addscreening" method="POST">
+                        @csrf
+                        <input type="hidden" name="movie_id" id="movie_id">
                         <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date" required>
+                            <label for="datetime" class="form-label">Date</label>
+                            <input type="datetime-local" class="form-control" id="date" name="date" required>
                         </div>
                         <div class="mb-3">
-                            <label for="time" class="form-label">Time</label>
-                            <input type="time" class="form-control" id="time" required>
+                            <label for="studio" class="form-label">Studio</label>
+                            <select class="form-control" id="studio" name="studio" required>
+                                @foreach($studio as $studio)
+                                    <option value="{{ $studio['id'] }}">{{ $studio['id'] }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveDateTime">Save changes</button>
+                    <button type="submit" class="btn btn-primary" form="dateTimeForm">Add</button>
                 </div>
             </div>
         </div>
     </div>
+
     
     <script>
-        document.getElementById('saveDateTime').addEventListener('click', function() {
-            var date = document.getElementById('date').value;
-            var time = document.getElementById('time').value;
-
-            if (date && time) {
-                console.log('Date:', date, 'Time:', time);
-
-                var dateTimeModal = new bootstrap.Modal(document.getElementById('dateTimeModal'));
-                dateTimeModal.hide();
-            } else {
-                alert('Please select both date and time.');
-            }
+        var dateTimeModal = document.getElementById('dateTimeModal');
+        dateTimeModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var movieId = button.getAttribute('movie-id'); 
+            var modalBodyInput = dateTimeModal.querySelector('.modal-body #movie_id');
+            modalBodyInput.value = movieId;
         });
     </script>
 

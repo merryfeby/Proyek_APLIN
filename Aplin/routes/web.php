@@ -23,7 +23,10 @@ Route::get('/register', function () {
 Route::post('/user/login',[HandleLogin::class, 'login']);
 Route::post('/user/register',[UserController::class, 'register']);
 
+
+
 Route::post('/logout', [UserController::class, 'logout']); 
+Route::post('/user/register', [UserController::class, 'register']); 
 
 
 Route::prefix('home')->name('home.')->group(function () {
@@ -84,11 +87,23 @@ Route::prefix('addoffer')->group(function () {
 
 Route::get('/historytrans', [handleKaryawan::class, 'listHistory']);
 
+Route::get('/listfilm', [handleKaryawan::class, 'listfilm']);
+
 Route::get('/profilekaryawan', [handleKaryawan::class, 'listemployee'])->name('profilekaryawan');
 
 Route::get('/listmoviekar', [handleKaryawan::class, 'listmovie']);
 
 Route::get('/addmoviekar', [handleKaryawan::class, 'listmovies']);
+
+Route::post('/addscreening', [handleKaryawan::class, 'addscreening']);
+
+Route::post('/editscreening', [handleKaryawan::class, 'editScreen']);
+
+Route::post('/editmovie', [handleKaryawan::class, 'editMovie']);
+
+Route::post('/deletefilm', [handleKaryawan::class, 'deleteFilm']);
+
+Route::post('/deletescreening', [handleKaryawan::class, 'deleteScreen']);
 
 // route admin
 Route::get('/admin', function () {

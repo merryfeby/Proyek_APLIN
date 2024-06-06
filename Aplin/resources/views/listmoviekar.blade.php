@@ -40,12 +40,18 @@
                 <li class="sidebar-item">
                     <a href="/addmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Add movie</span>
+                        <span>Add screening</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
                         <i class="fa-solid fa-clapperboard"></i>
+                        <span>List screening</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/listfilm" class="sidebar-link">
+                        <i class="fa-solid fa-video"></i>
                         <span>List movie</span>
                     </a>
                 </li>
@@ -72,22 +78,55 @@
             </div>
         </aside>
         <div class="main p-3">
+
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    <span class="font-medium">{{ session('error') }}</span> try submitting again.
+                </div>
+            @endif
+
+            @if(session('success'))
+                <div class="alert alert-success">
+                    <span class="font-medium">{{ session('success') }}</span>
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
             <div class="mb-5">
-                <h1>Edit Movie</h1>
-                <div class="register">
-                    <form action="/editmovie" method="post" id="formedit">
-                        <p>Judul : <input type="text" name="judul" id="judul"></p>
-                        <p>Durasi : <input type="number" name="durasi" id="durasi"></p>
-                        <p>Cast : <input type="text" name="cast" id="cast"></p>
-                        <p>Genre : <input type="text" name="genre" id="genre"></p>
-                        <p>Producer : <input type="text" name="producer" id="producer"></p>
-                        <p>Director : <input type="text" name="director" id="director"></p>
-                        <p>Link image : <input type="text" name="img" id="img"></p>
-                        <p>Waktu Tayang : <input type="datetime-local" name="tayang" id="tayang"></p>
-                        <p>Synopsis : <textarea name="detail" id="detail" cols="30" rows="3"></textarea></p>
+                <h1>Edit Screening</h1>
+                <div class="register ">
+                    <form action="/editscreening" method="post" id="formedit" >
+                        @csrf
+                        <label for="movieid" class="form-label">Movie ID</label>
+                        <select class="form-control w-25" name="movieID" id="movieID" disabled>
+                            @foreach($listmovie as $movie)
+                                <option value="{{ $movie->movie['id'] }}">{{ $movie->movie['id'] }}</option>
+                            @endforeach
+                        </select>
+
+                        <label for="studioid" class="form-label">Studio ID</label>
+                        <select name="studioID" id="studioID" class="form-control w-25" disabled>
+                            @foreach($studio as $studio)
+                                <option value="{{ $studio['id'] }}">{{ $studio['id'] }}</option>
+                            @endforeach
+                        </select>
+
+                        <label for="tayang" class="form-label">Waktu Tayang</label>
+                        <input type="datetime-local" class="form-control w-25 mb-3" name="tayang" id="tayang" disabled>
+                                                
+                        <button type="submit" class="btn btn-primary" id="editnow" disabled>Edit</button>
+
                         <input type="hidden" name="id" id="id">
-                        
-                        <button type="submit" class="btn btn-primary">Edit</button>
                     </form>
                 </div>
             </div>
@@ -96,15 +135,11 @@
             <table class="table table-hover table-bordered " id="movies-table">
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>Screening ID</th>
+                    <th>Studio ID</th>
+                    <th>Movie ID</th>
                     <th>Title</th>
-                    <th>Duration</th>
-                    <th>Cast</th>
-                    <th>Producer</th>
-                    <th>Director</th>
-                    <th>Genre</th>
-                    <th>Deskripsi</th>
-                    <th>Image</th>
+                    <th>Show time</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
@@ -113,16 +148,18 @@
                     @foreach($listmovie as $movie)
                     <tr>
                         <td>{{ $movie['id'] }}</td>
-                        <td>{{ $movie['title'] }}</td>
-                        <td>{{ $movie['duration'] }}</td>
-                        <td>{{ $movie['cast'] }}</td>
-                        <td>{{ $movie['producer'] }}</td>
-                        <td>{{ $movie['director'] }}</td>
-                        <td>{{ $movie['genre'] }}</td>
-                        <td>{{ $movie['synopsis'] }}</td>
-                        <td><img src="{{ $movie['poster'] }}" alt="" srcset="" width="200px" height="300px"></td>
-                        <td class="align-middle"><button type="button" class="btn btn-secondary" id="changebtn">Change</button></td>
-                        <td class="align-middle"><button type="button" class="btn btn-danger align-middle" id="deletebtn">Delete</button></td>
+                        <td>{{ $movie->studio['id'] }}</td>
+                        <td>{{ $movie->movie['id'] }}</td>
+                        <td>{{ $movie->movie['title'] }}</td>
+                        <td>{{ $movie['starttime'] }}</td>
+                        <td class="align-middle"><button type="button" class="btn btn-secondary changebtn" id="changebtn">Change</button></td>
+                        <td class="align-middle">
+                            <form action="/deletescreening" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $movie['id'] }}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -150,23 +187,21 @@
             });
         });
 
-        $('#changebtn').click(function() {
+        $('.changebtn').click(function() {
             var row = $(this).closest('tr');
-            var offerId = row.find('td:eq(0)').text();
-            var title = row.find('td:eq(1)').text();
-            var duration = row.find('td:eq(2)').text().replace('%', ''); 
-            var cast = row.find('td:eq(3)').text().replace('Rp. ', '');
-            var producer = row.find('td:eq(4)').text();
-            var director = row.find('td:eq(5)').text();
-            var genre = row.find('td:eq(6)').text();
-            var synopsis = row.find('td:eq(7)').text();
+            var screenid = row.find('td:eq(0)').text();
+            var studioid = row.find('td:eq(1)').text();
+            var movieid = row.find('td:eq(2)').text();
+            var showtime = row.find('td:eq(4)').text();
 
-            $('#id').val(offerId);
-            $('#code').val(code);
-            $('#discount').val(parseInt(discount));
-            $('#max').val(parseInt(max));
-            $('#subs').html("Update")
-            $('#offer').attr('action', '/addoffer/update'); 
+            $('#movieID').prop('disabled', false);
+            $('#studioID').prop('disabled', false);
+            $('#tayang').prop('disabled', false);
+            $('#editnow').prop('disabled', false);
+            $('#id').val(screenid);
+            $('#movieID').val(movieid);
+            $('#studioID').val(studioid);
+            $('#tayang').val(showtime);
         });
     </script>
 
