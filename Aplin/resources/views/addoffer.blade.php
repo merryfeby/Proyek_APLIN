@@ -37,12 +37,18 @@
                 <li class="sidebar-item">
                     <a href="/addmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Add movie</span>
+                        <span>Add screening</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="/listmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-clapperboard"></i>
+                        <span>List screening</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/listfilm" class="sidebar-link">
+                        <i class="fa-solid fa-video"></i>
                         <span>List movie</span>
                     </a>
                 </li>
@@ -60,10 +66,13 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="#" id="logout-link" class="sidebar-link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>
+                <form id="logout" action="/logout" method="post" style="display: none;">
+                    @csrf
+                </form>
             </div>
         </aside>
         <div class="main p-3">
@@ -95,9 +104,9 @@
                 <div class="register">
                     <form action="/addoffer/add" method="post" id="offer">
                         @csrf
-                        <p>Offer code: <input type="text" name="code" id="code" required></p>
-                        <p>Discount: <input type="number" name="discount" id="discount" required></p>
-                        <p>Maximal Transaction: <input type="number" name="max" id="max" required></p>
+                        <p>Offer code: <input type="text" name="code" id="code"  class="form-control w-25" required></p>
+                        <p>Discount: <input type="number" name="discount" id="discount" class="form-control w-25" required></p>
+                        <p>Maximal Transaction: <input type="number" name="max" id="max" class="form-control w-25" required></p>
                         <input type="hidden" name="id" id="id">
                         <br>
                         <button type="submit" class="btn btn-primary" id="subs">Add</button>
@@ -173,6 +182,26 @@
             $('#subs').html("Update")
             $('#offer').attr('action', '/addoffer/update'); 
         });
+
+        $('#logout-link').click(function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: '/logout',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    window.location.href = '/';
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                    alert('Logout failed. Please try again.');
+                }
+            });
+        });
+
 
     </script>
     <script src="{{ asset('assets/js/script.js') }}"></script>

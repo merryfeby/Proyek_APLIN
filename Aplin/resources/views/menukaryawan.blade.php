@@ -41,13 +41,19 @@
                 <li class="sidebar-item">
                     <a href="/addmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Add movie</span>
+                        <span>Add screening</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="/listmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-clapperboard"></i>
-                        <span>List movie</span>
+                        <span>List screening</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/listfilm" class="sidebar-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>List screening</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -66,24 +72,52 @@
                 
             </ul>
             <div class="sidebar-footer">
-                <a href="/" class="sidebar-link">
+                <a href="#" id="logout-link" class="sidebar-link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>
+                <form id="logout" action="/logout" method="post" style="display: none;">
+                    @csrf
+                </form>
             </div>
         </aside>
-        <div class="main p-3">
-            <div class="bg-info bg-opacity-10 border border-info  rounded p-3">
-                <h1 class="text-center pb-3">Profile Karyawan</h1>
+        <div class="main d-flex align-items-center justify-content-center w-100">
+            <div class="bg-info bg-opacity-10 border border-info rounded  p-5" style="width: 100%; max-width: 600px;">
+                <div class="d-flex align-items-center justify-content-evenly align-middle mb-5">
+                    <i class="fa-solid fa-user fa-3x p-3 rounded-circle" style="background-color: grey"></i>
+                    <h1 class="text-center pb-3">Profile Karyawan</h1>
+                </div>
                 <h1>Name : {{$employee[0]['name']}}</h1>
                 <h1>Username : {{$employee[0]['username']}}</h1>
-                <h1>Awal Masuk Kerja : {{$employee[0]['created_at']}}</h1>
+                <h1>Joined at : {{ \Carbon\Carbon::parse($employee[0]['created_at'])->format('Y-m-d') }}</h1>
             </div>
         </div>
     </div>
     
 
     <script src="{{ asset('assets/js/script.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#logout-link').click(function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: '/logout',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    window.location.href = '/';
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                    alert('Logout failed. Please try again.');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -39,12 +39,18 @@
                 <li class="sidebar-item">
                     <a href="/addmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-film"></i>
-                        <span>Add movie</span>
+                        <span>Add screening</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="/listmoviekar" class="sidebar-link">
                         <i class="fa-solid fa-clapperboard"></i>
+                        <span>List screening</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/listfilm" class="sidebar-link">
+                        <i class="fa-solid fa-video"></i>
                         <span>List movie</span>
                     </a>
                 </li>
@@ -64,16 +70,19 @@
                 
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="#" id="logout-link" class="sidebar-link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>
+                <form id="logout" action="/logout" method="post" style="display: none;">
+                    @csrf
+                </form>
             </div>
         </aside>
         <div class="main p-3">
-            <h1>Transaction History</h1>
+            <h1 class="mb-5">Transaction History</h1>
 
-            <table id="transactionTable" class="table table-hover table-bordered">  
+            <table id="transactionTable" class="table table-hover table-bordered p-1">  
                 <thead>
                     <tr>
                         <th>ID Nota</th>
@@ -116,14 +125,34 @@
         $(document).ready(function() {
             $('#transactionTable').DataTable({
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
+                "lengthChange": true,
+                "searching": true,
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
             }); 
         });
+
+        $('#logout-link').click(function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: '/logout',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    window.location.href = '/';
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                    alert('Logout failed');
+                }
+            });
+        });
+
     </script>
 </body>
 

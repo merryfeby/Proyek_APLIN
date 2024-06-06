@@ -24,7 +24,10 @@ Route::get('/register', function () {
 Route::post('/user/login',[HandleLogin::class, 'login']);
 Route::post('/user/register',[UserController::class, 'register']);
 
+
+
 Route::post('/logout', [UserController::class, 'logout']); 
+Route::post('/user/register', [UserController::class, 'register']); 
 
 
 Route::prefix('home')->name('home.')->group(function () {
@@ -35,7 +38,7 @@ Route::prefix('home')->name('home.')->group(function () {
 Route::prefix('movies')->name('movies.')->group(function () {
     Route::get('/', [MovieController::class, 'index'])->name('index');
     Route::get('/{id}/detail', [MovieController::class, 'showDetail'])->name('detail');
-    
+    Route::post('/search', [MovieController::class, 'search'])->name('search'); 
 });
 
 Route::prefix('history')->name('history.')->group(function () {
@@ -71,6 +74,9 @@ Route::get('/tes', function () {
 Route::get('/historytrans', function () {
     return view('historytrans');
 });
+Route::get('/register', function () {
+    return view('register');
+});
 
 Route::get('/addmoviekar', function () {
     return view('addmoviekar');
@@ -83,7 +89,10 @@ Route::prefix('addoffer')->group(function () {
     Route::post('/delete', [handleKaryawan::class, 'deleteoffer']);
 });
 
+
 Route::get('/historytrans', [handleKaryawan::class, 'listHistory']);
+
+Route::get('/listfilm', [handleKaryawan::class, 'listfilm']);
 
 Route::get('/profilekaryawan', [handleKaryawan::class, 'listemployee'])->name('profilekaryawan');
 
@@ -91,10 +100,20 @@ Route::get('/listmoviekar', [handleKaryawan::class, 'listmovie']);
 
 Route::get('/addmoviekar', [handleKaryawan::class, 'listmovies']);
 
+Route::post('/addscreening', [handleKaryawan::class, 'addscreening']);
+
+Route::post('/editscreening', [handleKaryawan::class, 'editScreen']);
+
+Route::post('/editmovie', [handleKaryawan::class, 'editMovie']);
+
+Route::post('/deletefilm', [handleKaryawan::class, 'deleteFilm']);
+
+Route::post('/deletescreening', [handleKaryawan::class, 'deleteScreen']);
+
+Route::post('/logout', [handleKaryawan::class, 'logout']);
+
 // route admin
-// Route::get('/admin', function () {
-//     return view('Admin');
-// });
+
 Route::get('/admin', [LicenseController::class, 'listHistory']);
 
 Route::get('/menukaryawan', function () {

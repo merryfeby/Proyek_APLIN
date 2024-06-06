@@ -54,7 +54,7 @@
           @csrf
           <div class="flex flex-row justify-center items-center">
             <i class="fa-solid fa-ticket text-indigo-500"></i>
-            <h1 class="font-semibold text-indigo-500 pb-1 ml-2">Moviemate</h1>
+            <h1 class="font-semibold text-indigo-500 pb-1 ml-2">MovieMate</h1>
           </div>
           <div>
             <h2 class="text-3xl font-bold text-black text-center my-8">Create Account</h2>

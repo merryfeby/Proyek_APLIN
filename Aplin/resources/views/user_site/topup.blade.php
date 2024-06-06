@@ -15,6 +15,27 @@
         <button type="submit" name="" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-auto py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none px-5">Proceed to Payment</button>
       </div>
     </form>
+    @if(session('error'))
+        <div class="p-4 mb-4 mx-4 mt-4 text-sm text-red-800 rounded-lg bg-red-200" role="alert">
+            <span class="font-medium">{{ session('error') }}</span> try submitting again.
+        </div>
+    @endif
+
+    @if(session('success'))
+        <div class="p-4 mb-4 mx-4 mt-4 text-sm text-green-800 rounded-lg bg-green-200" role="alert">
+            <span class="font-medium">{{ session('success') }}</span>
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="p-4 mb-4 mx-4 mt-4 text-sm text-red-800 rounded-lg bg-red-200" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
   </div>
 </div>
 

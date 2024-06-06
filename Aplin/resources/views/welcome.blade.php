@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Moviemate </title>
+		<title>MovieMate </title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<link rel="preconnect" href="https://fonts.bunny.net">
 		<link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -24,7 +24,7 @@
         @csrf
         <div class="flex flex-row justify-center items-center">
 					<i class="fa-solid fa-ticket text-indigo-500"></i>
-          <h1 class="font-semibold text-indigo-500 pb-1 ml-2">Moviemate</h1>
+          <h1 class="font-semibold text-indigo-500 pb-1 ml-2">MovieMate</h1>
         </div>
         <div>
           <h2 class="text-3xl font-bold text-black text-center my-8">Login</h2>

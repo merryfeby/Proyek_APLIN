@@ -33,6 +33,7 @@ class studio extends Model
 
     public function seats()
     {
-        return $this->hasMany(Seat::class, 'studioID');
+        return $this->hasMany(Seats::class, 'studioID', 'id');
     }
+    
 }

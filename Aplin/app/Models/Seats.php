@@ -5,23 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class License extends Model
+class Seats extends Model
 {
     use HasFactory;
 
-    protected $table = 'licenses';
-
+    protected $table = 'seats';
     protected $primaryKey = 'id';
-
     protected $fillable = [
-        'movieID',
-        'created_at',
+        'studioID',
+        'seatnumber',
+        'seatrow'
+        
     ];
-
     public $timestamps = false;
 
-    public function movie(): BelongsTo
+    public function studio()
     {
-        return $this->belongsTo(Movie::class);
+        return $this->belongsTo(studio::class, 'studioID', 'id');
     }
 }

@@ -60,11 +60,6 @@
         </aside>
         <div class="main p-3">
           <h1>Buy Movie License </h1>
-          <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Producer
-              </button>
-          </div>
           <br>
           <div class="container">
               <div class="d-flex flex-row justify-content-evenly flex-wrap">
