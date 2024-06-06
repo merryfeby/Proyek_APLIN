@@ -24,6 +24,8 @@ class order extends Model
         'status'
     ];
 
+    public $timestamps = false;
+
     public function orderDetails()
     {
         return $this->hasMany(orderdetail::class, 'orderNumber', 'orderNumber');

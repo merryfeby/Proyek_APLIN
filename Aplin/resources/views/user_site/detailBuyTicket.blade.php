@@ -33,20 +33,33 @@
             @endforeach
           </select>
         </div>
-        <div class="flex flex-col">
-          <div class="flex flex-col bg-gray-100 p-5 rounded-xl border border-gray-200 mb-5">
-            <div class="flex border-b border-gray-300 justify-between mb-5 pb-2">
-              <h2 class="text-md font-semibold text-left text-black mr-5 "><i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i>XXI Nganjuk</h2>
-              <h2 class="text-md font-semibold text-left text-black mr-5 "><i class="fa-solid fa-money-bill-wave mr-2 text-indigo-500"></i>Rp 50000</h2>
-            </div>
-            <div class="flex flex-row">
-              <button type="submit" name="" class="tracking-wide font-semibold border-2 border-indigo-500 text-black px-2 w-auto py-2 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none mr-2">13:00</button>
-              <button type="submit" name="" class="tracking-wide font-semibold border-2 border-indigo-500 text-black px-2 w-auto py-2 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none mr-2">13:00</button>
-              <button type="submit" name="" class="tracking-wide font-semibold border-2 border-indigo-500 text-black px-2 w-auto py-2 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none mr-2">13:00</button>
-              <button type="submit" name="" class="tracking-wide font-semibold border-2 border-indigo-500 text-black px-2 w-auto py-2 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none mr-2">13:00</button>
+        @foreach ($studios as $studio)
+          <div class="flex flex-col">
+            <div class="flex flex-col bg-gray-100 p-5 rounded-xl border border-gray-200 mb-5">
+              <div class="flex border-b border-gray-300 justify-between mb-5 pb-2">
+                <h2 class="text-md font-semibold text-left text-black mr-5">
+                  <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i>{{ $studio->name }}
+                </h2>
+                <h2 class="text-md font-semibold text-left text-black mr-5">
+                  <i class="fa-solid fa-money-bill-wave mr-2 text-indigo-500"></i>
+                  Rp {{ number_format($data->screening->firstWhere('studioID', $studio->id)->ticketprice, 0, ',', '.') }}
+                </h2>
+              </div>
+              <div class="flex flex-row">
+                @foreach ($screeningsByStudio[$studio->id] ?? [] as $screening)
+                    <form action="{{ route('order.showseats') }}" method="post">
+                      @csrf
+                        <input type="hidden" name="screening_id" value="{{ $screening->id}}">
+                        <input type="hidden" name="movie_id" value="{{ $screening->movieID}}">
+                        <button type="submit" class="tracking-wide font-semibold border-2 border-indigo-500 text-black px-2 w-auto py-2 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none mr-2">
+                            {{ $screening->starttime }}
+                        </button>
+                    </form>
+                @endforeach
+              </div>
             </div>
           </div>
-        </div>
+        @endforeach
       </div>
       <h2 class="text-2xl font-semibold text-center text-black mb-10">Select your seats</h2>
       <div class="flex justify-center items-center">
