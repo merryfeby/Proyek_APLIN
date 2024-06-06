@@ -109,7 +109,7 @@ class handleKaryawan extends Controller
     function listmovies(){
         $listmovie = Movie::where('status',1)
                             ->where('license',1)
-                            ->whereHas('screening')
+                            // ->whereHas('screening')
                             ->get();
 
         $studio = studio::where('status',1)->get();
