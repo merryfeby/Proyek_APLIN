@@ -91,6 +91,46 @@
                             @endforeach
                         </tbody>
                     </table>
+                <h1>Locations</h1>
+                <table id="locationTable" class="table table-hover table-bordered">  
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Location</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($location as $item)
+                            <tr>
+                                <td>{{$item['id']}}</td>
+                                <td>{{$item['location']}}</td>
+                                <td>{{$item['address']}}</td>
+                            </tr>              
+                        @endforeach
+                    </tbody>
+                </table>
+                <h1>Offer List</h1>
+                <table id="offerTable" class="table table-hover table-bordered">  
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Code</th>
+                            <th>Discount</th>
+                            <th>Maximum Transaction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($offer as $item)
+                            <tr>
+                                <td>{{$item['id']}}</td>
+                                <td>{{$item['code']}}</td>
+                                <td>{{$item['discount']}}</td>
+                                <td>{{$item['max_trans']}}</td>
+                            </tr>              
+                        @endforeach
+                    </tbody>
+                </table>
                    
                 
             </div>
@@ -107,17 +147,44 @@
 
     <script>
         $(document).ready(function() {
-            $('#transactionTable').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            }); 
+          $('#transactionTable').DataTable({
+            "paging": true,
+            "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]], 
+            "pageLength": 5, 
+            "searching": true, 
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true
+          });
         });
-    </script>
+    
+        $(document).ready(function() {
+          $('#locationTable').DataTable({
+            "paging": true,
+            "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
+            "pageLength": 5,
+            "searching": false, 
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true
+          });
+        });
+    
+        $(document).ready(function() {
+          $('#offerTable').DataTable({
+            "paging": true,
+            "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
+            "pageLength": 5,
+            "searching": false, 
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true
+          });
+        });
+      </script>
 
 </body>
 

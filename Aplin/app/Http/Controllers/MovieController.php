@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 class MovieController extends Controller
 {
 	function index() {
-		// $movies = Movie::whereNotNull('license')->get();
 		$movies = Movie::where('license',1)->get();
 		return view('user_site.movies', [
 			'movie' => $movies
