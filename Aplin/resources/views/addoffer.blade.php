@@ -66,10 +66,13 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="#" id="logout-link" class="sidebar-link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>
+                <form id="logout" action="/logout" method="post" style="display: none;">
+                    @csrf
+                </form>
             </div>
         </aside>
         <div class="main p-3">
@@ -179,6 +182,26 @@
             $('#subs').html("Update")
             $('#offer').attr('action', '/addoffer/update'); 
         });
+
+        $('#logout-link').click(function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: '/logout',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    window.location.href = '/';
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                    alert('Logout failed. Please try again.');
+                }
+            });
+        });
+
 
     </script>
     <script src="{{ asset('assets/js/script.js') }}"></script>

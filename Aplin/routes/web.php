@@ -85,6 +85,7 @@ Route::prefix('addoffer')->group(function () {
     Route::post('/delete', [handleKaryawan::class, 'deleteoffer']);
 });
 
+
 Route::get('/historytrans', [handleKaryawan::class, 'listHistory']);
 
 Route::get('/listfilm', [handleKaryawan::class, 'listfilm']);
@@ -104,6 +105,8 @@ Route::post('/editmovie', [handleKaryawan::class, 'editMovie']);
 Route::post('/deletefilm', [handleKaryawan::class, 'deleteFilm']);
 
 Route::post('/deletescreening', [handleKaryawan::class, 'deleteScreen']);
+
+Route::post('/logout', [handleKaryawan::class, 'logout']);
 
 // route admin
 Route::get('/admin', function () {
