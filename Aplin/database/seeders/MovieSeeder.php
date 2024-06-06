@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class MovieSeeder extends Seeder
 {
+    //pushed branch tino to main, but no record in history??
     /**
      * Run the database seeds.
      */
