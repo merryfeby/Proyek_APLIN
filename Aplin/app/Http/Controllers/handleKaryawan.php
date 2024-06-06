@@ -129,16 +129,16 @@ class handleKaryawan extends Controller
 
     function addscreening(Request $request){
         $request->validate([
-            'movie_id' => 'required|integer|exists:movie,id',
+            'movie_id' => 'required|integer',
             'date' => 'required|date_format:Y-m-d\TH:i',
-            'studio' => 'required|exists:studio,id',
+            'studio' => 'required',
         ]);
 
-        $cek = screening::where('movieID',$request->input('movie_id'))
-                        ->where('studioID',$request->input('studio'))
-                        ->get();
+        // $cek = screening::where('movieID',$request->input('movie_id'))
+        //                 ->where('studioID',$request->input('studio'))
+        //                 ->get();
 
-        if (!$cek) {
+        
             try{
                 $screening = new screening();
                 $screening->movieID = $request->input('movie_id');
@@ -149,10 +149,6 @@ class handleKaryawan extends Controller
             }catch(\Exception $e){
                 return redirect()->back()->with('error', 'Error');
             }    
-        }else {
-            return redirect()->back()->with('error', 'Screening already exist.');
-        }
-
 
     }
 

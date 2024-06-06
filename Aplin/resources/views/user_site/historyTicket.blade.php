@@ -15,7 +15,7 @@
       <div class="flex flex-col bg-gray-100 rounded-xl border border-gray-200 mb-5">
           <div class="flex bg-indigo-500 text-white rounded-t-lg justify-between items-center px-5 py-2">
               <h2 class="text-sm font-semibold text-left">Order ID #{{ $order->orderNumber }}</h2>
-              <h2 class="text-xs font-semibold text-left">{{ $order->created_at->format('Y/m/d') }}</h2>
+              <h2 class="text-xs font-semibold text-left">{{ $order->created_at }}</h2>
           </div>
           <div class="flex flex-col px-5 py-2 border-gray-300 border-b">
               <h2 class="text-md font-semibold text-left mb-2 text-gray-600">{{ $order->screening->movie->title }}</h2>
