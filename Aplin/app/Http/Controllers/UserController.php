@@ -27,11 +27,12 @@ class UserController extends Controller
 			$new_user->telp = $req->phone;
 	
 			$new_user->save();
+
+			
 	
 			return redirect('/')->with('success', 'Registration successful!');
 
 		} catch (\Exception $e) {
-			Log::error('User registration error: ' . $e->getMessage());
 			return redirect('/register')->with('error', 'An error occurred while registering. Please try again.');
 		}
 	}

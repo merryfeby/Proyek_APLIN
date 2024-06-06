@@ -30,4 +30,10 @@ class studio extends Model
     {
         return $this->belongsTo(location::class, 'locationID', 'id');
     }
+
+    public function seats()
+    {
+        return $this->hasMany(Seats::class, 'studioID', 'id');
+    }
+    
 }

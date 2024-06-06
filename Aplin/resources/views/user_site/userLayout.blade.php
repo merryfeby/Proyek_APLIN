@@ -5,7 +5,7 @@
 <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Moviemate </title>
+		<title>MovieMate </title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<link rel="preconnect" href="https://fonts.bunny.net">
 		<link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -26,7 +26,7 @@
 	<nav class="relative px-4 py-4 flex justify-between items-center bg-white">
     <div class="flex flex-row justify-center items-center">
       <i class="fa-solid fa-ticket text-indigo-500 text-lg"></i>
-      <h1 class="font-semibold text-lg text-indigo-500 ml-2">Moviemate</h1>
+      <h1 class="font-semibold text-lg text-indigo-500 ml-2">MovieMate</h1>
     </div>
 		<ul class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2  mx-auto flex items-center w-auto space-x-6">
 			<li><a class="text-sm font-semibold  text-indigo-500 hover:text-indigo-700" href="{{ route('home.index') }}">Home</a></li>
@@ -71,7 +71,7 @@
         <div class="flex justify-center items-center flex-col">
         <div class="flex flex-row items-center">
           <i class="fa-solid fa-ticket text-white text-2xl"></i>
-          <h1 class="font-semibold text-2xl text-white ml-2">Moviemate</h1>
+          <h1 class="font-semibold text-2xl text-white ml-2">MovieMate</h1>
         </div>
           <div class="mt-4 w-[50%]">
             <p class="text-sm text-white">
