@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Movie;
+use App\Models\location;
+use App\Models\offer;
 
 
 use App\Http\Controllers\Controller;
@@ -37,8 +39,13 @@ class LicenseController extends Controller
     }
     function listHistory(){
         $history = Movie::where('license',1)->get();
+        $location = location::all();
+        $offer = offer::all();
+
         return view("admin",[
-            'history' => $history
+            'history' => $history,
+            'location' => $location,
+            'offer' => $offer
         ]);
     }
 }
