@@ -81,12 +81,15 @@
                 </form>
             </div>
         </aside>
-        <div class="main p-3 d-flex w-100 align-items-center justify-content-center">
-            <div class="bg-info bg-opacity-10 border border-info  rounded p-5">
-                <h1 class="text-center pb-3">Profile Karyawan</h1>
+        <div class="main d-flex align-items-center justify-content-center w-100">
+            <div class="bg-info bg-opacity-10 border border-info rounded  p-5" style="width: 100%; max-width: 600px;">
+                <div class="d-flex align-items-center justify-content-evenly align-middle mb-5">
+                    <i class="fa-solid fa-user fa-3x p-3 rounded-circle" style="background-color: grey"></i>
+                    <h1 class="text-center pb-3">Profile Karyawan</h1>
+                </div>
                 <h1>Name : {{$employee[0]['name']}}</h1>
                 <h1>Username : {{$employee[0]['username']}}</h1>
-                <h1>Awal Masuk Kerja : {{ \Carbon\Carbon::parse($employee[0]['created_at'])->format('Y-m-d') }}</h1>
+                <h1>Joined at : {{ \Carbon\Carbon::parse($employee[0]['created_at'])->format('Y-m-d') }}</h1>
             </div>
         </div>
     </div>

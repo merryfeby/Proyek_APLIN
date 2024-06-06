@@ -108,7 +108,7 @@ class handleKaryawan extends Controller
 
     function listmovies(){
         $listmovie = Movie::where('status',1)
-                            ->whereNotNull('license')
+                            ->where('license',1)
                             ->whereHas('screening')
                             ->get();
 
@@ -162,12 +162,14 @@ class handleKaryawan extends Controller
         $request->validate([
             'movieID' => 'required|integer|exists:movie,id',
             'tayang' => 'required|date_format:Y-m-d\TH:i',
+            'price' => 'required|integer|min:0',
             'studioID' => 'required|exists:studio,id',
         ]);
         
         if ($data) {
             $data->movieID = $request->input('movieID');
             $data->studioID = $request->input('studioID');
+            $data->ticketprice = $request->input('price');
             $data->starttime = $request->input('tayang');
             
             $data->save();

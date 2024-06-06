@@ -80,9 +80,9 @@
             </div>
         </aside>
         <div class="main p-3">
-            <h1>Transaction History</h1>
+            <h1 class="mb-5">Transaction History</h1>
 
-            <table id="transactionTable" class="table table-hover table-bordered">  
+            <table id="transactionTable" class="table table-hover table-bordered p-1">  
                 <thead>
                     <tr>
                         <th>ID Nota</th>
@@ -125,8 +125,8 @@
         $(document).ready(function() {
             $('#transactionTable').DataTable({
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
+                "lengthChange": true,
+                "searching": true,
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,

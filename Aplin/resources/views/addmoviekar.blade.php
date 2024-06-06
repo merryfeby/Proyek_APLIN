@@ -102,18 +102,8 @@
             @endif
 
             <h1>Add Movie</h1>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Producer
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Disney</a></li>
-                  <li><a class="dropdown-item" href="#">FOX</a></li>
-                  <li><a class="dropdown-item" href="#">MCU</a></li>
-                </ul>
-              </div>
               <br>
-              <div class="container">
+              <div class="container mt-3">
                 <div class="d-flex flex-row justify-content-evenly flex-wrap">
                     @foreach ($listmovie as $item)
                         <div class="card" style="width: 18rem;">

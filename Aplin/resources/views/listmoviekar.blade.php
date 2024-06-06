@@ -124,8 +124,11 @@
                             @endforeach
                         </select>
 
-                        <label for="tayang" class="form-label">Waktu Tayang</label>
+                        <label for="tayang" class="form-label">Show time</label>
                         <input type="datetime-local" class="form-control w-25 mb-3" name="tayang" id="tayang" disabled>
+
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" class="form-control w-25 mb-3" name="price" id="price" disabled>
                                                 
                         <button type="submit" class="btn btn-primary" id="editnow" disabled>Edit</button>
 
@@ -134,7 +137,7 @@
                 </div>
             </div>
             
-            <h1>List Movie</h1>
+            <h1>List Screening</h1>
             <table class="table table-hover table-bordered " id="movies-table">
                 <thead>
                   <tr>
@@ -142,6 +145,7 @@
                     <th>Studio ID</th>
                     <th>Movie ID</th>
                     <th>Title</th>
+                    <th>Price</th>
                     <th>Show time</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -154,6 +158,7 @@
                         <td>{{ $movie->studio['id'] }}</td>
                         <td>{{ $movie->movie['id'] }}</td>
                         <td>{{ $movie->movie['title'] }}</td>
+                        <td>{{ $movie['ticketprice'] }}</td>
                         <td>{{ $movie['starttime'] }}</td>
                         <td class="align-middle"><button type="button" class="btn btn-secondary changebtn" id="changebtn">Change</button></td>
                         <td class="align-middle">
@@ -195,15 +200,18 @@
             var screenid = row.find('td:eq(0)').text();
             var studioid = row.find('td:eq(1)').text();
             var movieid = row.find('td:eq(2)').text();
-            var showtime = row.find('td:eq(4)').text();
+            var price = row.find('td:eq(4)').text();
+            var showtime = row.find('td:eq(5)').text();
 
             $('#movieID').prop('disabled', false);
             $('#studioID').prop('disabled', false);
             $('#tayang').prop('disabled', false);
             $('#editnow').prop('disabled', false);
+            $('#price').prop('disabled', false);
             $('#id').val(screenid);
             $('#movieID').val(movieid);
             $('#studioID').val(studioid);
+            $('#price').val(price);
             $('#tayang').val(showtime);
         });
 
