@@ -25,14 +25,14 @@
   <div class="container w-full flex flex-col bg-white rounded-xl  border border-gray-200 p-8 mt-10">
     <form action="">
       <div class="m-5">
-        <div class="flex justify-center">
+        {{-- <div class="flex justify-center">
           <select id="locations" class="text-white  bg-indigo-500 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center mb-5">
             <option value="d" class="text-sm text-gray-700 bg-white" selected>All Cinemas</option>
             @foreach ($location as $item)
               <option value="{{$item->id}}" class="text-sm text-gray-700 bg-white">{{$item->location}}</option>
             @endforeach
           </select>
-        </div>
+        </div> --}}
         @foreach ($studios as $studio)
           <div class="flex flex-col">
             <div class="flex flex-col bg-gray-100 p-5 rounded-xl border border-gray-200 mb-5">

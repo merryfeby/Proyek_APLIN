@@ -1,6 +1,13 @@
 @extends('user_site.userLayout')
 @section('content') 
 <div class="px-40 py-10 bg-gray-100 container mx-auto">
+
+  @if(session('error'))
+  <div class="p-4 mb-4 mx-4 mt-4 text-sm text-red-800 rounded-lg bg-red-200" role="alert">
+      <span class="font-medium">{{ session('error') }}</span> try submitting again.
+  </div>
+  @endif
+
   <h2 class="text-xl font-bold text-indigo-500 text-left mb-2">Detail Seat</h2>
   <div class="container w-full flex flex-row bg-white rounded-xl  border border-gray-200 p-8">
     <div class="flex flex-col px-5">
@@ -44,7 +51,14 @@
       </div>
       <div class="flex justify-center m-5">
         <form id="seatForm" action="{{ route('order.checkout')}}" method="POST">
-            @csrf
+          @csrf
+            <div class="flex justify-center mt-10">
+              <select id="offer" name="offerid"  class="text-white  bg-indigo-500 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center mb-5">
+                @foreach ($offer as $item)
+                  <option value="{{$item->id}}" class="text-sm text-gray-700 bg-white">{{$item->code}}</option>
+                @endforeach
+              </select>
+            </div>
             <input type="hidden" name="seats" id="seatIdsInput">
             <input type="hidden" name="screeningID" value="{{$screening->id}}">
             <input type="hidden" name="ticketprice" value="{{$screening->ticketprice}}">
