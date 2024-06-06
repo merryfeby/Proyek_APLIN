@@ -8938,6 +8938,7 @@ Did you mean one of these?
 #62 {main}
 "} 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2024-05-28 09:22:29] local.ERROR: No application encryption key has been specified. {"exception":"[object] (Illuminate\\Encryption\\MissingAppKeyException(code: 0): No application encryption key has been specified. at C:\\Users\\ASUS\\Documents\\GitHub\\Proyek_APLIN\\Aplin\\vendor\\laravel\\framework\\src\\Illuminate\\Encryption\\EncryptionServiceProvider.php:79)
 [stacktrace]
 #0 C:\\Users\\ASUS\\Documents\\GitHub\\Proyek_APLIN\\Aplin\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(307): Illuminate\\Encryption\\EncryptionServiceProvider->Illuminate\\Encryption\\{closure}('')
@@ -18393,5 +18394,7 @@ Did you mean one of these?
 [2024-06-05 15:13:37] local.ALERT: {"username":"user","password":"$2y$12$UJdbo6QifPJOai3kEHOBS.9WDKEH90o0im6CUfXyog9GYSgLV1SwW","email":"user@gmail.com","telp":"081234567890","balance":350000,"created_at":null,"updated_at":"2024-06-01T08:00:56.000000Z"}  
 [2024-06-05 15:14:32] local.ALERT: {"username":"tes","password":"$2y$12$h\/TQEItCKroQxUytRRlrCurDK0P4MHTyMkakGeOwiTbph6SpI8Clm","email":"tes@gmail.com","telp":"123123","balance":0,"created_at":"2024-05-22T18:07:10.000000Z","updated_at":"2024-05-22T18:07:10.000000Z"}  
 [2024-06-05 15:27:25] local.ALERT: {"username":"user","password":"$2y$12$UJdbo6QifPJOai3kEHOBS.9WDKEH90o0im6CUfXyog9GYSgLV1SwW","email":"user@gmail.com","telp":"081234567890","balance":350000,"created_at":null,"updated_at":"2024-06-01T08:00:56.000000Z"}  
+=======
+>>>>>>> parent of 64d360a (Finishing edit dan add movie dan screening karyawan. FIxes #25)
 =======
 >>>>>>> parent of 64d360a (Finishing edit dan add movie dan screening karyawan. FIxes #25)

@@ -89,7 +89,6 @@
                             <div class="card-body">
                             <h5 class="card-title">{{$item['title']}}</h5>
                             <p class="card-text">{{$item['synopsis']}}</p>
-                            <a href="#" class="btn btn-primary">Add movie</a>
                             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dateTimeModal">Add movie</a>
                             </div>
                         </div>       
