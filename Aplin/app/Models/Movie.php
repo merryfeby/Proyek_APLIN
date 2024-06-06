@@ -24,11 +24,17 @@ class Movie extends Model
         'license',
         'status',
         'synopsis',
+        'licensed_at'
     ];
     public $timestamps = false;
 
     public function screening()
     {
         return $this->hasMany(screening::class, 'movieID', 'id');
+    }
+
+    public function license(): HasOne
+    {
+        return $this->hasOne(License::class);
     }
 }

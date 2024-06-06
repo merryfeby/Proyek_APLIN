@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('studio', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('location');
+            $table->unsignedInteger('locationID');
             $table->string('name');
             $table->integer('capacity');
             $table->tinyInteger('status')->default(1);
-            $table->foreign('location')->references('id')->on('location');
+            $table->foreign('locationID')->references('id')->on('location');
         });
     }
 

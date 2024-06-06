@@ -18,4 +18,8 @@ class Employee extends Model
         'password',
         'name'
     ];
+
+    public function order() {
+		return $this->hasMany(order::class, 'employee', 'username');
+	}
 }

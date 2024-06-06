@@ -18,4 +18,8 @@ class offer extends Model
     ];
 
     public $timestamps = false;
+
+    public function order() {
+		return $this->hasMany(order::class, 'offerID', 'id');
+	}
 }

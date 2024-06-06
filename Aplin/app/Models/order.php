@@ -28,4 +28,24 @@ class order extends Model
     {
         return $this->hasMany(orderdetail::class, 'orderNumber', 'orderNumber');
     }
+
+    public function screening()
+    {
+        return $this->belongsTo(screening::class, 'screeningID', 'id');
+    }
+
+    public function offer()
+    {
+        return $this->belongsTo(offer::class, 'offerID');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(User::class, 'customer');
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class, 'employee');
+    }
 }

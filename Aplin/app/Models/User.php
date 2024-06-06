@@ -22,5 +22,8 @@ class User extends Model
 	public function topup() {
 		return $this->hasMany(Topup::class, 'customer', 'username');
 	}
-
+	
+	public function order() {
+		return $this->hasMany(order::class, 'customer', 'username');
+	}
 }

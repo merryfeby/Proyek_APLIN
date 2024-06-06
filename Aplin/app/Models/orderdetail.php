@@ -22,4 +22,9 @@ class orderdetail extends Model
     {
         return $this->belongsTo(order::class, 'orderNumber', 'orderNumber');
     }
+
+    public function seat()
+    {
+        return $this->belongsTo(Seat::class, 'seatID', 'id');
+    }
 }

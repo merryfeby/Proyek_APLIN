@@ -28,10 +28,17 @@ class LicenseController extends Controller
 
         if ($movie) {
             $movie->license = 1;
+            $movie->licensed_at = now()->format('Y-m-d H:i:s');
             $movie->save();
             return redirect()->back()->with('success', 'Movie license purchased successfully.');
         } else {
             return redirect()->back()->withErrors(['error' => 'Movie with ID ' . $movieId . ' not found.']);
         }
+    }
+    function listHistory(){
+        $history = Movie::where('license',1)->get();
+        return view("admin",[
+            'history' => $history
+        ]);
     }
 }

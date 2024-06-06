@@ -23,7 +23,8 @@ return new class extends Migration
             $table->tinyInteger('status')->default(1);
             $table->text('synopsis')->nullable();
             $table->tinyInteger('license')->default(0);
-            $table->dateTime('licensed_at')->useCurrent();
+            $table->timestamp('licensed_at')->nullable(); // Add this line
+            // $table->foreign('license')->references('id')->on('licenses');
         });
     }
 

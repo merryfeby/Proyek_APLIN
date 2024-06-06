@@ -11,35 +11,34 @@
       <h2 class="text-sm font-normal text-gray-400 text-left">Sorted by newest</h2>
     </div>
     <div class="flex flex-col">
-      {{-- LIST HISTORY --}}
+      @foreach($orders as $order)
       <div class="flex flex-col bg-gray-100 rounded-xl border border-gray-200 mb-5">
-        <div class="flex bg-indigo-500 text-white rounded-t-lg justify-between items-center px-5 py-2">
-          <h2 class="text-sm font-semibold text-left"></i>Order ID #210124</h2>
-          <h2 class="text-xs font-semibold text-left"></i>5/6/2024</h2>
-        </div>
-        <div class="flex flex-col px-5 py-2 border-gray-300 border-b">
-          <h2 class="text-md font-semibold text-left mb-2 text-gray-600">Elemental</h2>
-          <h2 class="text-sm font-normal text-gray-600 text-left mb-1"><i class="fa-solid fa-sm fa-location-dot mr-2 text-indigo-500"></i>XXI Nganjuk</h2>
-          <h2 class="text-sm font-normal text-left text-gray-600"></i><i class="fa-solid fa-sm fa-clock mr-2 text-indigo-500"></i>Studio 1 • 17:00</h2>
-        </div>
-        <div class="flex flex-col px-5 py-2 border-gray-300 border-b">
-          <h2 class="text-sm font-semibold text-gray-600 text-left mb-1"></i>Seats</h2>
-          <div class="flex justify-between items-center">
-            <h2 class="text-sm font-normal text-left text-gray-600">A12</h2>
-            <h2 class="text-sm font-normal text-left text-gray-600">Rp 50000</h2>
+          <div class="flex bg-indigo-500 text-white rounded-t-lg justify-between items-center px-5 py-2">
+              <h2 class="text-sm font-semibold text-left">Order ID #{{ $order->orderNumber }}</h2>
+              <h2 class="text-xs font-semibold text-left">{{ $order->created_at->format('Y/m/d') }}</h2>
           </div>
-          <div class="flex justify-between items-center">
-            <h2 class="text-sm font-normal text-left text-gray-600">A12</h2>
-            <h2 class="text-sm font-normal text-left text-gray-600">Rp 50000</h2>
+          <div class="flex flex-col px-5 py-2 border-gray-300 border-b">
+              <h2 class="text-md font-semibold text-left mb-2 text-gray-600">{{ $order->screening->movie->title }}</h2>
+              <h2 class="text-sm font-normal text-left text-gray-600"><i class="fa-solid fa-sm fa-location-dot mr-2 text-indigo-500"></i>{{ $order->screening->studio->location->location}}</h2>
+              <h2 class="text-sm font-normal text-left text-gray-600"><i class="fa-solid fa-sm fa-clock mr-2 text-indigo-500"></i>{{ $order->screening->studio->name}} • {{ \Carbon\Carbon::parse($order->screening->starttime)->format('H:i') }}</h2>
           </div>
-        </div>
-        <div class="flex flex-col px-5 py-2">
-          <div class="flex justify-between items-center">
-            <h2 class="text-sm font-semibold text-gray-600 text-left mb-1"></i>Total </h2>
-            <h2 class="text-sm font-normal text-left text-gray-600">Rp 100000</h2>
+          <div class="flex flex-col px-5 py-2 border-gray-300 border-b">
+              <h2 class="text-sm font-semibold text-gray-600 text-left mb-1">Seats</h2>
+              @foreach($order->orderDetails as $orderDetail)
+              <div class="flex justify-between items-center">
+                  <h2 class="text-sm font-normal text-left text-gray-600">{{ $orderDetail->seat->seatrow }}{{ $orderDetail->seat->seatnumber }}</h2>
+                  <h2 class="text-sm font-normal text-left text-gray-600">Rp {{ number_format($orderDetail->price, 0, ',', '.')  }}</h2>
+              </div>
+              @endforeach
           </div>
-        </div>
+          <div class="flex flex-col px-5 py-2">
+              <div class="flex justify-between items-center">
+                  <h2 class="text-sm font-semibold text-gray-600 text-left mb-1">Total</h2>
+                  <h2 class="text-sm font-normal text-left text-gray-600">Rp {{ number_format($order->grandtotal, 0, ',', '.')  }}</h2>
+              </div>
+          </div>
       </div>
+      @endforeach
     </div>
   </div>
 </div>
