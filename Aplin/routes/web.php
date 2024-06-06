@@ -34,6 +34,7 @@ Route::prefix('home')->name('home.')->group(function () {
 Route::prefix('movies')->name('movies.')->group(function () {
     Route::get('/', [MovieController::class, 'index'])->name('index');
     Route::get('/{id}/detail', [MovieController::class, 'showDetail'])->name('detail');
+    Route::post('/search', [MovieController::class, 'search'])->name('search');
     
 });
 
