@@ -3,13 +3,13 @@
 <div class="px-40 py-10 bg-gray-100">
   <h2 class="text-xl font-bold text-indigo-500 text-left mb-2">History Ticket</h2>
   <div class="container w-full flex flex-col bg-white rounded-xl  border border-gray-200 p-8">
-    <div class="flex justify-between items-center mb-5">
+    {{-- <div class="flex justify-between items-center mb-5">
       <select id="locations" class="text-white  bg-indigo-500 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center">
         <option value="d" class="text-sm text-gray-700 bg-white" selected>Newest</option>
         <option value="a" class="text-sm text-gray-700 bg-white">Oldest</option>
       </select>
       <h2 class="text-sm font-normal text-gray-400 text-left">Sorted by newest</h2>
-    </div>
+    </div> --}}
     <div class="flex flex-col">
       @foreach($orders as $order)
       <div class="flex flex-col bg-gray-100 rounded-xl border border-gray-200 mb-5">

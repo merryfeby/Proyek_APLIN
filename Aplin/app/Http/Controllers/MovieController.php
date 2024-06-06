@@ -22,4 +22,14 @@ class MovieController extends Controller
 		$hasScreening = screening::where('movieID',$id)->exists();
 		return view('user_site.detailMovie', compact('data', 'hasScreening'));
 	}
+
+	function search(Request $req) {
+		$search = $req->input('username');
+
+		$movies = Movie::where('title', 'like', '%' . $search . '%')
+										->where('license', 1)
+										->get();
+
+		return response()->json(['movies' => $movies]);
+	}
 }

@@ -33,7 +33,6 @@ class UserController extends Controller
 			return redirect('/')->with('success', 'Registration successful!');
 
 		} catch (\Exception $e) {
-			Log::error('User registration error: ' . $e->getMessage());
 			return redirect('/register')->with('error', 'An error occurred while registering. Please try again.');
 		}
 	}
