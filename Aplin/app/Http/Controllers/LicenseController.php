@@ -28,6 +28,7 @@ class LicenseController extends Controller
 
         if ($movie) {
             $movie->license = 1;
+            $movie->licensed_at = now()->format('Y-m-d H:i:s');
             $movie->save();
             return redirect()->back()->with('success', 'Movie license purchased successfully.');
         } else {

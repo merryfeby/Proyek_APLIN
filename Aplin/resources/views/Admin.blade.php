@@ -62,7 +62,7 @@
         </aside>
         <div class="main p-3">
             <div class="text-center">
-                
+                <h1>Movie List</h1>
                     <table id="transactionTable" class="table table-hover table-bordered">  
                         <thead>
                             <tr>
