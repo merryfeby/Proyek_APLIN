@@ -42,7 +42,8 @@ class UserController extends Controller
 	}
 
 	function index() {
-		$movies = Movie::whereNotNull('license')->get();
+		// $movies = Movie::whereNotNull('license')->get();
+		$movies = Movie::where('license',1)->get();
 		$movies_showing = Movie::whereHas('screening')->get();
 		return view('user_site.home', [
 			'movie' => $movies,

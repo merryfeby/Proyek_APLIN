@@ -64,11 +64,6 @@
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Producer
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Disney</a></li>
-                  <li><a class="dropdown-item" href="#">FOX</a></li>
-                  <li><a class="dropdown-item" href="#">MCU</a></li>
-              </ul>
           </div>
           <br>
           <div class="container">

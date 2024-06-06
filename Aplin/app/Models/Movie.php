@@ -24,6 +24,7 @@ class Movie extends Model
         'license',
         'status',
         'synopsis',
+        'licensed_at'
     ];
     public $timestamps = false;
 

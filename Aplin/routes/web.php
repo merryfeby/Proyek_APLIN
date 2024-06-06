@@ -109,9 +109,11 @@ Route::post('/deletescreening', [handleKaryawan::class, 'deleteScreen']);
 Route::post('/logout', [handleKaryawan::class, 'logout']);
 
 // route admin
-Route::get('/admin', function () {
-    return view('Admin');
-});
+// Route::get('/admin', function () {
+//     return view('Admin');
+// });
+Route::get('/admin', [LicenseController::class, 'listHistory']);
+
 Route::get('/menukaryawan', function () {
     return view('menukaryawan');
 });
