@@ -13,7 +13,6 @@
     <div class="flex flex-col px-5">
       <div class="">
         <h2 class="text-2xl font-semibold text-left text-black mb-2">{{ $movie->title }}</h2>
-        {{-- <h2 class="text-sm font-normal text-left text-indigo-500  mb-1"><i class="fa-solid fa-video mr-2"></i></i></span></h2> --}}
         <h2 class="text-sm font-normal text-left text-indigo-500  mb-4"><span><i class="fa-solid fa-clock mr-2"></i></span>{{ $startTimeFormatted }} - {{$endTimeFormatted}} ({{ $movie->duration }} min)</h2>
         <h2 class="text-sm font-normal text-left text-indigo-500  mb-1"><i class="fa-solid fa-video mr-2"></i>Studio {{ $screening->studio->name }} </h2>
       </div>
@@ -26,7 +25,7 @@
             <div class="flex items-center justify-center">
                 <div class="flex flex-wrap gap-4 items-center justify-center mx-10 w-[50%]">
                     @foreach ($seats as $item)
-                        <div id="seat_{{ $item->id }}" class="seat-div" style="background-color: gray; width: 2rem; height: 2rem; font-weight: 600; display: flex; justify-content: center; align-items: center; border-radius: 0.25rem; cursor: pointer;" onclick="toggleSeatColor(this)">
+                        <div id="seat_{{ $item->id }}" class="seat-div w-10 h-10   rounded-lg flex justify-center items-center font-semibold" style=" cursor: pointer; background-color: #e5e7eb" onclick="toggleSeatColor(this)">
                             {{ $item->seatrow }}{{ $item->seatnumber }}
                             <input type="hidden" name="{{ $item->id }}" value="{{ $item->id }}">
                         </div>
@@ -72,14 +71,24 @@
 
 <script>
     let seatschosen = [];
+    function hexToRgb(hex) {
+    var bigint = parseInt(hex.slice(1), 16);
+    var r = (bigint >> 16) & 255;
+    var g = (bigint >> 8) & 255;
+    var b = bigint & 255;
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
     function toggleSeatColor(div) {
         let seatId = div.id.replace('seat_', ''); // Extract the seat ID from the div's ID
 
-        if (div.style.backgroundColor === 'gray') {
-            div.style.backgroundColor = 'green';
+        if (div.style.backgroundColor === hexToRgb('#e5e7eb')) {
+            div.style.backgroundColor = '#4338ca';
+            div.style.color = 'white';
             seatschosen.push(seatId); // Insert seat ID into seatschosen array
         } else {
-            div.style.backgroundColor = 'gray';
+            div.style.backgroundColor = '#e5e7eb';
+            div.style.color = 'black';
             let index = seatschosen.indexOf(seatId);
             if (index !== -1) {
                 seatschosen.splice(index, 1); // Remove seat ID from seatschosen array
