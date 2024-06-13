@@ -25,7 +25,7 @@
             <div class="flex items-center justify-center">
                 <div class="flex flex-wrap gap-4 items-center justify-center mx-10 w-[50%]">
                     @foreach ($seats as $item)
-                        <div id="seat_{{ $item->id }}" class="seat-div w-10 h-10   rounded-lg flex justify-center items-center font-semibold" style=" cursor: pointer; background-color: #e5e7eb" onclick="toggleSeatColor(this)">
+                        <div id="seat_{{ $item->id }}" class="seat-div w-10 h-10  rounded-lg flex justify-center items-center font-semibold" style=" cursor: pointer; background-color: #e5e7eb" onclick="toggleSeatColor(this)">
                             {{ $item->seatrow }}{{ $item->seatnumber }}
                             <input type="hidden" name="{{ $item->id }}" value="{{ $item->id }}">
                         </div>
